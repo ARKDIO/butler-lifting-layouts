@@ -568,28 +568,8 @@ document.querySelectorAll('.sec').forEach(sec => {
 </script>
 <link rel="stylesheet" href="/assets/css/mood-v3.css?v=9">
 
-<style>
-.font-chip{position:fixed;left:12px;bottom:12px;z-index:300;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.88);border-radius:999px;padding:4px 8px;opacity:0.92;box-shadow:0 1px 10px rgba(0,0,0,0.1);}
-.font-chip .nm{font-size:10px;color:#6a6a6a;letter-spacing:0.04em;}
-.font-chip button{width:17px;height:17px;border-radius:999px;font-size:10px;color:#8a8a8a;border:none;background:rgba(150,150,150,0.16);cursor:pointer;}
-.font-chip button.on{background:rgba(100,100,100,0.85);color:#fff;}
-</style>
-<script>
-(function(){
-  var chip = document.createElement('div');
-  chip.className = 'font-chip';
-  chip.innerHTML = '<span class="nm">FONT</span><button>A</button><button>B</button>';
-  var bs = chip.querySelectorAll('button');
-  function apply(n){
-    document.body.classList.toggle('fb', n === 2);
-    bs.forEach(function(b, i){ b.classList.toggle('on', i === n - 1); });
-  }
-  bs[0].addEventListener('click', function(){ apply(1); });
-  bs[1].addEventListener('click', function(){ apply(2); });
-  apply(1);
-  document.body.appendChild(chip);
-})();
-</script>
+<!-- FONT 스위처 제거: A 확정 (font A = 기본, body.fb 미적용). 2026-07-24 -->
+
 
 <style id="site-cursor">
 .cursor-frame{z-index:99999;pointer-events:none;justify-content:center;align-items:center;display:flex;position:fixed;inset:0;}
