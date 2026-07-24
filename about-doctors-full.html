@@ -112,9 +112,13 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 .d2-en{display:block;font-size:13px;letter-spacing:0.42em;text-transform:uppercase;color:#9a9a9a;font-weight:500;margin-bottom:22px;}
 .d2-portrait{max-width:360px;aspect-ratio:2/3;position:relative;overflow:hidden;}
 .d2-portrait > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
-.d2-portrait .d2-portrait-b{-webkit-mask-image:linear-gradient(135deg,#000 40%,transparent 60%);mask-image:linear-gradient(135deg,#000 40%,transparent 60%);-webkit-mask-size:300% 300%;mask-size:300% 300%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;animation:d2wipe 11s ease-in-out infinite;}
-@keyframes d2wipe{0%,32%{-webkit-mask-position:100% 100%;mask-position:100% 100%;}50%,82%{-webkit-mask-position:0% 0%;mask-position:0% 0%;}100%{-webkit-mask-position:100% 100%;mask-position:100% 100%;}}
-@media(prefers-reduced-motion:reduce){.d2-portrait .d2-portrait-b{animation:none;-webkit-mask-position:100% 100%;mask-position:100% 100%;}}
+.d2-portrait .d2-portrait-b{-webkit-mask-image:linear-gradient(135deg,#000 40%,transparent 60%);mask-image:linear-gradient(135deg,#000 40%,transparent 60%);-webkit-mask-size:300% 300%;mask-size:300% 300%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:100% 100%;mask-position:100% 100%;transition:-webkit-mask-position 4s ease-in-out,mask-position 4s ease-in-out;}
+.d2-portrait.show2 .d2-portrait-b{-webkit-mask-position:0% 0%;mask-position:0% 0%;}
+.d2-portrait.hovering .d2-portrait-b{transition:-webkit-mask-position .7s ease,mask-position .7s ease;}
+.d2-dots{position:absolute;left:0;right:0;bottom:16px;z-index:2;display:flex;gap:9px;justify-content:center;pointer-events:none;}
+.d2-dots .d2-dot{width:22px;height:1px;background:rgba(255,255,255,0.55);box-shadow:0 0 3px rgba(0,0,0,0.35);transition:background .3s,width .3s;}
+.d2-dots .d2-dot.on{background:#fff;width:30px;}
+@media(prefers-reduced-motion:reduce){.d2-portrait .d2-portrait-b{transition:none;}}
 .d2-role{margin-top:24px;font-size:13px;letter-spacing:0.04em;color:#8a8a8a;font-weight:400;}
 .d2-name{margin-top:4px;font-size:clamp(26px,23px + 0.8vw,34px);font-weight:700;color:#111;letter-spacing:-0.01em;}
 .d2-career{margin-top:26px;border-top:1px solid #E3E3E3;padding-top:20px;max-width:360px;}
@@ -419,6 +423,7 @@ body.gm-open{overflow:hidden;}
             <div class="wf-img wf-34 d2-portrait">
               <img class="d2-portrait-a" src="img/01_about/doctors/doctors_01.webp" alt="버틀러 성형외과 대표원장">
               <img class="d2-portrait-b" src="img/01_about/doctors/doctors_02.webp" alt="" aria-hidden="true">
+              <div class="d2-dots" aria-hidden="true"><span class="d2-dot on"></span><span class="d2-dot"></span></div>
             </div>
           </div>
         </aside>
@@ -656,6 +661,29 @@ document.querySelectorAll('.sec').forEach(sec => {
   }, { passive: true });
   window.addEventListener('resize', update);
   update();
+})();
+
+// ===== 대표원장 초상 2컷 — 자동 사선 전환 + 좌/우 호버 제어 + 라인 블릿 =====
+(function () {
+  var box = document.querySelector('.d2-portrait');
+  if (!box) return;
+  var dots = box.querySelectorAll('.d2-dot');
+  var idx = 0, auto = null;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function set(i) {
+    idx = i;
+    box.classList.toggle('show2', i === 1);
+    dots.forEach(function (d, k) { d.classList.toggle('on', k === i); });
+  }
+  function startAuto() { if (reduce) return; stopAuto(); auto = setInterval(function () { set(idx === 0 ? 1 : 0); }, 4500); }
+  function stopAuto() { if (auto) { clearInterval(auto); auto = null; } }
+  startAuto();
+  box.addEventListener('mouseenter', function () { stopAuto(); box.classList.add('hovering'); });
+  box.addEventListener('mousemove', function (e) {
+    var r = box.getBoundingClientRect();
+    set((e.clientX - r.left) < r.width / 2 ? 0 : 1);
+  });
+  box.addEventListener('mouseleave', function () { box.classList.remove('hovering'); startAuto(); });
 })();
 </script>
 
