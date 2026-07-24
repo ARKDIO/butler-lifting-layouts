@@ -284,8 +284,8 @@ footer.site .logo{font-weight:700;color:#fff;font-size:15px;letter-spacing:0.06e
 .lp-cta.ctr{justify-content:center;}
 .lp-btn{display:inline-flex;align-items:center;justify-content:center;min-width:150px;padding:13px 24px;font-size:14px;font-weight:600;border-radius:0;text-decoration:none;transition:opacity .2s;}
 .lp-btn:hover{opacity:0.82;}
-.lp-btn-k{background:#111;color:#fff;}
-.lp-btn-n{background:transparent;color:#111;border:1px solid #111;}
+.lp-btn-k{background:#FEE500;color:#191919;}
+.lp-btn-n{background:#03C75A;color:#fff;}
 .lp-btn-kw{background:#fff;color:#111;}
 .lp-btn-nw{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.55);}
 .lp-rows .r{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-top:1px solid #ECECEC;font-size:15px;}
@@ -339,10 +339,18 @@ footer.site .logo{font-weight:700;color:#fff;font-size:15px;letter-spacing:0.06e
 .lp5-map{aspect-ratio:4/5;}
 .lp5-map iframe{width:100%;height:100%;border:0;display:block;}
 .lp5-cap{margin-top:12px;font-size:13px;font-weight:300;color:#8a8a8a;letter-spacing:0.04em;}
+/* 상담 문의 — 버튼 아래로 전화번호 배치 */
+.lp5-tel-below{display:block;margin-top:16px;}
+/* 미리보기 A — 좌우(정보:지도) 5:5 비율 */
+.lp5-55 .lp5-grid{grid-template-columns:1fr 1fr;}
+/* 미리보기 B — 우측 지도를 우측 여백까지 풀블리드 */
+.lp5-bleed .wrap{max-width:none;padding-right:0;padding-left:max(24px,calc((100vw - 1280px) / 2 + 24px));}
+.lp5-bleed .lp5-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
 @media(max-width:900px){
-  .lp5-grid{grid-template-columns:1fr;gap:44px;}
+  .lp5-grid,.lp5-55 .lp5-grid,.lp5-bleed .lp5-grid{grid-template-columns:1fr;gap:44px;}
   .lp5-sticky{position:static;}
   .lp5-tbl .r{grid-template-columns:1fr;gap:8px;padding:20px 0;}
+  .lp5-bleed .wrap{max-width:1280px;padding-right:24px;padding-left:24px;}
 }
 
 /* ── 6안: 센터 미니멀 — 타이틀·전화·시간표 센터 + 와이드 지도 ── */
@@ -528,138 +536,16 @@ body.gm-open{overflow:hidden;}
 공유 링크: https://maps.app.goo.gl/WRiGqVbTcgbFw1T26 -->
 <section class="sec" data-label="P" data-name="오시는 길">
 
-  <!-- ===== 1안 — 지도 풀와이드 상단 + 하단 정보 3열 그리드 (센터 히어로 · 헤어라인 컬럼) ===== -->
-  
-
-  <!-- ===== 2안 — 좌 지도 스티키 / 우 정보 스택 (칩 라벨 행 · 헤어라인 분할) ===== -->
+  <!-- ===== 5안(확정) — 좌 정보 / 우 스티키 지도 ===== -->
   <div class="variant vv active">
-
-    <div class="wrap l2-pad">
-      <div class="l2-grid">
-
-        <!-- 좌 — 스티키 지도 -->
-        <aside>
-          <div class="l2-sticky">
-            <div class="l2-map"><iframe src="https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x357ca3899b765d1d%3A0x90bf479b3a2df9d2!2z64yA64-Z7YOA7JuM!5e0!3m2!1sko!2skr!4v1784784525057!5m2!1sko!2skr" style="border:0;width:100%;height:100%;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-            <p class="l2-cap">BUTLER CLINIC — 대동타워 7층</p>
-          </div>
-        </aside>
-
-        <!-- 우 — 정보 스택 -->
-        <div>
-          <div class="l2-blk first">
-            <h1 class="l2-title"><span class="en-hero">Location</span><span class="ko-sub">당신의 아름다움을 위해<br>준비된 <strong>버틀러</strong>입니다.</span></h1>
-          </div>
-
-          <div class="l2-blk">
-            <h2 class="h-md">진료시간</h2>
-            <div class="l2-list">
-              <div class="r"><span class="chip">월-목</span><span class="v">09:30 - 19:00</span></div>
-              <div class="r"><span class="chip">금</span><span class="v">09:30 - 20:30</span></div>
-              <div class="r"><span class="chip">토요일</span><span class="v">09:30 - 16:30</span></div>
-            </div>
-            <p class="l2-note">점심시간 없이 진료 ・ 일요일 및 공휴일 휴진</p>
-          </div>
-
-          <div class="l2-blk">
-            <h2 class="h-md">오시는 길</h2>
-            <div class="l2-list">
-              <div class="r"><span class="chip">주소</span><span class="v">서울특별시 강남구 도산대로 326 대동타워 7층 버틀러성형외과</span></div>
-              <div class="r"><span class="chip">주차</span><span class="v">대동타워 건물 주차장 · 기계식 주차 · 일부 차종 주차 제한 · 발렛 서비스 운영</span></div>
-            </div>
-            <button type="button" class="park-toggle" data-park="l2-park" aria-expanded="false" aria-controls="l2-park">주차정보 상세보기</button>
-            <div class="park-panel" id="l2-park">
-              <p class="ph">주차 안내</p>
-              <p class="pb">대동타워 건물 주차장을 이용하실 수 있습니다.<br>건물 내 기계식 주차장을 운영하며, 일부 차종은 주차가 제한될 수 있습니다.<br>발렛 서비스를 이용하실 수 있습니다.</p>
-            </div>
-          </div>
-
-          <div class="l2-blk">
-            <h2 class="h-md">상담문의</h2>
-            <a class="l2-tel" href="tel:02-547-8777">02-547-8777</a>
-            <div class="l2-ctawrap">
-              <div class="loc-cta">
-                <a class="loc-btn loc-btn-k" href="#">카카오상담</a>
-                <a class="loc-btn loc-btn-n" href="#">네이버 예약</a>
-                <a class="loc-btn loc-btn-t" href="tel:02-547-8777">전화연결</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-
-
-  <!-- ===== 3안 — 풀블리드 지도 + 플로팅 화이트 카드 + 3열 헤어라인 ===== -->
-  <div class="variant vv">
-    <div class="lp3-hero">
-      <div class="lp3-map"><iframe src="https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x357ca3899b765d1d%3A0x90bf479b3a2df9d2!2z64yA64-Z7YOA7JuM!5e0!3m2!1sko!2skr!4v1784784525057!5m2!1sko!2skr" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-      <div class="lp3-card">
-        <h1><span class="en-hero">Location</span><span class="ko-sub">당신의 아름다움을 위해<br>준비된 <strong>버틀러</strong>입니다.</span></h1>
-        <p class="lp3-addr">서울특별시 강남구 도산대로 326 대동타워 7층 버틀러성형외과</p>
-      </div>
-    </div>
-    <div class="wrap lp3-body">
-      <div class="lp3-cols">
-        <div>
-          <h2 class="lp-lab">진료시간</h2>
-          <div class="lp-rows">
-            <div class="r"><span class="k">월-목</span><span class="v">09:30 - 19:00</span></div>
-            <div class="r"><span class="k">금</span><span class="v">09:30 - 20:30</span></div>
-            <div class="r"><span class="k">토요일</span><span class="v">09:30 - 16:30</span></div>
-          </div>
-          <p class="lp-note">점심시간 없이 진료 · 일요일 및 공휴일 휴진</p>
-        </div>
-        <div>
-          <h2 class="lp-lab">주차 안내</h2>
-          <p class="lp-p">대동타워 건물 주차장 · 기계식 주차<br>일부 차종 주차 제한 · 발렛 서비스 운영</p>
-        </div>
-        <div>
-          <h2 class="lp-lab">상담 문의</h2>
-          <a class="lp-tel" href="tel:02-547-8777">02-547-8777</a>
-          <div class="lp-cta"><a class="lp-btn lp-btn-k" href="#">카카오상담</a><a class="lp-btn lp-btn-n" href="#">네이버 예약</a></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== 4안 — 화이트 인트로 + 다크 인포 밴드 (그레이스케일 지도, 호버 시 원색) ===== -->
-  <div class="variant vv">
-    <div class="lp4-intro"><h1><span class="en-hero">Location</span><span class="ko-sub">당신의 아름다움을 위해<br>준비된 <strong>버틀러</strong>입니다.</span></h1></div>
-    <div class="lp4-band">
-      <div class="wrap lp4-grid">
-        <div class="lp4-map"><iframe src="https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x357ca3899b765d1d%3A0x90bf479b3a2df9d2!2z64yA64-Z7YOA7JuM!5e0!3m2!1sko!2skr!4v1784784525057!5m2!1sko!2skr" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-        <div class="lp4-info">
-          <h2 class="lp-lab w">진료시간</h2>
-          <div class="lp-rows w">
-            <div class="r"><span class="k">월-목</span><span class="v">09:30 - 19:00</span></div>
-            <div class="r"><span class="k">금</span><span class="v">09:30 - 20:30</span></div>
-            <div class="r"><span class="k">토요일</span><span class="v">09:30 - 16:30</span></div>
-          </div>
-          <p class="lp-note w">점심시간 없이 진료 · 일요일 및 공휴일 휴진</p>
-          <h2 class="lp-lab w">오시는 길</h2>
-          <p class="lp4-addr">서울특별시 강남구 도산대로 326 대동타워 7층<br>기계식 주차 · 일부 차종 주차 제한 · 발렛 서비스 운영</p>
-          <h2 class="lp-lab w">상담 문의</h2>
-          <a class="lp-tel w" href="tel:02-547-8777">02-547-8777</a>
-          <div class="lp-cta"><a class="lp-btn lp-btn-kw" href="#">카카오상담</a><a class="lp-btn lp-btn-nw" href="#">네이버 예약</a></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== 5안 — 좌 라벨·값 테이블 / 우 스티키 지도 (현행 미러 + 에디토리얼 행) ===== -->
-  <div class="variant vv">
     <div class="wrap lp5-pad">
-      <h1 class="lp5-head"><span class="en-hero">Location</span><span class="ko-sub">당신의 아름다움을 위해<br>준비된 <strong>버틀러</strong>입니다.</span></h1>
+      <h1 class="lp5-head"><span class="en-hero">Location</span><span class="ko-sub">당신의 아름다움을 위해 준비된 <strong>버틀러</strong>입니다.</span></h1>
       <div class="lp5-grid">
         <div class="lp5-tbl">
           <div class="r"><span class="k">진료시간</span><span class="v">월-목 09:30 - 19:00<br>금요일 09:30 - 20:30<br>토요일 09:30 - 16:30<br><em>점심시간 없이 진료 · 일요일 및 공휴일 휴진</em></span></div>
           <div class="r"><span class="k">주소</span><span class="v">서울특별시 강남구 도산대로 326<br>대동타워 7층 버틀러성형외과</span></div>
           <div class="r"><span class="k">주차</span><span class="v">대동타워 건물 주차장 · 기계식 주차<br>일부 차종 주차 제한 · 발렛 서비스 운영</span></div>
-          <div class="r"><span class="k">상담 문의</span><span class="v"><a class="lp-tel" href="tel:02-547-8777">02-547-8777</a><div class="lp-cta"><a class="lp-btn lp-btn-k" href="#">카카오상담</a><a class="lp-btn lp-btn-n" href="#">네이버 예약</a></div></span></div>
+          <div class="r"><span class="k">상담 문의</span><span class="v"><div class="lp-cta"><a class="lp-btn lp-btn-k" href="#">카카오상담</a><a class="lp-btn lp-btn-n" href="#">네이버 예약</a></div><a class="lp-tel lp5-tel-below" href="tel:02-547-8777">02-547-8777</a></span></div>
         </div>
         <aside>
           <div class="lp5-sticky">
@@ -671,48 +557,44 @@ body.gm-open{overflow:hidden;}
     </div>
   </div>
 
-  <!-- ===== 6안 — 센터 미니멀: 타이틀·대형 전화·시간표 센터 + 와이드 지도 ===== -->
-  <div class="variant vv">
-    <div class="wrap-n lp6-pad">
-      <h1><span class="en-hero">Location</span><span class="ko-sub">당신의 아름다움을 위해<br>준비된 <strong>버틀러</strong>입니다.</span></h1>
-      <a class="lp-tel" href="tel:02-547-8777">02-547-8777</a>
-      <div class="lp6-hours">
-        <div class="c"><span class="k">월-목</span><span class="v">09:30 - 19:00</span></div>
-        <div class="c"><span class="k">금</span><span class="v">09:30 - 20:30</span></div>
-        <div class="c"><span class="k">토요일</span><span class="v">09:30 - 16:30</span></div>
-      </div>
-      <p class="lp-note">점심시간 없이 진료 · 일요일 및 공휴일 휴진</p>
-    </div>
-    <div class="wrap lp6-mapwrap">
-      <div class="lp6-map"><iframe src="https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x357ca3899b765d1d%3A0x90bf479b3a2df9d2!2z64yA64-Z7YOA7JuM!5e0!3m2!1sko!2skr!4v1784784525057!5m2!1sko!2skr" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-      <div class="lp6-foot">
-        <p class="lp6-addr">서울특별시 강남구 도산대로 326 대동타워 7층 · 기계식 주차 · 발렛 서비스 운영</p>
-        <div class="lp-cta ctr"><a class="lp-btn lp-btn-k" href="#">카카오상담</a><a class="lp-btn lp-btn-n" href="#">네이버 예약</a></div>
+  <!-- ===== 미리보기 A — 정보:지도 5:5 비율 ===== -->
+  <div class="variant vv lp5-55">
+    <div class="wrap lp5-pad">
+      <h1 class="lp5-head"><span class="en-hero">Location</span><span class="ko-sub">당신의 아름다움을 위해 준비된 <strong>버틀러</strong>입니다.</span></h1>
+      <div class="lp5-grid">
+        <div class="lp5-tbl">
+          <div class="r"><span class="k">진료시간</span><span class="v">월-목 09:30 - 19:00<br>금요일 09:30 - 20:30<br>토요일 09:30 - 16:30<br><em>점심시간 없이 진료 · 일요일 및 공휴일 휴진</em></span></div>
+          <div class="r"><span class="k">주소</span><span class="v">서울특별시 강남구 도산대로 326<br>대동타워 7층 버틀러성형외과</span></div>
+          <div class="r"><span class="k">주차</span><span class="v">대동타워 건물 주차장 · 기계식 주차<br>일부 차종 주차 제한 · 발렛 서비스 운영</span></div>
+          <div class="r"><span class="k">상담 문의</span><span class="v"><div class="lp-cta"><a class="lp-btn lp-btn-k" href="#">카카오상담</a><a class="lp-btn lp-btn-n" href="#">네이버 예약</a></div><a class="lp-tel lp5-tel-below" href="tel:02-547-8777">02-547-8777</a></span></div>
+        </div>
+        <aside>
+          <div class="lp5-sticky">
+            <div class="lp5-map"><iframe src="https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x357ca3899b765d1d%3A0x90bf479b3a2df9d2!2z64yA64-Z7YOA7JuM!5e0!3m2!1sko!2skr!4v1784784525057!5m2!1sko!2skr" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+            <p class="lp5-cap">BUTLER CLINIC — 대동타워 7층</p>
+          </div>
+        </aside>
       </div>
     </div>
   </div>
 
-  <!-- ===== 7안 — 지도 최상단 풀블리드 + 다크 4열 정보 스트립 ===== -->
-  <div class="variant vv">
-    <div class="lp7-map"><iframe src="https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x357ca3899b765d1d%3A0x90bf479b3a2df9d2!2z64yA64-Z7YOA7JuM!5e0!3m2!1sko!2skr!4v1784784525057!5m2!1sko!2skr" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-    <div class="lp7-strip">
-      <div class="wrap lp7-cols">
-        <div class="c lp7-t">
-          <h1><span class="en-hero">Location</span><span class="lp7-ko">당신의 아름다움을 위해 준비된 <strong>버틀러</strong>입니다.</span></h1>
+  <!-- ===== 미리보기 B — 우측 지도 우측 여백 풀블리드 ===== -->
+  <div class="variant vv lp5-bleed">
+    <div class="wrap lp5-pad">
+      <h1 class="lp5-head"><span class="en-hero">Location</span><span class="ko-sub">당신의 아름다움을 위해 준비된 <strong>버틀러</strong>입니다.</span></h1>
+      <div class="lp5-grid">
+        <div class="lp5-tbl">
+          <div class="r"><span class="k">진료시간</span><span class="v">월-목 09:30 - 19:00<br>금요일 09:30 - 20:30<br>토요일 09:30 - 16:30<br><em>점심시간 없이 진료 · 일요일 및 공휴일 휴진</em></span></div>
+          <div class="r"><span class="k">주소</span><span class="v">서울특별시 강남구 도산대로 326<br>대동타워 7층 버틀러성형외과</span></div>
+          <div class="r"><span class="k">주차</span><span class="v">대동타워 건물 주차장 · 기계식 주차<br>일부 차종 주차 제한 · 발렛 서비스 운영</span></div>
+          <div class="r"><span class="k">상담 문의</span><span class="v"><div class="lp-cta"><a class="lp-btn lp-btn-k" href="#">카카오상담</a><a class="lp-btn lp-btn-n" href="#">네이버 예약</a></div><a class="lp-tel lp5-tel-below" href="tel:02-547-8777">02-547-8777</a></span></div>
         </div>
-        <div class="c">
-          <h2 class="lp-lab w">진료시간</h2>
-          <p class="lp7-p">월-목 09:30 - 19:00<br>금요일 09:30 - 20:30<br>토요일 09:30 - 16:30<br>점심시간 없이 진료 · 일 공휴일 휴진</p>
-        </div>
-        <div class="c">
-          <h2 class="lp-lab w">오시는 길</h2>
-          <p class="lp7-p">서울특별시 강남구 도산대로 326<br>대동타워 7층 버틀러성형외과<br>기계식 주차 · 발렛 서비스 운영</p>
-        </div>
-        <div class="c">
-          <h2 class="lp-lab w">상담 문의</h2>
-          <a class="lp-tel w" href="tel:02-547-8777">02-547-8777</a>
-          <div class="lp-cta"><a class="lp-btn lp-btn-kw" href="#">카카오</a><a class="lp-btn lp-btn-nw" href="#">네이버</a></div>
-        </div>
+        <aside>
+          <div class="lp5-sticky">
+            <div class="lp5-map"><iframe src="https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x357ca3899b765d1d%3A0x90bf479b3a2df9d2!2z64yA64-Z7YOA7JuM!5e0!3m2!1sko!2skr!4v1784784525057!5m2!1sko!2skr" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+            <p class="lp5-cap">BUTLER CLINIC — 대동타워 7층</p>
+          </div>
+        </aside>
       </div>
     </div>
   </div>
