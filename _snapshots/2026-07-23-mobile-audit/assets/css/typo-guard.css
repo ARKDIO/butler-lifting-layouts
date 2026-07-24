@@ -1,0 +1,45 @@
+/* ============================================================
+   typo-guard.css — 한국어 줄바꿈 방어 규격 v1.0 (2026-07-23)
+   - 전 페이지 공통. WP 이관 시 테마 CSS + 에디터 스타일로 승계.
+   - :where() = 명시도 0. 각 파일의 기존 CSS가 항상 이긴다.
+   - 이 파일은 "디자인"이 아니라 "안전장치"만 담는다. (docs/TYPO.md)
+   ============================================================ */
+
+/* [0] 전역 기본선 — 한국어 어절 보존 + 오버플로 안전밸브 */
+:where(body) {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* [1] 제목류 — 균형 줄바꿈 (2행 길이 균등). 미지원 브라우저는 조용한 폴백 */
+:where(h1, h2, h3,
+  .a2-title, .m2-big, .h-int, .h-blk, .h-md,
+  [class*="-title"], [class*="-close-h"], [class*="-band-h"]) {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+/* [2] 리드/슬로건/본문 — 마지막 행 외톨이 낱말 방지 */
+:where(.a2-slo, .bd-lg, .bd) {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+/* [3] 행길이 상한 유틸 (opt-in) */
+.mx-lead { max-inline-size: 640px; }
+.mx-lead--c { max-inline-size: 640px; margin-inline: auto; }
+
+/* [4] 반응형 개행 토큰 — br 앞에는 반드시 공백 1칸 (숨김 시 어절 붙음 방지) */
+br.br-m { display: none; }                                /* 모바일 전용 개행 */
+br.br-d2 { display: none; }                               /* 중간폭(≤1280px) 개행 */
+@media (max-width: 768px)  { br.br-m  { display: inline; } br.br-d { display: none; } }
+@media (max-width: 1280px) { br.br-d2 { display: inline; } }
+@media (max-width: 768px)  { br.br-hide-m { display: none; } } /* 데스크톱 br을 모바일서 숨김 */
+
+/* [5] 불가분 어구 (가운뎃점 묶음 등) */
+.nb { white-space: nowrap; }
+
+/* [6] 플렉스/그리드 셀 오버플로 예방 */
+:where(.gbox .li, .dots li) { min-width: 0; }

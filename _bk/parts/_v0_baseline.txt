@@ -1,0 +1,166 @@
+===== SECTION A · 히어로 — v0 BASELINE (확정 기준) =====
+<div class="hero0">
+      <div class="wrap h-in">
+        <span class="eyebrow">Laser Lifting</span>
+        <h1>레이저리프팅</h1>
+        <p class="slogan">흐른 시간은 그대로 두고, 흘러내린 선만 끌어올리다</p>
+        <div class="btns">
+          <a href="#secG" class="btn btn-m btn-ghost-w pill">전후사진 보기</a>
+          <a href="#" class="btn btn-m btn-primary pill">가격표 보기</a>
+        </div>
+      </div>
+      <div class="subtabs"><div class="wrap in">
+        <a class="on" href="#secE">레이저리프팅</a><a href="#secE">울쎄라</a><a href="#secE">써마지 FLX</a><a href="#secE">온다</a><a href="#secE">올타이트</a>
+      </div></div>
+    </div>
+
+===== SECTION B · 한줄요약 — v0 BASELINE (확정 기준) =====
+<div class="bband"><div class="wrap-n tC">
+      <h2 class="h-int"><strong>흐른 시간은 그대로 두고,</strong><br>흘러내린 선만 끌어올리다</h2>
+      <p class="bd-lg">레이저리프팅은 초음파·고주파·마이크로파 에너지로 피부 깊은 층의 콜라겐 재생을 이끌어,<br>절개 없이 처짐과 탄력을 개선하는 <strong>비수술 리프팅</strong>입니다.</p>
+    </div></div>
+
+===== SECTION C · 차별 포인트 — v0 BASELINE (확정 기준) =====
+<div class="v0sec"><div class="wrap">
+      <div class="csplit">
+        <h2 class="h-blk"><strong>리프팅의 답은</strong><br>하나가 아닙니다</h2>
+        <p class="bd" style="margin-top:0;">깊이와 기전이 서로 다른 세 에너지를 모두 갖추고, 처짐의 층과 양상을 진단해 단독 혹은 병행으로 설계하는 것 — <strong>장비가 아닌 진단에서 시작하는 리프팅</strong>이 우리의 방식입니다.</p>
+      </div>
+      <div class="trio">
+        <div class="t"><span class="no">01</span><h3>점으로 깊게</h3><p>집속 초음파(울쎄라)는 안면거상술에서 다루는 SMAS층(약 4.5mm)까지 점으로 깊게 에너지를 전달합니다.</p></div>
+        <div class="t"><span class="no">02</span><h3>면으로 넓게</h3><p>단극 고주파(써마지)는 진피~피하지방층을 면으로 넓게 고르게 데워 탄력을 이끕니다.</p></div>
+        <div class="t"><span class="no">03</span><h3>함께 작용</h3><p>마이크로파(온다)는 표피 손실 없이 진피와 지방층에 동시에 작용합니다.</p></div>
+      </div>
+    </div></div>
+
+===== SECTION D · 특징 — v0 BASELINE (확정 기준) =====
+<div class="featbleed" style="background:#FAFAFB;">
+      <div class="tx">
+        <h2 class="h-blk">레이저리프팅의 시간은<br><strong>시술이 끝난 뒤에도</strong> 흐릅니다</h2>
+        <p class="bd">에너지가 만든 미세한 열 자극이 <strong>즉각적인 콜라겐 수축</strong>을 부르고, 이후 수개월에 걸쳐 새로운 콜라겐이 차오르며 탄력의 토대가 점진적으로 다져집니다.</p>
+        <p class="bd">절개나 주사 없이 진행되는 비침습 방식이라 <strong>당일 세안과 일상 복귀가 가능</strong>하고, 변화는 티 나지 않게, 그러나 분명하게 쌓여갑니다. 자연스럽고 점진적인 개선을 원하는 분께 알맞은 흐름입니다.</p>
+      </div>
+      <img src="img/Thermage-FLX-Treatment.jpeg" alt="시술 장면">
+    </div>
+
+===== SECTION E · 장비 라인업 — v0 BASELINE (확정 기준) =====
+<div class="v0sec"><div class="wrap">
+      <h2 class="h-int tC">깊이와 기전이 다른<br><strong>네 가지 리프팅</strong></h2>
+      <div class="dev-zig" style="margin-top:20px;">
+        <div class="row"><img class="im" src="img/0401_img_01.jpg" alt="울쎄라"><div><span class="rno">01</span><span class="tag">집속 초음파 · SMAS 4.5mm</span><h3 class="h-blk"><strong>울쎄라</strong></h3><p class="bd">렌즈가 햇빛을 모으듯, 집속 초음파(MFU)를 피부 속 한 점으로 집중시켜 <strong>SMAS층(4.5mm)까지 열 응고점</strong>을 만듭니다. 1.5·3.0·4.5mm 깊이별 트랜스듀서로 잔주름부터 깊은 처짐까지 다층으로 접근하고, DeepSEE 실시간 초음파 영상으로 피부 아래 8mm를 확인하며 진행합니다.</p></div></div>
+        <div class="row"><img class="im" src="img/thermageFLXtotal-tip.jpg" alt="써마지 FLX"><div><span class="rno">02</span><span class="tag">단극 고주파 · 진피~피하지방</span><h3 class="h-blk"><strong>써마지 FLX</strong></h3><p class="bd">6.78MHz 단극 고주파로 진피~피하지방층을 고르게 데워 <strong>콜라겐 수축과 재생을 동시에</strong> 이끕니다. AccuREP 자동 조율, 33% 넓어진 팁과 진동·쿨링으로 마취 부담을 덜었고, 1회 시술로 약 6개월에 걸친 변화를 기대할 수 있습니다.</p></div></div>
+        <div class="row"><img class="im" src="img/0402_img_04.jpg" alt="온다"><div><span class="rno">03</span><span class="tag">마이크로파 · 쿨웨이브</span><h3 class="h-blk"><strong>온다</strong></h3><p class="bd">2.45GHz 마이크로파로 <strong>표피의 에너지 손실 없이</strong> 진피와 피하지방층에 열을 전합니다. 깊이가 다른 핸드피스로 이중턱·바디 볼륨과 진피 타이트닝을 나누어 다루며, 내장 쿨링이 시술 내내 피부 표면을 지켜 마취 없이도 편안한 편입니다.</p></div></div>
+        <div class="row"><img class="im" src="img/0403_img_02.jpg" alt="올타이트"><div><span class="rno">04</span><span class="tag">DLTD · 진피+SMAS 듀얼</span><h3 class="h-blk"><strong>올타이트</strong></h3><p class="bd">유전체 가열 원리의 DLTD 방식으로 <strong>진피와 SMAS층을 함께</strong> 겨냥합니다. 피하지방보다 진피·SMAS에 열에너지를 모아 볼륨 손실을 줄이도록 설계되었고, 표피 통증이 낮아 무마취 진행이 많으며 다운타임이 거의 없습니다.</p></div></div>
+      </div>
+    </div></div>
+
+===== SECTION F · 신뢰성 — v0 BASELINE (확정 기준) =====
+<div class="photoband"><div class="wrap">
+      <h2 class="h-blk"><strong>리프팅의 완성도</strong>는<br>장비와 사람이 함께 만듭니다</h2>
+      <p class="bd">정품 트랜스듀서·팁은 시술 전 함께 개봉해 확인할 수 있으며, 시술의 전 과정은 의료진이 직접 진행합니다. 보이지 않는 디테일을 지키는 것이 프리미엄 리프팅의 품격이라 믿습니다.</p>
+      <ul class="dots">
+        <li>얼굴의 뼈와 신경 위치를 표시하는 정밀 마킹</li>
+        <li>피부 두께와 처짐의 방향을 읽는 깊이별 에너지·패스 설계</li>
+        <li>오롯이 한 사람을 위한 맞춤 프로토콜</li>
+      </ul>
+      <div style="display:flex;gap:10px;margin-top:28px;flex-wrap:wrap;">
+        <a href="#" class="wbtn">네이버 문의하기</a>
+        <a href="#" class="wbtn">카카오톡 문의하기</a>
+      </div>
+    </div></div>
+
+===== SECTION G · 전후사진 — v0 BASELINE (확정 기준) =====
+<div class="v0z" style="padding-top:48px;border-top:none;"><div class="wrap-n zg">
+      <h2 class="h-md">전후사진</h2>
+      <div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <div class="ba"><span class="lb">BEFORE</span><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg><p class="t12">사진 준비 중</p></div>
+          <div class="ba"><span class="lb">AFTER</span><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg><p class="t12">사진 준비 중</p></div>
+        </div>
+        <p style="margin-top:12px;font-size:12.5px;font-weight:300;line-height:1.65;color:#8a8a8a;">본 전후 사진은 실제 시술 사례이며, 효과와 경과에는 개인차가 있을 수 있습니다. 시술 후 일시적인 홍조, 열감, 붓기, 멍, 저림감 등의 부작용이 발생할 수 있으므로 시술 전 의료진과 충분히 상담하시기 바랍니다.</p>
+      </div>
+    </div></div>
+
+===== SECTION H · 추천대상 — v0 BASELINE (확정 기준) =====
+<div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">추천 대상</h2>
+      <ul class="dots">
+        <li>볼·턱선의 탄력이 떨어져 윤곽이 흐려진 분</li>
+        <li>이중턱과 늘어진 라인, 남은 볼륨이 함께 고민인 분</li>
+        <li>눈가 잔주름과 눈꺼풀·눈썹 처짐이 신경 쓰이는 분</li>
+        <li>수술적 리프팅은 부담스럽지만 깊은 층의 개선을 원하는 분</li>
+        <li>마취·통증·회복 부담 없이 일상 속 관리를 원하는 분</li>
+        <li>자연스럽고 점진적인 변화를 선호하는 분</li>
+      </ul>
+    </div></div>
+
+===== SECTION I · 시술 정보 — v0 BASELINE (확정 기준) =====
+<div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">시술 &amp; 장비 정보</h2>
+      <div class="gbox">
+        <p class="li"><b>시술시간</b> 약 15~90분 <span class="sm">장비·샷 또는 시술 에너지 용량에 따라 상이</span></p>
+        <p class="li"><b>마취</b> 무마취~마취크림·수면마취 선택 가능 <span class="sm">장비·통증 민감도에 따라 조절</span></p>
+        <p class="li"><b>다운타임</b> 거의 없음 <span class="sm">일시적 홍조·열감·붓기, 수 시간~수일 내 호전</span></p>
+        <p class="li"><b>유지기간</b> 약 1개월~1년 <span class="sm">장비, 샷 또는 시술 에너지 용량에 따라 상이</span></p>
+        <p class="li"><b>시술간격</b> 울쎄라·써마지 6개월~1년 / 온다·올타이트 4주 간격 3회 내외</p>
+        <p class="li"><b>장비 인증</b> 미국 FDA 승인 · 한국 식약처(MFDS) 허가 · CE 인증 <span class="sm">장비별 상이</span></p>
+      </div>
+    </div></div>
+
+===== SECTION J · 시술순서 — v0 BASELINE (확정 기준) =====
+<div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">시술 안내</h2>
+      <div>
+      <p class="bd" style="margin-top:0;">당신에게 맞는 리프팅을 찾는 정밀한 여정, 진단에서 시작해 쿨링으로 마무리합니다.</p>
+      <div class="gbox" style="margin-top:14px;">
+        <p class="li"><b>Step 1.</b> 상담 및 진단 (피부 두께·처짐 깊이·지방량 평가)</p>
+        <p class="li"><b>Step 2.</b> 처짐 양상에 맞는 장비·깊이·에너지 설계</p>
+        <p class="li"><b>Step 3.</b> 세안 및 시술 부위 정밀 마킹</p>
+        <p class="li"><b>Step 4.</b> 마취크림 도포 또는 수면마취 (장비·선택에 따라)</p>
+        <p class="li"><b>Step 5.</b> 젤 도포 후 깊은 층부터 얕은 층 순으로 에너지 전달</p>
+        <p class="li"><b>Step 6.</b> 쿨링 및 진정 관리</p>
+        <p class="li"><b>Step 7.</b> 시술 후 주의사항 안내 및 귀가</p>
+      </div>
+    </div></div></div>
+
+===== SECTION K · 주의사항 — v0 BASELINE (확정 기준) =====
+<div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">시술 후 주의사항</h2>
+      <ul class="dots">
+        <li>일시적인 홍조·열감·붓기는 수 시간~1주 내 자연 호전됩니다. 사람마다 차이가 있을 수 있습니다.</li>
+        <li>당일 세안과 메이크업은 가능하나 자극은 최소화해 주세요.</li>
+        <li>1주일간 사우나·찜질방·열탕 등 고온 환경은 피해 주세요.</li>
+        <li>1주일간 격한 운동과 음주·흡연은 삼가는 것이 좋습니다.</li>
+        <li>시술 부위를 강하게 문지르거나 마사지하지 마세요.</li>
+        <li>보습제와 자외선 차단제를 평소보다 꼼꼼히 챙겨 주세요.</li>
+        <li>2주간 스크럽·필링 등 자극적인 관리는 미뤄 주세요.</li>
+        <li>드물게 멍이나 저림감이 있을 수 있으나 대부분 자연 회복됩니다.</li>
+      </ul>
+    </div></div>
+
+===== SECTION L · FAQ — v0 BASELINE (확정 기준) =====
+<div class="v0z" style="padding-bottom:48px;"><div class="wrap-n zg">
+      <h2 class="h-md">FAQ</h2>
+      <div class="fq" data-acc>
+        <div class="item open">
+          <button class="qh">[울쎄라] 다른 리프팅과 무엇이 다른가요?</button>
+          <div class="ab">고주파 장비가 진피층 위주로 작용한다면, 울쎄라는 안면거상술에서 다루는 SMAS층(약 4.5mm)까지 집속 초음파를 전달합니다. DeepSEE 실시간 영상으로 피부 아래를 확인하며 진행하므로 깊이 타게팅의 정확도가 높은 편입니다.</div>
+        </div>
+        <div class="item">
+          <button class="qh">[써마지] 한 번만 받아도 효과가 있나요?</button>
+          <div class="ab">써마지는 1회 시술 기준으로 설계된 시술입니다. 시술 직후의 타이트닝과 함께 약 6개월에 걸쳐 콜라겐 리모델링이 진행되며, 효과 유지를 위해 6개월~1년 간격의 반복 시술을 고려할 수 있습니다.</div>
+        </div>
+        <div class="item">
+          <button class="qh">[온다, 올타이트] 몇 회 받아야 하나요?</button>
+          <div class="ab">1회로도 타이트닝 변화를 느끼는 경우가 있지만, 콜라겐 재생과 지방 대사 주기를 고려해 4주 간격으로 3회 내외를 권장하는 것이 일반적입니다. 회차를 거듭할수록 유지 기간이 길어지는 경향이 있습니다.</div>
+        </div>
+        <div class="item">
+          <button class="qh">장비 중 무엇을 선택해야 하나요?</button>
+          <div class="ab">깊이와 기전이 다릅니다. 깊은 SMAS층 처짐은 울쎄라, 진피~지방층의 넓은 타이트닝은 써마지, 탄력과 지방 정리를 함께 원한다면 온다, 다운타임 없이 진피~근막층의 타이트닝은 올타이트가 상대적으로 적합할 수 있습니다. 처짐 양상에 따라 병행이 효과적인 경우도 있어 진단 후 결정하는 것을 권합니다.</div>
+        </div>
+        <div class="item">
+          <button class="qh">통증이나 다운타임이 있나요?</button>
+          <div class="ab">대부분 비침습 시술로 붓기·멍이 거의 없고 당일 일상 복귀가 가능하지만 사람에 따라 울쎄라는 1주 정도 잔붓기가 있을 수 있습니다. 통증은 장비와 깊이에 따라 따뜻한 열감에서 욱신한 느낌까지 다양하며, 마취크림·수면마취 등으로 부담을 줄일 수 있습니다. 반응에는 개인차가 있습니다.</div>
+        </div>
+      </div>
+    </div></div>

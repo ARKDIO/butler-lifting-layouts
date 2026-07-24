@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오시는 길 | 버틀러클리닉</title>
+<link rel="stylesheet" href="/assets/css/typo-guard.css?v=2">
+<meta name="description" content="서울특별시 강남구 도산대로 326 대동타워 7층 버틀러성형외과 오시는 길 안내. 월-목 09:30-19:00 · 금 09:30-20:30 · 토요일 09:30-16:30 점심시간 없이 진료, 일요일 및 공휴일 휴진. 상담문의 02-547-8777.">
+<!-- IA: /about/location · 정식 작업본(레이아웃 3안 스위처) — 배포 시 open 버전을 about/location/index.html 로 복사 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ 베이스 (무채색 팔레트 — 유채색 0회) ============ */
+html { font-size: 62.5%; scroll-behavior: smooth; }
+body { overflow-x: hidden; }
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Noto Sans','Noto Sans KR',sans-serif; font-size:16px; line-height:1.6; color:#111; background:#FBFAF8; }
+img { max-width:100%; display:block; }
+a { color:inherit; text-decoration:none; }
+ul,ol { list-style:none; }
+button { font-family:inherit; cursor:pointer; border:none; background:none; }
+:focus-visible { outline:2px solid #8a8a8a; outline-offset:2px; }
+
+/* 레이아웃 */
+.wrap{max-width:1280px;margin:0 auto;padding-left:24px;padding-right:24px;}
+.wrap-n{max-width:920px;margin:0 auto;padding-left:24px;padding-right:24px;}
+
+/* ===== v0 공통 토큰 (여수스노우 실측 기준 — sub-full.html 재사용) ===== */
+.v0sec{padding:clamp(72px,56px + 2vw,110px) 0;}
+.vv .tC{text-align:center;}
+.vv .h-int{font-size:clamp(28px,24px + 1.1vw,42px);line-height:1.25;font-weight:400;color:#111;letter-spacing:-0.01em;}
+.vv .h-blk{font-size:clamp(24px,21px + 0.9vw,36px);line-height:1.25;font-weight:400;color:#111;letter-spacing:-0.01em;}
+.vv .h-md{font-size:clamp(23px,21px + 0.5vw,28px);line-height:1.43;font-weight:600;color:#111;}
+.vv .h-int strong,.vv .h-blk strong{font-weight:700;}
+.vv .bd{font-size:16px;font-weight:400;line-height:1.6;color:#111;margin-top:10px;}
+.vv .bd-lg{font-size:clamp(17px,16px + 0.3vw,20px);font-weight:400;line-height:1.55;color:#111;margin-top:12px;}
+.vv .bd strong,.vv .bd-lg strong{font-weight:700;}
+.vv .dots{margin-top:14px;}
+.vv .dots li{display:flex;gap:10px;font-size:15.5px;font-weight:300;line-height:2;color:#111;}
+.vv .dots li::before{content:'·';font-weight:700;flex:none;}
+.vv .tag{display:block;font-size:13px;font-weight:400;color:#8a8a8a;margin-bottom:8px;}
+
+/* ===== 이미지 와이어프레임 박스 ===== */
+.wf-img{background:#EDEAE4;display:flex;align-items:center;justify-content:center;color:#9a9a9a;font-size:12px;letter-spacing:0.02em;text-align:center;width:100%;}
+.wf-dark{background:#34302B;color:rgba(255,255,255,0.4);}
+.wf-219{aspect-ratio:21/9;}
+.wf-169{aspect-ratio:16/9;}
+.wf-32{aspect-ratio:3/2;}
+.wf-45{aspect-ratio:4/5;}
+
+/* ============ 스위처 (시안 선택 UI — 수정 금지) ============ */
+.sec{position:relative;}
+.sec > .variant{display:none;}
+.sec > .variant.active{display:block;}
+.sec-chip{position:absolute;top:10px;left:10px;z-index:60;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.82);border:none;border-radius:999px;padding:3px 7px;opacity:0.9;transition:opacity .2s;}
+.sec-chip:hover{opacity:1;}
+.sec-chip .badge{display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:999px;background:rgba(120,120,120,0.3);color:#6a6a6a;font-size:10px;font-weight:400;}
+.sec-chip .nm{font-size:10px;font-weight:400;color:#6a6a6a;letter-spacing:0;}
+.sec-chip .vbtns{display:flex;gap:3px;margin-left:3px;}
+.sec-chip .vbtns button{width:17px;height:17px;border-radius:999px;font-size:10px;font-weight:400;color:#8a8a8a;border:none;background:rgba(150,150,150,0.16);}
+.sec-chip .vbtns button.on{background:rgba(100,100,100,0.85);color:#fff;}
+
+/* ============ 헤더 (여수스노우 카피 — 임시) ============ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;font-weight:600;transition:background .2s,color .2s,border-color .2s;}
+.btn-m{font-size:14px;padding:11px 22px;}
+.btn-primary{background:#1D1B18;color:#fff;}
+.btn-primary:hover{background:#000;}
+.pill{border-radius:999px;}
+.gnb{position:sticky;top:0;z-index:80;background:#FBFAF8;border-bottom:1px solid #E4E0D8;}
+.gnb .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:1440px;}
+.gnb img{height:36px;width:auto;}
+.gnb nav{display:flex;gap:28px;font-size:14px;font-weight:500;color:#111;}
+.gnb nav a:hover{color:#1D1B18;}
+@media(max-width:1024px){ .gnb nav{display:none;} }
+
+/* ============ 공통 — 하단 CTA (프롬프트 지시: 카카오상담/네이버 예약 버튼, 모바일에서 전화연결 추가) ============ */
+/* 디자인 단계: 카카오상담=카카오 포인트컬러, 네이버 예약=네이버 포인트컬러 적용 예정 — 와이어프레임 단계는 무채색 규칙(유채색 0회) 적용 */
+.loc-cta{display:flex;gap:12px;flex-wrap:wrap;}
+.loc-cta.center{justify-content:center;}
+.loc-btn{display:inline-flex;align-items:center;justify-content:center;min-width:190px;padding:15px 28px;font-size:15px;font-weight:600;border-radius:10px;transition:opacity .2s;}
+.loc-btn:hover{opacity:0.85;}
+.loc-btn-k{background:#111;color:#fff;}
+.loc-btn-n{background:#fff;color:#111;border:1px solid #111;}
+.loc-btn-t{display:none;background:#F5F3EF;color:#111;}
+@media(max-width:768px){
+  .loc-cta{flex-direction:column;}
+  .loc-btn{width:100%;}
+  .loc-btn-t{display:inline-flex;} /* 프롬프트: 모바일에서만 전화연결 버튼 노출 */
+}
+
+/* ============ 공통 — 주차정보 상세보기 토글 (프롬프트 지시: 클릭 시 주차 안내 내용이 탭으로 열림) ============ */
+.park-toggle{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:500;color:#111;border-bottom:1px solid #111;padding:2px 0;margin-top:12px;}
+.park-toggle::after{content:'+';font-weight:400;color:#8a8a8a;}
+.park-toggle[aria-expanded="true"]::after{content:'\2013';}
+.park-panel{display:none;margin-top:14px;background:#F5F3EF;border-radius:10px;padding:20px 22px;text-align:left;}
+.park-panel.open{display:block;}
+.park-panel .ph{font-size:15px;font-weight:700;color:#111;}
+.park-panel .pb{font-size:14.5px;font-weight:300;line-height:1.9;color:#111;margin-top:6px;}
+
+/* ============ L1 — 지도 풀와이드 상단 + 하단 정보 3열 그리드 ============ */
+.l1-hero{padding:clamp(96px,80px + 4vw,160px) 24px clamp(48px,40px + 2vw,72px);text-align:center;background:#FBFAF8;}
+.l1-en{display:block;font-size:13px;letter-spacing:0.42em;text-transform:uppercase;color:#9a9a9a;font-weight:500;margin-bottom:24px;}
+.l1-title{font-size:clamp(34px,26px + 2.2vw,60px);line-height:1.2;letter-spacing:-0.02em;color:#111;font-weight:400;}
+.l1-title strong{font-weight:700;}
+.l1-map .wf-img{aspect-ratio:21/9;min-height:340px;}
+.l1-grid{display:grid;grid-template-columns:1fr 1.35fr 1fr;}
+.l1-col{padding:0 clamp(28px,12px + 2vw,48px);border-left:1px solid #E4E0D8;}
+.l1-col:first-child{border-left:none;padding-left:0;}
+.l1-col:last-child{padding-right:0;}
+.l1-hours{margin-top:12px;}
+.l1-hours li{display:flex;justify-content:space-between;gap:12px;font-size:15.5px;font-weight:300;line-height:1.9;color:#111;padding:7px 0;border-bottom:1px solid #EDEAE4;}
+.l1-hours li span:last-child{font-weight:400;}
+.l1-note{margin-top:12px;font-size:13.5px;font-weight:300;line-height:1.85;color:#8a8a8a;}
+.l1-row{margin-top:12px;}
+.l1-row + .l1-row{margin-top:20px;}
+.l1-lb{display:block;font-size:12px;letter-spacing:0.12em;color:#9a9a9a;font-weight:500;margin-bottom:4px;}
+.l1-v{font-size:15.5px;font-weight:300;line-height:1.85;color:#111;}
+.l1-tel{display:inline-block;margin-top:12px;font-size:clamp(24px,20px + 1vw,32px);font-weight:700;color:#111;letter-spacing:0.01em;line-height:1.3;}
+.l1-cta{margin-top:clamp(40px,32px + 1.5vw,56px);padding-top:clamp(32px,26px + 1vw,44px);border-top:1px solid #E4E0D8;}
+@media(max-width:768px){
+  .l1-hero{padding-top:80px;}
+  .l1-map .wf-img{min-height:240px;}
+  .l1-grid{grid-template-columns:1fr;}
+  .l1-col{border-left:none;padding-left:0;padding-right:0;}
+  .l1-col + .l1-col{border-top:1px solid #E4E0D8;margin-top:32px;padding-top:32px;}
+}
+
+/* ============ L2 — 좌 지도 스티키 / 우 정보 스택 (헤어라인 분할) ============ */
+.l2-pad{padding-top:clamp(80px,64px + 3vw,128px);padding-bottom:clamp(72px,56px + 2vw,110px);}
+.l2-grid{display:grid;grid-template-columns:6fr 5fr;gap:clamp(44px,20px + 3vw,80px);align-items:start;}
+.l2-sticky{position:sticky;top:96px;}
+.l2-map{aspect-ratio:4/5;}
+.l2-cap{margin-top:12px;font-size:13px;font-weight:300;color:#8a8a8a;letter-spacing:0.04em;}
+.l2-en{display:block;font-size:13px;letter-spacing:0.42em;text-transform:uppercase;color:#9a9a9a;font-weight:500;margin-bottom:20px;}
+.l2-title{font-size:clamp(32px,25px + 1.8vw,52px);line-height:1.2;letter-spacing:-0.02em;color:#111;font-weight:400;}
+.l2-title strong{font-weight:700;}
+.l2-blk{padding:clamp(32px,26px + 1vw,48px) 0;border-top:1px solid #E4E0D8;}
+.l2-blk.first{border-top:none;padding-top:0;}
+.l2-blk:last-child{padding-bottom:0;}
+.l2-list{margin-top:14px;}
+.l2-list .r{display:flex;gap:14px;align-items:baseline;padding:9px 0;border-top:1px solid #EDEAE4;}
+.l2-list .r:first-child{border-top:none;}
+.l2-list .chip{flex:none;min-width:76px;text-align:center;font-size:12.5px;font-weight:600;color:#111;background:#F5F3EF;border-radius:999px;padding:5px 12px;}
+.l2-list .v{flex:1;min-width:0;font-size:15px;font-weight:300;line-height:1.85;color:#111;}
+.l2-note{margin-top:10px;font-size:13.5px;font-weight:300;line-height:1.85;color:#8a8a8a;}
+.l2-tel{display:inline-block;margin-top:10px;font-size:clamp(26px,22px + 1vw,34px);font-weight:700;color:#111;letter-spacing:0.01em;line-height:1.3;}
+.l2-ctawrap{margin-top:24px;}
+@media(max-width:768px){
+  .l2-pad{padding-top:64px;}
+  .l2-grid{grid-template-columns:1fr;gap:40px;}
+  .l2-sticky{position:static;}
+  .l2-map{aspect-ratio:16/10;}
+}
+
+/* ============ L3 — 화이트 인트로 + 다크 인포 밴드(텍스트 리스트형) ============ */
+.l3-intro{padding:clamp(88px,72px + 3vw,140px) 24px clamp(56px,44px + 2vw,84px);text-align:center;background:#FBFAF8;}
+.l3-en{display:block;font-size:13px;letter-spacing:0.42em;text-transform:uppercase;color:#9a9a9a;font-weight:500;margin-bottom:24px;}
+.l3-title{font-size:clamp(30px,25px + 1.4vw,46px);line-height:1.25;letter-spacing:-0.015em;color:#111;font-weight:400;}
+.l3-title strong{font-weight:700;}
+.l3-band{background:#1D1B18;padding:clamp(72px,56px + 2vw,110px) 0;}
+.l3-rows{margin-top:clamp(40px,32px + 1.5vw,56px);border-top:1px solid rgba(255,255,255,0.16);}
+.l3-row{display:grid;grid-template-columns:180px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.16);}
+.l3-lb{font-size:12px;letter-spacing:0.2em;color:rgba(255,255,255,0.45);font-weight:500;padding-top:5px;}
+.l3-v{font-size:15.5px;font-weight:300;line-height:1.9;color:#fff;}
+.l3-hours li{font-size:15.5px;font-weight:300;line-height:2;color:#fff;}
+.l3-note{margin-top:8px;font-size:13.5px;font-weight:300;line-height:1.85;color:rgba(255,255,255,0.55);}
+.l3-tel{display:inline-block;font-size:clamp(28px,24px + 1.2vw,40px);font-weight:700;color:#fff;letter-spacing:0.01em;line-height:1.25;}
+.l3-cta{margin-top:clamp(40px,32px + 1.5vw,56px);}
+.l3-band .loc-btn-k{background:#fff;color:#111;}
+.l3-band .loc-btn-n{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.55);}
+.l3-band .loc-btn-t{background:rgba(255,255,255,0.12);color:#fff;}
+.l3-band .park-toggle{color:#fff;border-bottom-color:rgba(255,255,255,0.6);}
+.l3-band .park-toggle::after{color:rgba(255,255,255,0.5);}
+.l3-band .park-panel{background:rgba(255,255,255,0.07);}
+.l3-band .park-panel .ph{color:#fff;}
+.l3-band .park-panel .pb{color:rgba(255,255,255,0.85);}
+@media(max-width:768px){
+  .l3-intro{padding-top:72px;}
+  .l3-row{grid-template-columns:1fr;gap:8px;}
+  .l3-lb{padding-top:0;}
+}
+
+/* ============ 프로모션 + 푸터 (여수스노우 카피 — 임시) ============ */
+.promo{background:#F5F3EF;padding:clamp(72px,56px + 2vw,110px) 0;}
+.promo .head{text-align:center;margin-bottom:clamp(40px,32px + 1.5vw,56px);}
+.promo .kicker{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:600;color:#8a8a8a;letter-spacing:0.12em;margin-bottom:18px;}
+.promo .kicker::before{content:'';width:24px;height:1px;background:#c9c9c9;}
+.promo h2{font-size:clamp(29px,23.5px + 1.15vw,40px);font-weight:600;line-height:1.3;letter-spacing:-0.02em;color:#111;}
+.promo .sub{font-size:16px;color:#8a8a8a;margin-top:12px;}
+.promo .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;}
+@media(max-width:1024px){ .promo .grid{grid-template-columns:repeat(3,1fr);} }
+@media(max-width:600px){ .promo .grid{grid-template-columns:repeat(2,1fr);} }
+.promo .pcard{border-radius:10px;overflow:hidden;background:#fff;border:1px solid #E4E0D8;}
+.promo .pcard img{width:100%;aspect-ratio:1/1;object-fit:cover;}
+.promo .pcard .cap{padding:12px 14px;}
+.promo .pcard .cap .s{font-size:10px;letter-spacing:0.1em;color:#8a8a8a;font-weight:500;}
+.promo .pcard .cap .n{font-size:14px;font-weight:600;color:#111;margin-top:2px;}
+footer.site{background:#1D1B18;color:rgba(255,255,255,0.6);padding:clamp(48px,40px + 1.5vw,64px) 0;}
+footer.site .wrap{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;font-size:12px;line-height:1.8;}
+footer.site .logo{font-weight:700;color:#fff;font-size:15px;letter-spacing:0.06em;}
+</style>
+</head>
+<body>
+
+<!-- ================= 헤더 (여수스노우 카피 — 임시, 추후 교체) ================= -->
+<header class="gnb">
+<style>
+.gnb{position:sticky;top:0;z-index:80;background:#FBFAF8;border-bottom:1px solid rgba(112,112,112,0.45);font-family:'Noto Sans','Noto Sans KR',sans-serif;}
+.gnb .gwrap{display:flex;align-items:center;justify-content:space-between;height:60px;max-width:none;margin:0;padding:0 30px;gap:0;}
+.gnb .glogo{display:flex;align-items:center;text-decoration:none;}
+.gnb .glogo img{height:22px;width:auto;display:block;}
+.gnb nav.gnav{display:flex;gap:0;font-size:13px;font-weight:400;letter-spacing:0.03em;text-transform:uppercase;color:#333;}
+.gnb .nv{position:relative;padding:0 17px;}
+.gnb .nv > a{color:#333;text-decoration:none;padding:20px 0;display:inline-block;}
+.gnb .nv > a:hover{color:#111;}
+.gnb .nv-t{color:#333;cursor:default;padding:20px 0;display:inline-block;}
+.gnb .dp{position:absolute;top:100%;left:50%;transform:translateX(-50%);text-transform:none;background:#FBFAF8;border:1px solid #EDEAE4;box-shadow:0 10px 28px rgba(0,0,0,0.07);border-radius:0;padding:8px 0;display:none;min-width:158px;z-index:120;}
+.gnb .nv:hover .dp{display:block;}
+.gnb .dp a{display:block;padding:8px 20px;font-size:12.5px;font-weight:400;color:#555;text-decoration:none;white-space:nowrap;text-align:left;}
+.gnb .dp a:hover{color:#111;background:#F5F3EF;}
+@media(max-width:1024px){ .gnb nav.gnav{display:none;} }
+</style>
+<div class="gwrap">
+  <a href="index.html" class="glogo"><img src="img/00_home/logo_h_dark.png" alt="Butler Clinic"></a>
+  <nav class="gnav">
+    <div class="nv"><a href="about-brand-story-full.html">Butler Clinic</a>
+      <div class="dp">
+        <a href="about-brand-story-full.html">브랜딩 스토리</a>
+        <a href="about-doctors-full.html">의료진 소개</a>
+        <a href="about-equipment-full.html">보유장비·의약품</a>
+        <a href="about-tour-full.html">둘러보기</a>
+        <a href="about-location-full.html">오시는 길</a>
+      </div>
+    </div>
+    <div class="nv"><a href="surgery-eye-open.html">Surgery</a>
+      <div class="dp">
+        <a href="surgery-eye-open.html">눈 수술</a>
+        <a href="surgery-face-open.html">안면부 수술</a>
+        <a href="surgery-forehead-open.html">이마 수술</a>
+      </div>
+    </div>
+    <div class="nv"><a href="sub-open.html">Skin Care</a>
+      <div class="dp">
+        <a href="skincare-thread-lifting-open.html">실 리프팅</a>
+        <a href="sub-open.html">레이저 리프팅</a>
+        <a href="skincare-botox-filler-open.html">보톡스·필러</a>
+        <a href="skincare-skin-booster-open.html">스킨부스터</a>
+        <a href="skincare-regenerative-cell-open.html">재생세포</a>
+        <a href="skincare-hyperbaric-oxygen-open.html">고압산소치료</a>
+      </div>
+    </div>
+    <div class="nv"><span class="nv-t">Doctor's Column</span></div>
+    <div class="nv"><span class="nv-t">Before / After</span></div>
+    <div class="nv"><span class="nv-t">Promotion</span></div>
+  </nav>
+</div>
+</header>
+
+<!-- ================= P. 오시는 길 (레이아웃 3안 스위처) ================= -->
+<!-- 프롬프트 지시 반영:
+     ① 하단 카카오상담/네이버 예약 버튼 — PC 2개, 모바일에서 전화연결 버튼 추가 (포인트컬러는 디자인 단계 적용, 와이어프레임은 무채색 규칙)
+     ② 지도는 구글 지도 활용 — 와이어프레임 단계는 .wf-img 박스, 배포 시 아래 임베드로 교체
+     ③ [주차정보 상세보기] 클릭 시 주차 안내 내용이 탭(패널)으로 열림 -->
+<!-- 배포 시 지도 교체용 구글 지도 임베드 (프롬프트 원문):
+<iframe src="https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x357ca3899b765d1d%3A0x90bf479b3a2df9d2!2z64yA64-Z7YOA7JuM!5e0!3m2!1sko!2skr!4v1784711700456!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+공유 링크: https://maps.app.goo.gl/WRiGqVbTcgbFw1T26 -->
+<section class="sec" data-label="P" data-name="오시는 길">
+
+  <!-- ===== 1안 — 지도 풀와이드 상단 + 하단 정보 3열 그리드 (센터 히어로 · 헤어라인 컬럼) ===== -->
+  <div class="variant vv active">
+
+    <div class="l1-hero">
+      <span class="l1-en">Location</span>
+      <h1 class="l1-title">당신의 아름다움을 위해 준비된<br><strong>버틀러</strong>입니다.</h1>
+    </div>
+
+    <div class="l1-map">
+      <div class="wf-img">MAP — 지도 영역 (구글 지도 임베드)</div>
+    </div>
+
+    <div class="v0sec"><div class="wrap">
+      <div class="l1-grid">
+
+        <div class="l1-col">
+          <h2 class="h-md">진료시간</h2>
+          <ul class="l1-hours">
+            <li><span>월-목</span><span>09:30 - 19:00</span></li>
+            <li><span>금</span><span>09:30 - 20:30</span></li>
+            <li><span>토요일</span><span>09:30 - 16:30</span></li>
+          </ul>
+          <p class="l1-note">점심시간 없이 진료 ・ 일요일 및 공휴일 휴진</p>
+        </div>
+
+        <div class="l1-col">
+          <h2 class="h-md">오시는 길</h2>
+          <div class="l1-row">
+            <span class="l1-lb">주소</span>
+            <p class="l1-v">서울특별시 강남구 도산대로 326 대동타워 7층 버틀러성형외과</p>
+          </div>
+          <div class="l1-row">
+            <span class="l1-lb">주차</span>
+            <p class="l1-v">대동타워 건물 주차장 · 기계식 주차 · 일부 차종 주차 제한 · 발렛 서비스 운영</p>
+            <button type="button" class="park-toggle" data-park="l1-park" aria-expanded="false" aria-controls="l1-park">주차정보 상세보기</button>
+            <div class="park-panel" id="l1-park">
+              <p class="ph">주차 안내</p>
+              <p class="pb">대동타워 건물 주차장을 이용하실 수 있습니다.<br>건물 내 기계식 주차장을 운영하며, 일부 차종은 주차가 제한될 수 있습니다.<br>발렛 서비스를 이용하실 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="l1-col">
+          <h2 class="h-md">상담문의</h2>
+          <a class="l1-tel" href="tel:02-547-8777">02-547-8777</a>
+        </div>
+
+      </div>
+
+      <div class="l1-cta">
+        <div class="loc-cta center">
+          <a class="loc-btn loc-btn-k" href="#">카카오상담</a>
+          <a class="loc-btn loc-btn-n" href="#">네이버 예약</a>
+          <a class="loc-btn loc-btn-t" href="tel:02-547-8777">전화연결</a>
+        </div>
+      </div>
+    </div></div>
+
+  </div>
+
+  <!-- ===== 2안 — 좌 지도 스티키 / 우 정보 스택 (칩 라벨 행 · 헤어라인 분할) ===== -->
+  <div class="variant vv">
+
+    <div class="wrap l2-pad">
+      <div class="l2-grid">
+
+        <!-- 좌 — 스티키 지도 -->
+        <aside>
+          <div class="l2-sticky">
+            <div class="wf-img l2-map">MAP — 지도 영역 (구글 지도 임베드)</div>
+            <p class="l2-cap">BUTLER CLINIC — 대동타워 7층</p>
+          </div>
+        </aside>
+
+        <!-- 우 — 정보 스택 -->
+        <div>
+          <div class="l2-blk first">
+            <span class="l2-en">Location</span>
+            <h1 class="l2-title">당신의 아름다움을 위해<br>준비된 <strong>버틀러</strong>입니다.</h1>
+          </div>
+
+          <div class="l2-blk">
+            <h2 class="h-md">진료시간</h2>
+            <div class="l2-list">
+              <div class="r"><span class="chip">월-목</span><span class="v">09:30 - 19:00</span></div>
+              <div class="r"><span class="chip">금</span><span class="v">09:30 - 20:30</span></div>
+              <div class="r"><span class="chip">토요일</span><span class="v">09:30 - 16:30</span></div>
+            </div>
+            <p class="l2-note">점심시간 없이 진료 ・ 일요일 및 공휴일 휴진</p>
+          </div>
+
+          <div class="l2-blk">
+            <h2 class="h-md">오시는 길</h2>
+            <div class="l2-list">
+              <div class="r"><span class="chip">주소</span><span class="v">서울특별시 강남구 도산대로 326 대동타워 7층 버틀러성형외과</span></div>
+              <div class="r"><span class="chip">주차</span><span class="v">대동타워 건물 주차장 · 기계식 주차 · 일부 차종 주차 제한 · 발렛 서비스 운영</span></div>
+            </div>
+            <button type="button" class="park-toggle" data-park="l2-park" aria-expanded="false" aria-controls="l2-park">주차정보 상세보기</button>
+            <div class="park-panel" id="l2-park">
+              <p class="ph">주차 안내</p>
+              <p class="pb">대동타워 건물 주차장을 이용하실 수 있습니다.<br>건물 내 기계식 주차장을 운영하며, 일부 차종은 주차가 제한될 수 있습니다.<br>발렛 서비스를 이용하실 수 있습니다.</p>
+            </div>
+          </div>
+
+          <div class="l2-blk">
+            <h2 class="h-md">상담문의</h2>
+            <a class="l2-tel" href="tel:02-547-8777">02-547-8777</a>
+            <div class="l2-ctawrap">
+              <div class="loc-cta">
+                <a class="loc-btn loc-btn-k" href="#">카카오상담</a>
+                <a class="loc-btn loc-btn-n" href="#">네이버 예약</a>
+                <a class="loc-btn loc-btn-t" href="tel:02-547-8777">전화연결</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== 3안 — 화이트 인트로 + 다크 인포 밴드 (다크 지도 + 아이콘 없는 텍스트 리스트 행) ===== -->
+  <div class="variant vv">
+
+    <div class="l3-intro">
+      <span class="l3-en">Location</span>
+      <h1 class="l3-title">당신의 아름다움을 위해 준비된 <br class="br-d2"><strong>버틀러</strong>입니다.</h1>
+    </div>
+
+    <div class="l3-band"><div class="wrap">
+
+      <div class="wf-img wf-dark wf-219">MAP — 지도 영역 (구글 지도 임베드)</div>
+
+      <div class="l3-rows">
+        <div class="l3-row">
+          <span class="l3-lb">주소</span>
+          <p class="l3-v">서울특별시 강남구 도산대로 326 대동타워 7층 버틀러성형외과</p>
+        </div>
+        <div class="l3-row">
+          <span class="l3-lb">주차</span>
+          <div>
+            <p class="l3-v">대동타워 건물 주차장 · 기계식 주차 · 일부 차종 주차 제한 · 발렛 서비스 운영</p>
+            <button type="button" class="park-toggle" data-park="l3-park" aria-expanded="false" aria-controls="l3-park">주차정보 상세보기</button>
+            <!-- 초고에 주차 안내 카피 2안 존재 — 1·2안 레이아웃은 상세형, 3안은 축약형 사용 (둘 다 원문 그대로) -->
+            <div class="park-panel" id="l3-park">
+              <p class="ph">주차 안내</p>
+              <p class="pb">건물 내 기계식 주차 및 발렛 서비스를 이용하실 수 있습니다. 일부 차종은 주차가 제한될 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="l3-row">
+          <span class="l3-lb">진료시간</span>
+          <div>
+            <ul class="l3-hours">
+              <li>월-목 : 09:30 - 19:00</li>
+              <li>금 : 09:30 - 20:30</li>
+              <li>토요일 : 09:30 - 16:30</li>
+            </ul>
+            <p class="l3-note">점심시간 없이 진료 ・ 일요일 및 공휴일 휴진</p>
+          </div>
+        </div>
+        <div class="l3-row">
+          <span class="l3-lb">상담문의</span>
+          <p><a class="l3-tel" href="tel:02-547-8777">02-547-8777</a></p>
+        </div>
+      </div>
+
+      <div class="l3-cta">
+        <div class="loc-cta">
+          <a class="loc-btn loc-btn-k" href="#">카카오상담</a>
+          <a class="loc-btn loc-btn-n" href="#">네이버 예약</a>
+          <a class="loc-btn loc-btn-t" href="tel:02-547-8777">전화연결</a>
+        </div>
+      </div>
+
+    </div></div>
+
+  </div>
+
+</section>
+
+<!-- ================= 프로모션 + 푸터 (여수스노우 카피 — 임시) ================= -->
+<div class="promo">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">PROMOTION</p>
+      <h2>Event &amp; Price</h2>
+      <p class="sub">가장 아름다워야 할 순간, 섬세한 혜택으로 함께합니다.</p>
+    </div>
+    <div class="grid">
+      <a class="pcard" href="#"><img src="img/img_carousel_01.jpg" alt=""><div class="cap"><p class="s">EVENT &amp; PRICE</p><p class="n">모공·흉터</p></div></a>
+      <a class="pcard" href="#"><img src="img/img_carousel_02.jpg" alt=""><div class="cap"><p class="s">EVENT &amp; PRICE</p><p class="n">여드름 치료</p></div></a>
+      <a class="pcard" href="#"><img src="img/img_carousel_03.jpg" alt=""><div class="cap"><p class="s">EVENT &amp; PRICE</p><p class="n">색소 치료</p></div></a>
+      <a class="pcard" href="#"><img src="img/img_carousel_04.jpg" alt=""><div class="cap"><p class="s">EVENT &amp; PRICE</p><p class="n">리프팅</p></div></a>
+      <a class="pcard" href="#"><img src="img/img_carousel_05.jpg" alt=""><div class="cap"><p class="s">EVENT &amp; PRICE</p><p class="n">스킨부스터</p></div></a>
+      <a class="pcard" href="#"><img src="img/img_carousel_06.jpg" alt=""><div class="cap"><p class="s">EVENT &amp; PRICE</p><p class="n">보톡스·필러</p></div></a>
+    </div>
+  </div>
+</div>
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <p class="logo">BUTLER CLINIC</p>
+      <p style="margin-top:12px;">임시 푸터 — 여수스노우 구조 카피 · 추후 교체 예정<br>대표 000-0000-0000 · 사업자등록번호 000-00-00000<br>주소 ○○시 ○○구 ○○로 00, 0층</p>
+    </div>
+    <div>
+      <p>진료시간 안내<br>평일 10:00 – 19:00 · 토요일 10:00 – 14:00<br>일요일·공휴일 휴진</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== 섹션 스위처 (변형 2개 이상만) =====
+document.querySelectorAll('.sec').forEach(sec => {
+  const variants = sec.querySelectorAll(':scope > .variant');
+  if (variants.length < 2) return;
+  const label = sec.dataset.label || '', name = sec.dataset.name || '';
+  const chip = document.createElement('div');
+  chip.className = 'sec-chip';
+  chip.innerHTML = '<span class="badge">' + label + '</span><span class="nm">' + name + '</span><span class="vbtns"></span>';
+  const btns = chip.querySelector('.vbtns');
+  variants.forEach((v, i) => {
+    const b = document.createElement('button');
+    b.textContent = i;
+    if (v.classList.contains('active')) b.classList.add('on');
+    b.addEventListener('click', () => {
+      variants.forEach(x => x.classList.remove('active'));
+      v.classList.add('active');
+      btns.querySelectorAll('button').forEach(x => x.classList.remove('on'));
+      b.classList.add('on');
+    });
+    btns.appendChild(b);
+  });
+  sec.prepend(chip);
+});
+
+// ===== 주차정보 상세보기 토글 (프롬프트: 클릭 시 주차 안내가 탭으로 열림) =====
+document.querySelectorAll('[data-park]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const panel = document.getElementById(btn.dataset.park);
+    if (!panel) return;
+    const open = panel.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+});
+</script>
+<link rel="stylesheet" href="/assets/css/mood-v3.css?v=2">
+</body>
+</html>

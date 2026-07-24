@@ -1,0 +1,2124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Butler Clinic — 성형외과 · 에이지 매니지먼트</title>
+<link rel="stylesheet" href="/assets/css/typo-guard.css?v=2">
+<meta name="description" content="당신의 나이를, 오직 당신만을 위해 설계합니다. 수술과 시술을 한곳에서 밀착 케어하는 프라이빗 에이지 매니지먼트 클리닉.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ffffff'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' fill='%23111827'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- 폰트는 head에서 일괄 로드 — 블럭 내 @import는 적용 지연으로 FOUC 발생 -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500&family=Manrope:wght@400;500;600;700&family=Instrument+Serif&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preload" href="assets/fonts/nt_fabulous-webfont.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+/* 폰트 준비 감지 — 준비 전에는 히어로 등장 애니메이션을 멈춰
+   폴백 글리프가 잠깐 보이는 깜빡임(FOUT)을 방지. 2.5s 안전장치 포함 */
+(function () {
+  var done = function () { document.documentElement.classList.add('fonts-ready'); };
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(done);
+    setTimeout(done, 2500);
+  } else { done(); }
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     공용 — 디자인 토큰 · 리셋 · 진입 리빌 문법
+     (전역 셀렉터는 이 블럭에서만 허용 — 섹션 CSS는 #block-NN 스코프)
+     ═══════════════════════════════════════════════════════════════ -->
+<style>
+/* NT Fabulous — 대형 디스플레이 영문 전용 웹폰트.
+   정적 단일 웨이트(w400) — 볼드 합성(유령 볼드) 금지.
+   라틴 글리프만 커버 → 한글은 스택 후순위 폰트로 자동 폴백 */
+@font-face {
+  font-family: 'NT Fabulous';
+  src: url('assets/fonts/nt_fabulous-webfont.woff2') format('woff2'),
+       url('assets/fonts/nt_fabulous-webfont.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  --gutter: clamp(39px, calc(65 / 1440 * 100vw), 97.5px); /* 사이트 표준 거터 (65px@1440) */
+
+  /* 타이포 스케일 */
+  --fs-hero: clamp(64px, calc(120 / 1440 * 100vw), 156px);
+  --fs-d2: clamp(52px, calc(96 / 1440 * 100vw), 125px);
+  --fs-body: clamp(14.5px, calc(17 / 1440 * 100vw), 22px);
+  --fs-label: clamp(12px, calc(14 / 1440 * 100vw), 19px);
+  --fs-meta: clamp(12px, calc(12 / 1440 * 100vw), 16px);
+  --lh-display: 1.05;
+  --lh-body: 1.65;
+  --ls-label: 0.18em;
+  --ls-meta: 0.08em;
+
+  /* 수직 리듬 */
+  --pad-b06: clamp(57.6px, calc(96 / 1440 * 100vw), 144px);
+
+  /* 모션 스케일 — 잔잔한 럭셔리 무드 기준값 */
+  --dur-micro: 0.6s;
+  --dur-std: 0.9s;
+  --dur-reveal: 1.4s;
+  --stagger: 0.12s;
+  --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  --radius-3: 12px;
+
+  /* 컬러 */
+  --neutral-1: #111827;
+  --neutral-2: #374151;
+  --neutral-3: #6B7280;
+  --neutral-4: #9CA3AF;
+  --neutral-5: #E5E7EB;
+
+  /* 폰트 — 영문 디스플레이는 NT Fabulous, 본문급 영문은 각 블럭의 한국어 서체를 따름 */
+  --font-heading: 'NT Fabulous', 'Instrument Serif', Georgia, serif;
+  --font-body: 'NT Fabulous', 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--neutral-1);
+  background: #fff;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+ul { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3, h4, h5, h6, p { margin: 0; font-weight: 400; }
+a { color: inherit; text-decoration: none; }
+
+/* 진입 리빌 공용 문법 — 하단 shared 스크립트의 [data-inview] 옵저버가 소비.
+   --i 로 스태거 (칼럼/행 인덱스), 스크럽 핀 요소에는 사용 금지 */
+[data-inview] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--dur-reveal) var(--ease-soft), transform var(--dur-reveal) var(--ease-soft);
+  transition-delay: calc(var(--i, 0) * var(--stagger));
+}
+[data-inview].is-inview {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-inview] { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+</style>
+</head>
+<body data-tx="1" class="tone-d">
+
+<header class="gnb">
+<style>
+.gnb{position:sticky;top:0;z-index:80;/*lang 기준*/ background:#FBFAF8;border-bottom:1px solid rgba(112,112,112,0.45);font-family:'Noto Sans','Noto Sans KR',sans-serif;}
+.gnb .gwrap{display:flex;align-items:center;justify-content:flex-start;height:60px;max-width:none;margin:0;padding:0 30px;gap:0;}
+.gnb .glogo{display:flex;align-items:center;text-decoration:none;}
+.gnb .glogo img{height:22px;width:auto;display:block;}
+.gnb nav.gnav{display:flex;gap:0;margin-left:auto;font-size:13px;font-weight:400;letter-spacing:0.03em;text-transform:uppercase;color:#333;}
+.gnb .nv{position:relative;padding:0 17px;}
+.gnb .nv > a{color:#333;text-decoration:none;padding:20px 0;display:inline-block;}
+.gnb .nv > a:hover{color:#111;}
+.gnb .nv-t{color:#333;cursor:default;padding:20px 0;display:inline-block;}
+.gnb .dp{position:absolute;top:100%;left:50%;transform:translateX(-50%);text-transform:none;background:#FBFAF8;border:1px solid #ECECEC;box-shadow:0 10px 28px rgba(0,0,0,0.07);border-radius:0;padding:8px 0;display:none;min-width:158px;z-index:120;}
+.gnb .nv:hover .dp{display:block;}
+.gnb .dp a{display:block;padding:8px 20px;font-size:12.5px;font-weight:400;color:#555;text-decoration:none;white-space:nowrap;text-align:left;}
+.gnb .dp a:hover{color:#111;background:#F4F4F4;}
+.gnb .gglobe{position:relative;margin-left:17px;display:flex;align-items:center;}
+.gnb .gglobe-btn{display:flex;align-items:center;justify-content:center;padding:20px 0;background:none;border:none;outline:none;cursor:pointer;color:#333;}
+.gnb .gglobe-btn:focus,.gnb .gglobe-btn:focus-visible{outline:none;}
+.gnb .gglobe .gdp{position:absolute;top:100%;right:0;background:#FBFAF8;border:1px solid #EBEBEB;box-shadow:0 10px 24px rgba(0,0,0,0.07);min-width:92px;padding:6px 0;display:none;z-index:130;}
+.gnb .gglobe:hover .gdp,.gnb .gglobe.open .gdp{display:block;}
+.gnb .gglobe .gdp a{display:block;padding:7px 18px;font-size:12px;letter-spacing:0.06em;color:#555;text-decoration:none;text-align:right;}
+.gnb .gglobe .gdp a:hover{color:#111;background:#F4F4F4;}
+.gnb .gglobe .gdp a.on{color:#111;font-weight:600;}
+.gnb .gmenu-btn{display:none;margin-left:auto;width:40px;height:40px;position:relative;background:none;border:none;cursor:pointer;}
+.gnb .gmenu-btn i{position:absolute;left:9px;right:9px;height:1.5px;background:#111;transition:transform .3s ease,opacity .3s ease;}
+.gnb .gmenu-btn i:nth-child(1){top:14px;} .gnb .gmenu-btn i:nth-child(2){top:20px;} .gnb .gmenu-btn i:nth-child(3){top:26px;}
+body.gm-open .gmenu-btn i:nth-child(1){transform:translateY(6px) rotate(45deg);}
+body.gm-open .gmenu-btn i:nth-child(2){opacity:0;}
+body.gm-open .gmenu-btn i:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+.gnb-mobile{position:fixed;inset:0;z-index:190;background:#FBFAF8;padding:84px 28px 120px;overflow-y:auto;display:none;}
+body.gm-open .gnb-mobile{display:block;}
+body.gm-open{overflow:hidden;}
+.gnb-mobile .gm-grp{border-bottom:1px solid #E3E3E3;padding:18px 0;}
+.gnb-mobile .gm-solo{border-bottom:none;padding:1.5px 0;}
+.gnb-mobile .gm-grp:not(.gm-solo) + .gm-solo{padding-top:18px;}
+.gnb-mobile .gm-t{font-size:15px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#111;}
+.gnb-mobile .gm-sub{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;}
+.gnb-mobile .gm-sub a{font-size:14px;color:#555;text-decoration:none;}
+.gnb-mobile .gm-lang{display:flex;justify-content:flex-start;gap:16px;margin-top:30px;padding-bottom:24px;font-size:12px;letter-spacing:0.1em;color:#b0b0b0;}
+.gnb-mobile .gm-lang a{color:#8a8a8a;text-decoration:none;}
+.gnb-mobile .gm-lang a.on{color:#111;font-weight:600;}
+@media(max-width:1024px){ .gnb nav.gnav{display:none;} .gnb .gglobe{display:none;} .gnb .gmenu-btn{display:block;} }
+@media(min-width:1025px){ .gnb-mobile{display:none !important;} }
+</style>
+<div class="gwrap">
+  <a href="index.html" class="glogo"><img src="img/00_home/logo_h_dark.png" alt="Butler Clinic"></a>
+  <nav class="gnav">
+    <div class="nv"><a href="about-brand-story-full.html">Butler Clinic</a>
+      <div class="dp">
+        <a href="about-brand-story-full.html">브랜딩 스토리</a>
+        <a href="about-doctors-full.html">의료진 소개</a>
+        <a href="about-equipment-full.html">보유장비·의약품</a>
+        <a href="about-tour-full.html">둘러보기</a>
+        <a href="about-location-full.html">오시는 길</a>
+      </div>
+    </div>
+    <div class="nv"><a href="surgery-eye-open.html">Surgery</a>
+      <div class="dp">
+        <a href="surgery-eye-open.html">눈 수술</a>
+        <a href="surgery-face-open.html">안면부 수술</a>
+        <a href="surgery-forehead-open.html">이마 수술</a>
+      </div>
+    </div>
+    <div class="nv"><a href="sub-open.html">Skin Care</a>
+      <div class="dp">
+        <a href="skincare-thread-lifting-open.html">실 리프팅</a>
+        <a href="sub-open.html">레이저 리프팅</a>
+        <a href="skincare-botox-filler-open.html">보톡스·필러</a>
+        <a href="skincare-skin-booster-open.html">스킨부스터</a>
+        <a href="skincare-regenerative-cell-open.html">재생세포</a>
+        <a href="skincare-hyperbaric-oxygen-open.html">고압산소치료</a>
+      </div>
+    </div>
+    <div class="nv"><span class="nv-t">Doctor's Column</span></div>
+    <div class="nv"><span class="nv-t">Before / After</span></div>
+    <div class="nv"><span class="nv-t">Promotion</span></div>
+  </nav>
+  <div class="gglobe">
+    <button class="gglobe-btn" type="button" aria-label="언어 선택"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9s1.3-6.4 3.8-9z"/></svg></button>
+    <div class="gdp"><a href="#" class="on">Korea</a><a href="#">English</a><a href="#">China</a><a href="#">Japan</a></div>
+  </div>
+  <button class="gmenu-btn" aria-label="메뉴 열기"><i></i><i></i><i></i></button>
+</div>
+<div class="gnb-mobile">
+  <div class="gm-grp"><span class="gm-t">Butler Clinic</span>
+    <div class="gm-sub">
+      <a href="about-brand-story-full.html">브랜딩 스토리</a>
+      <a href="about-doctors-full.html">의료진 소개</a>
+      <a href="about-equipment-full.html">보유장비·의약품</a>
+      <a href="about-tour-full.html">둘러보기</a>
+      <a href="about-location-full.html">오시는 길</a>
+    </div>
+  </div>
+  <div class="gm-grp"><span class="gm-t">Surgery</span>
+    <div class="gm-sub">
+      <a href="surgery-eye-open.html">눈 수술</a>
+      <a href="surgery-face-open.html">안면부 수술</a>
+      <a href="surgery-forehead-open.html">이마 수술</a>
+    </div>
+  </div>
+  <div class="gm-grp"><span class="gm-t">Skin Care</span>
+    <div class="gm-sub">
+      <a href="skincare-thread-lifting-open.html">실 리프팅</a>
+      <a href="sub-open.html">레이저 리프팅</a>
+      <a href="skincare-botox-filler-open.html">보톡스·필러</a>
+      <a href="skincare-skin-booster-open.html">스킨부스터</a>
+      <a href="skincare-regenerative-cell-open.html">재생세포</a>
+      <a href="skincare-hyperbaric-oxygen-open.html">고압산소치료</a>
+    </div>
+  </div>
+  <div class="gm-grp gm-solo"><span class="gm-t nv-t">Doctor's Column</span></div>
+  <div class="gm-grp gm-solo"><span class="gm-t nv-t">Before / After</span></div>
+  <div class="gm-grp gm-solo"><span class="gm-t nv-t">Promotion</span></div>
+  <div class="gm-lang"><a href="#" class="on">KR</a><a href="#">EN</a><a href="#">CH</a><a href="#">JP</a></div>
+</div>
+<script>
+(function(){
+  var btn = document.querySelector('.gnb .gmenu-btn');
+  if (btn) btn.addEventListener('click', function(){ document.body.classList.toggle('gm-open'); });
+  var gb = document.querySelector('.gnb .gglobe');
+  if (gb) {
+    gb.querySelector('.gglobe-btn').addEventListener('click', function(e){ e.stopPropagation(); gb.classList.toggle('open'); });
+    document.addEventListener('click', function(){ gb.classList.remove('open'); });
+  }
+  document.querySelectorAll('.nv-t').forEach(function(el){
+    el.style.cursor = 'pointer';
+    el.addEventListener('click', function(){ alert('준비중 입니다'); });
+  });
+})();
+</script>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     커스텀 커서 — rosa-template.webflow.io 문법 이식 (도트 팔로워)
+     프레임: 풀스크린 고정 + flex 중앙 / 도트: 0.75rem 원 · 브랜드 그린
+     네이티브 커서는 유지, 도트가 스무딩으로 따라옴. 터치 기기는 비활성
+     ═══════════════════════════════════════════════════════════════ -->
+<style>
+.cursor-frame {
+  z-index: 99999;
+  pointer-events: none;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+}
+.cursor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #13532b;
+  border: 1px solid transparent;
+  border-radius: 50vw;
+  width: .75rem;
+  height: .75rem;
+  opacity: 0;
+  transition: opacity 0.3s ease, width 0.35s var(--ease-soft), height 0.35s var(--ease-soft),
+    background-color 0.35s ease, border-color 0.35s ease;
+}
+.cursor-frame.is-live .cursor { opacity: 1; }
+/* 링크/버튼 호버 — 원이 확대되며 반투명해짐 (동일 원형 유지) */
+.cursor-frame.is-hovering .cursor {
+  width: 2.3rem;
+  height: 2.3rem;
+  background-color: rgba(19, 83, 43, 0.22);
+}
+/* 섬네일 호버 — 도트가 "Read More" + 1px 둥근 라인 필로 변신 */
+.cursor-label {
+  font-family: 'Manrope', 'Pretendard', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  color: #fff;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease 0.08s;
+  pointer-events: none;
+}
+.cursor-frame.is-readmore .cursor {
+  width: 104px;
+  height: 36px;
+  background-color: transparent;
+  border-color: #fff;
+}
+.cursor-frame.is-readmore .cursor-label { opacity: 1; }
+/* 네이티브 커서 완전 숨김 — 화살표·손가락 미노출, 도트만 표시.
+   인라인 cursor:pointer(스위처 버튼 등)까지 덮도록 !important */
+@media (pointer: fine) {
+  *, *::before, *::after { cursor: none !important; }
+}
+@media (max-width: 767px), (pointer: coarse) {
+  .cursor-frame { display: none; }
+}
+</style>
+<div class="cursor-frame" aria-hidden="true"><div class="cursor"><span class="cursor-label">Read More</span></div></div>
+<script>
+/* 도트 팔로워 — 마우스 좌표를 러프(lerp 0.18)로 추적해 살짝 뒤따르는 잔상감.
+   프레임이 도트를 뷰포트 중앙에 두므로 (마우스 - 중앙) 오프셋으로 이동 */
+(function () {
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+  var frame = document.querySelector('.cursor-frame');
+  var dot = frame.querySelector('.cursor');
+  var tx = 0, ty = 0, x = 0, y = 0, live = false, rafId = null;
+
+  function loop() {
+    x += (tx - x) * 0.18;
+    y += (ty - y) * 0.18;
+    dot.style.transform = 'translate(' + x.toFixed(1) + 'px, ' + y.toFixed(1) + 'px)';
+    if (Math.abs(tx - x) > 0.1 || Math.abs(ty - y) > 0.1) rafId = requestAnimationFrame(loop);
+    else rafId = null;
+  }
+
+  window.addEventListener('mousemove', function (e) {
+    tx = e.clientX - window.innerWidth / 2;
+    ty = e.clientY - window.innerHeight / 2;
+    if (!live) {
+      live = true;
+      x = tx; y = ty;
+      frame.classList.add('is-live');
+    }
+    if (!rafId) rafId = requestAnimationFrame(loop);
+  }, { passive: true });
+
+  /* 대표 시술 카드 섬네일 호버 — 커서를 Read More 필로 변신 (이벤트 위임) */
+  document.addEventListener('mouseover', function (e) {
+    if (e.target.closest && e.target.closest('#block-05 .b05-media')) {
+      frame.classList.add('is-readmore');
+    }
+  });
+  document.addEventListener('mouseout', function (e) {
+    if (e.target.closest && e.target.closest('#block-05 .b05-media')) {
+      if (!e.relatedTarget || !e.relatedTarget.closest('#block-05 .b05-media')) {
+        frame.classList.remove('is-readmore');
+      }
+    }
+  });
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     섹션 1 — 히어로 (풀스크린 미디어 + 중앙 타이틀)
+     A/B/C 스위처: A = hero_01.jpg 이미지, B·C = hero_01.mp4 영상 (중앙 라디얼 베일)
+     타이포: 축소 크기(영문 -30%·한국어 -20%) 공통
+     모션: 타이틀 블러 포커스 인 · 킥커/서브 순차 라이즈 · 미디어 준비 페이드인
+           (시안 전환 시 타이포 모션 재생) — 공통
+     ═══════════════════════════════════════════════════════════════ -->
+<style>
+#block-01 {
+  width: 100%;
+  padding: 0; /* 흰 프레임 */
+  background: #fff;
+}
+
+#block-01 .b01h-stage {
+  position: relative;
+  height: 95vh; /* 8px 프레임 제외 */
+  border-radius: 0;
+  overflow: hidden;
+  background: #145A2E; /* 이미지 로드 전 노출되는 지색 — 배경 이미지의 딥 그린과 동조 */
+}
+
+/* 배경 이미지 — 로드 전에는 다크 스테이지 유지, 로드 시점에 페이드인 + 슬로우 줌 */
+#block-01 .b01h-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.08);
+  opacity: 0;
+  transition: opacity 1.2s var(--ease-soft);
+}
+#block-01 .b01h-media.is-on {
+  opacity: 1;
+  animation: b01h-zoom 5s var(--ease-soft) forwards;
+}
+
+@keyframes b01h-zoom {
+  to { transform: scale(1); }
+}
+
+/* 영상 히어로(B)는 슬로우 줌 제외 — 재생 초반 떨림 방지, 페이드인만 유지 */
+#block-01 .b01h-media--vid { transform: none; }
+#block-01 .b01h-media--vid.is-on { animation: none; }
+
+#block-01 .b01h-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    transparent 45%,
+    color-mix(in srgb, var(--neutral-1) 45%, transparent) 100%);
+}
+
+/* 영상 히어로(B·C) — 전면 암전 대신 타이틀 중앙부에만 둥근 라디얼 그라데이션(블랙 20%).
+   중앙에서 가장자리로 부드럽게 소멸해 영상 밝기를 해치지 않으면서 글씨 아래만 받쳐줌 */
+body[data-tx="5"] #block-01 .b01h-veil,
+body[data-tx="9"] #block-01 .b01h-veil {
+  background: radial-gradient(ellipse 58% 42% at 50% 50%,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.13) 55%,
+    transparent 100%),
+    linear-gradient(180deg,
+    transparent 45%,
+    color-mix(in srgb, var(--neutral-1) 45%, transparent) 100%);
+}
+
+#block-01 .b01h-title {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+/* 킥커 — 본문급 영문은 한국어 서체와 동일 */
+#block-01 .b01h-kicker {
+  margin-bottom: clamp(12px, calc(22 / 1440 * 100vw), 33px);
+  font-family: 'Noto Serif KR', serif;
+  font-size: var(--fs-label);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: var(--ls-label);
+  color: rgba(255, 255, 255, 0.75);
+  opacity: 0;
+  transform: translateY(16px);
+  animation: b01h-rise 1.4s var(--ease-soft) 1.1s forwards;
+}
+
+/* 타이틀 — 블러 포커스 인: 카메라 초점이 맞듯 선명해짐 */
+#block-01 .b01h-title h1 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-hero);
+  font-weight: 400;
+  line-height: var(--lh-display);
+  opacity: 0;
+  filter: blur(16px);
+  transform: scale(1.05);
+  animation: b01h-focus 2s var(--ease-soft) 0.2s forwards;
+}
+
+@keyframes b01h-focus {
+  from { opacity: 0; filter: blur(16px); transform: scale(1.05); }
+  60% { opacity: 1; }
+  to { opacity: 1; filter: blur(0); transform: scale(1); }
+}
+
+/* 한국어 서브카피 — 명조 Light */
+#block-01 .b01h-sub {
+  margin-top: clamp(16px, calc(28 / 1440 * 100vw), 42px);
+  word-break: keep-all;
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(12px, calc(20 / 1440 * 100vw), 30px);
+  font-weight: 300;
+  line-height: var(--lh-body);
+  color: rgba(255, 255, 255, 0.92);
+  opacity: 0;
+  transform: translateY(16px);
+  animation: b01h-rise 1.4s var(--ease-soft) 1.35s forwards;
+}
+
+@keyframes b01h-rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 767px) {
+  #block-01 { padding: 0; }
+  #block-01 .b01h-stage { height: 95vh; min-height: 600px; }
+  #block-01 .b01h-title h1 { font-size: 8.7vw; }
+  #block-01 .b01h-kicker { font-size: 11px; letter-spacing: 0.26em; }
+  #block-01 .b01h-sub { font-size: 15px; margin-top: 16px; }
+}
+
+/* ── A/B/C 변형 (좌하단 스위처 body[data-tx] 연동) — C 히어로는 B와 동일(영상) ── */
+body[data-tx="1"] #block-01 .b01h-media--vid { display: none; } /* A = 이미지 */
+body[data-tx="5"] #block-01 .b01h-media--img,
+body[data-tx="9"] #block-01 .b01h-media--img { display: none; } /* B·C = 영상 */
+body[data-tx="5"] #block-01 .b01h-stage,
+body[data-tx="9"] #block-01 .b01h-stage { background: var(--neutral-1); } /* 영상 지색은 원래 다크 */
+
+/* 타이포 축소 — 영문 타이틀 30%·한국어 서브 20% (A/B 공통) */
+#block-01 .b01h-title h1 { font-size: clamp(44.8px, calc(84 / 1440 * 100vw), 109.2px); }
+#block-01 .b01h-sub { font-size: clamp(9.6px, calc(16 / 1440 * 100vw), 24px); }
+@media (max-width: 767px) {
+  #block-01 .b01h-title h1 { font-size: 6.09vw; }
+  #block-01 .b01h-sub { font-size: 12px; }
+}
+
+/* ── 스크롤 인디케이터 — 심볼 스핀 (A/B 공통) ──
+   하단 중앙, 자전하는 브랜드 심볼 + SCROLL 마이크로 레이블.
+   타이포 등장 후 페이드 인(is-on), 스크롤 시작 시 페이드 아웃 */
+#block-01 .b01h-scroll {
+  /* 주의: 이 컨테이너에 transform·opacity를 걸면 스태킹 컨텍스트가 생겨
+     심볼의 mix-blend-mode가 격리됨(검은 배경 노출). 중앙 정렬은 좌우 0 스트레치,
+     페이드는 자식 개별 처리 */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(22px, calc(36 / 1440 * 100vw), 54px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: -10px;
+  color: rgba(255, 255, 255, 0.65);
+  transition: margin-bottom 1.2s var(--ease-soft);
+  pointer-events: none;
+}
+#block-01 .b01h-scroll .b01h-symbol-spin,
+#block-01 .b01h-scroll .b01h-scroll-label {
+  opacity: 0;
+  transition: opacity 1.2s var(--ease-soft);
+}
+#block-01 .b01h-scroll.is-on { margin-bottom: 0; }
+#block-01 .b01h-scroll.is-on .b01h-symbol-spin { opacity: 0.85; }
+#block-01 .b01h-scroll.is-on .b01h-scroll-label { opacity: 1; }
+#block-01 .b01h-scroll-label {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-indent: 0.32em;
+  text-transform: uppercase;
+}
+#block-01 .b01h-symbol-spin {
+  display: block;
+  width: 27.6px;
+  /* JPG 심볼(흰 배경) 대응 — 반전 후 스크린 블렌드로 배경 소거, 심볼만 화이트로.
+     opacity는 위 리빌 규칙에서 제어 */
+  filter: invert(1) grayscale(1) brightness(1.8);
+  mix-blend-mode: screen;
+  animation: b01h-spin 12s linear infinite;
+}
+@keyframes b01h-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #block-01 .b01h-scroll { margin-bottom: 0; transition: none; }
+  #block-01 .b01h-scroll .b01h-symbol-spin { opacity: 0.85; transition: none; }
+  #block-01 .b01h-scroll .b01h-scroll-label { opacity: 1; transition: none; }
+  #block-01 .b01h-scroll * { animation: none !important; }
+}
+
+/* 폰트 준비 전 히어로 텍스트 애니메이션 대기 — FOUT 방지 */
+#block-01 .b01h-kicker, #block-01 .b01h-title h1, #block-01 .b01h-sub {
+  animation-play-state: paused;
+}
+html.fonts-ready #block-01 .b01h-kicker,
+html.fonts-ready #block-01 .b01h-title h1,
+html.fonts-ready #block-01 .b01h-sub {
+  animation-play-state: running;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #block-01 .b01h-title h1 { animation: none; opacity: 1; filter: none; transform: none; }
+  #block-01 .b01h-sub, #block-01 .b01h-kicker { animation: none; opacity: 1; transform: none; }
+  #block-01 .b01h-media { animation: none; transform: none; opacity: 1; transition: none; }
+}
+</style>
+
+<section id="block-01" class="b01h-hero">
+  <div class="b01h-stage">
+    <img class="b01h-media b01h-media--img" src="img/hero_01.jpg" alt="">
+    <video class="b01h-media b01h-media--vid" src="img/hero_01.mp4"
+      autoplay loop muted playsinline></video>
+    <div class="b01h-veil" aria-hidden="true"></div>
+
+    <div class="b01h-title">
+      <p class="b01h-kicker">Age management, personally</p>
+      <h1>Butler plastic surgery<br>Age management clinic</h1>
+      <p class="b01h-sub">당신의 나이를, 오직 당신만을 위해 설계합니다.</p>
+    </div>
+
+    <!-- 스크롤 인디케이터 — 심볼 스핀 (A/B 공통) -->
+    <div class="b01h-scroll" aria-hidden="true">
+      <img class="b01h-symbol-spin" src="img/brand_01.jpg" alt="">
+      <span class="b01h-scroll-label">Scroll</span>
+    </div>
+
+  </div>
+</section>
+
+<script>
+/* 섹션 1 — 미디어 준비 페이드인 (A 이미지=로드 완료, B 영상=재생 시작). 4s 안전장치 */
+(function () {
+  var img = document.querySelector('#block-01 .b01h-media--img');
+  var vid = document.querySelector('#block-01 .b01h-media--vid');
+  if (img) {
+    var onImg = function () { img.classList.add('is-on'); };
+    if (img.complete && img.naturalWidth > 0) { onImg(); }
+    else {
+      img.addEventListener('load', onImg, { once: true });
+      img.addEventListener('error', onImg, { once: true });
+    }
+    setTimeout(onImg, 4000);
+  }
+  if (vid) {
+    var onVid = function () { vid.classList.add('is-on'); };
+    if (!vid.paused && vid.readyState >= 2) { onVid(); }
+    else {
+      vid.addEventListener('playing', onVid, { once: true });
+      vid.addEventListener('loadeddata', onVid, { once: true });
+    }
+    setTimeout(onVid, 4000);
+  }
+})();
+
+/* 스크롤 인디케이터 — 타이포 등장 완료(2.8s) 후 페이드 인,
+   스크롤을 시작하면 페이드 아웃, 최상단 복귀 시 다시 표시 */
+(function () {
+  var els = document.querySelectorAll('#block-01 .b01h-scroll');
+  if (!els.length) return;
+  var shown = false;
+  function sync() {
+    var on = shown && window.scrollY < 60;
+    els.forEach(function (el) { el.classList.toggle('is-on', on); });
+  }
+  setTimeout(function () { shown = true; sync(); }, 2800);
+  window.addEventListener('scroll', sync, { passive: true });
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     섹션 2 — 브랜드 선언 (한국어 문단 스크럽 리빌 + Butler Clinic)
+     ※ 임시 스위처(좌하단)로 비교 중 — 확정 후 단일화:
+       A·B = 풀블리드 라이트 (중앙 문단 + 하단 브랜드)
+       C (data-tx=9) = 카드 스택 (풀블리드 흰색 → 엽서 축소 -2.5° · 그린 텍스처 캔버스)
+     공통 모션: 심볼 원샷 45° 회전+페이드 등장 → 어절 순차 진해짐 → 브랜드
+     ═══════════════════════════════════════════════════════════════ -->
+<style>
+/* 버전 가시성 제어 — 좌하단 스위처(body[data-tx])로 1개만 표시 */
+.b02x { display: none; }
+body[data-tx="1"] .b02x-v1,
+body[data-tx="5"] .b02x-v1 { display: block; } /* A·B */
+body[data-tx="9"] .b02x-v5 { display: block; } /* C = 엽서 카드 스택 */
+</style>
+
+<!-- ── A안 — 풀블리드 라이트 ── -->
+<style>
+#b02x1 {
+  position: relative;
+  height: 240vh;
+  background: #fff;
+}
+
+#b02x1 .b2v1-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: #fff;
+}
+
+#b02x1 .b2v1-center {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--gutter);
+}
+
+#b02x1 .b2v1-copy {
+  margin: -12vh 0 0;
+  max-width: 22em;
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 300;
+  font-size: clamp(16.8px, calc(26.4 / 1440 * 100vw), 38.4px); /* B(카드 스택)와 동일 스타일 */
+  line-height: 1.58;
+  letter-spacing: -0.01em;
+  text-align: center;
+  word-break: keep-all;
+  will-change: transform;
+}
+
+#b02x1 .b2v1-line {
+  display: block;
+}
+
+/* 어절 진해짐 — --b2v1-p(어절별 리빌 진행도)는 JS 스크럽 구동 */
+#b02x1 .b2v1-chunk {
+  --b2v1-p: 0;
+  color: var(--neutral-5);
+  color: color-mix(in oklab, var(--neutral-1) calc(var(--b2v1-p) * 100%), var(--neutral-5));
+}
+
+/* 브랜드 — 하단 중앙, 문단 리빌 후반에 페이드인 */
+#b02x1 .b2v1-brand {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(32px, 7vh, 72px);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  opacity: var(--b2v1-bp, 0);
+  transform: translate3d(0, calc((1 - var(--b2v1-bp, 0)) * 18px), 0);
+  pointer-events: none;
+}
+#b02x1 .b2v1-brand-rule {
+  width: 1px;
+  height: 34px;
+  background: var(--neutral-4);
+}
+#b02x1 .b2v1-brand-name {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(50.4px, calc(105 / 1440 * 100vw), 147px);
+  letter-spacing: -1px;
+  line-height: 1.2;
+  color: var(--neutral-1);
+}
+#b02x1 .b2v1-brand-label {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(10.4px, calc(14.4 / 1440 * 100vw), 20.8px);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--neutral-3);
+}
+
+@media (max-width: 767px) {
+  #b02x1 .b2v1-copy {
+    font-size: clamp(22px, 6.4vw, 30px); /* B 모바일과 동일 */
+    line-height: 1.66;
+  }
+  #b02x1 .b2v1-center {
+    padding: 0 20px;
+  }
+  #b02x1 .b2v1-brand {
+    bottom: 40px;
+    gap: 11px;
+  }
+  #b02x1 .b2v1-brand-rule {
+    height: 26px;
+  }
+}
+
+/* 정적 완성 상태 — 감속 모션 미러 (JS 토글) */
+#b02x1.b2v1-static {
+  height: auto;
+  background: #fff;
+}
+#b02x1.b2v1-static .b2v1-stage { position: relative; }
+#b02x1.b2v1-static .b2v1-chunk { --b2v1-p: 1; }
+#b02x1.b2v1-static .b2v1-copy { transform: none; }
+#b02x1.b2v1-static .b2v1-brand { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  #b02x1 { height: auto; }
+  #b02x1 .b2v1-stage { position: relative; }
+  #b02x1 .b2v1-chunk { --b2v1-p: 1; }
+  #b02x1 .b2v1-copy { transform: none; }
+  #b02x1 .b2v1-brand { opacity: 1; transform: none; }
+}
+</style>
+
+<section class="b02x b02x-v1" id="b02x1">
+  <div class="b2v1-stage">
+    <div class="b2v1-center">
+      <p class="b2v1-copy"><img class="b2v1-symbol" src="img/brand_01.jpg" alt="Butler Clinic 심볼">
+        <span class="b2v1-line"><span class="b2v1-chunk">한</span> <span class="b2v1-chunk">사람만을</span> <span class="b2v1-chunk">위해</span> <span class="b2v1-chunk">존재하는</span> <span class="b2v1-chunk">버틀러</span></span>
+        <span class="b2v1-line"><span class="b2v1-chunk">성형외과</span> <span class="b2v1-chunk">수술과</span> <span class="b2v1-chunk">의원의</span> <span class="b2v1-chunk">시술을</span></span>
+        <span class="b2v1-line"><span class="b2v1-chunk">한곳에서</span> <span class="b2v1-chunk">밀착</span> <span class="b2v1-chunk">케어</span> <span class="b2v1-chunk">합니다.</span></span>
+      </p>
+    </div>
+
+    <div class="b2v1-brand">
+      <span class="b2v1-brand-rule" aria-hidden="true"></span>
+      <span class="b2v1-brand-name">Butler Clinic</span>
+      <span class="b2v1-brand-label">Plastic surgery &amp; age management clinic</span>
+    </div>
+  </div>
+</section>
+
+<script>
+/* 버전 1 — 240vh 트랙 스크럽: q = clamp(-top / (트랙 - 스테이지), 0, 1)
+   심볼 q>0.005 토글(내릴 때 등장, 올라가면 역재생) →
+   어절 순차 리빌 q 0.06~0.54 → 브랜드 페이드 q 0.62~0.86 → 문단 저속 드리프트 */
+(function () {
+  'use strict';
+
+  var sec = document.getElementById('b02x1');
+  if (!sec) return;
+
+  var stage = sec.querySelector('.b2v1-stage');
+  var copy = sec.querySelector('.b2v1-copy');
+  var brand = sec.querySelector('.b2v1-brand');
+  var chunks = Array.prototype.slice.call(sec.querySelectorAll('.b2v1-chunk'));
+  var n = chunks.length;
+  if (!stage || !copy || !brand || !n) return;
+
+  var R0 = 0.06, R1 = 0.54;   // 어절 순차 리빌 구간
+  var B0 = 0.62, B1 = 0.86;   // 브랜드 페이드 구간
+
+  var span = R1 - R0;
+  var win = span * 0.34;                       // 어절 1개의 리빌 창 (q 단위)
+  var step = n > 1 ? (span - win) / (n - 1) : 0;
+
+  var lastP = [];
+  for (var i = 0; i < n; i++) lastP.push(-1);
+  var lastB = -1, lastY = null;
+  var staticMode = false, ticking = false;
+
+  function smooth(t) {
+    t = Math.max(0, Math.min(1, t));
+    return t * t * (3 - 2 * t);
+  }
+
+  function frame() {
+    ticking = false;
+    if (staticMode) return;
+    if (!sec.offsetParent) return; // 다른 버전 표시 중 (display:none)
+
+    var rect = sec.getBoundingClientRect();
+    var sh = stage.offsetHeight || window.innerHeight;
+    var range = rect.height - sh;
+    var q = range > 0 ? Math.max(0, Math.min(1, -rect.top / range)) : 1;
+
+    // 1) 심볼 — 시퀀스의 출발점
+    var symEl = sec.querySelector('.b2v1-symbol');
+    if (symEl) symEl.classList.toggle('b2v1-on', q > 0.005);
+
+    // 2) 어절 순차 진해짐
+    for (var i = 0; i < n; i++) {
+      var p = smooth((q - (R0 + i * step)) / win);
+      if (Math.abs(p - lastP[i]) > 0.001 || (p !== lastP[i] && (p === 0 || p === 1))) {
+        lastP[i] = p;
+        chunks[i].style.setProperty('--b2v1-p', p.toFixed(4));
+      }
+    }
+
+    // 3) 브랜드 페이드인
+    var b = smooth((q - B0) / (B1 - B0));
+    if (Math.abs(b - lastB) > 0.002 || (b !== lastB && (b === 0 || b === 1))) {
+      lastB = b;
+      brand.style.setProperty('--b2v1-bp', b.toFixed(3));
+    }
+
+    // 4) 문단 저속 수직 드리프트
+    var y = -(q * 26);
+    if (lastY === null || Math.abs(y - lastY) > 0.1) {
+      lastY = y;
+      copy.style.transform = 'translate3d(0,' + y.toFixed(2) + 'px,0)';
+    }
+  }
+
+  function request() {
+    if (!ticking) {
+      ticking = true;
+      window.requestAnimationFrame(frame);
+    }
+  }
+
+  function setStatic() {
+    staticMode = true;
+    sec.classList.add('b2v1-static');
+    for (var i = 0; i < n; i++) chunks[i].style.setProperty('--b2v1-p', '1');
+    brand.style.setProperty('--b2v1-bp', '1');
+    copy.style.transform = 'none';
+  }
+
+  // 리스너는 이 버전이 숨겨진 동안에도 유지 (스위처 전환 대응)
+  window.addEventListener('scroll', request, { passive: true });
+  window.addEventListener('resize', request, { passive: true });
+  window.addEventListener('load', request);
+
+  var mq = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+  if (mq) {
+    if (mq.matches) setStatic();
+    var onMq = function (e) { if (e.matches) setStatic(); };
+    if (mq.addEventListener) mq.addEventListener('change', onMq);
+    else if (mq.addListener) mq.addListener(onMq);
+  }
+
+  request();
+})();
+</script>
+
+<!-- ── B안 — 카드 스택 물리 전환 ── -->
+<style>
+/* 260vh 트랙 + 100vh 스티키. 연회색 캔버스 위 흰 카드 —
+   문단 리빌(q 0.05~0.5) → 브랜드 페이드(q 0.45~0.6) →
+   카드 후퇴(q 0.68~1: scale 0.744 · -3vh · 섀도 심화 · 오버레이 0.22) —
+   섹션 3 다크 카드가 밀고 들어오는 스택 전환의 예비 동작 */
+
+#b02x5 {
+  --b2v5-brand: 0;
+  --b2v5-exit: 0;
+  position: relative;
+  height: 260vh;
+  background: var(--neutral-5);
+}
+
+#b02x5 .b2v5-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--neutral-5) url('img/brand_02.jpg') center / cover no-repeat; /* bg.jpg 90° 회전본 */
+}
+
+#b02x5 .b2v5-card {
+  position: absolute;
+  inset: 0; /* 시작은 여백 없이 화면 전체를 흰색으로 채움 */
+  border-radius: calc(var(--b2v5-exit) * 16px); /* 작아지며 엽서 라운드가 함께 생김 */
+  background: #fff;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  -webkit-font-smoothing: antialiased;
+  will-change: transform, box-shadow;
+  transform-origin: 50% 50%;
+  transform:
+    translate3d(0, calc(var(--b2v5-exit) * -3vh), 0)
+    scale(calc(1 - 0.256 * var(--b2v5-exit)))
+    rotate(calc(var(--b2v5-exit) * -2.5deg)); /* 축소 최종 scale 0.744 · 엽서처럼 살짝 사선(-2.5°)으로 마무리 */
+  box-shadow:
+    0 calc(34px + 26px * var(--b2v5-exit)) calc(90px + 50px * var(--b2v5-exit)) rgba(17, 24, 39, calc(0.08 + 0.30 * var(--b2v5-exit))),
+    0 calc(6px + 8px * var(--b2v5-exit)) calc(24px + 16px * var(--b2v5-exit)) rgba(17, 24, 39, calc(0.05 + 0.10 * var(--b2v5-exit)));
+}
+
+/* 종이 질감 — 카드가 작아지며 흰색 → 페이퍼 텍스처로 전환 (0 → 1)
+   아이보리 지색 + SVG 프랙탈 노이즈 그레인 (외부 이미지 없음) */
+#b02x5 .b2v5-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: #F1EDE4;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23g)' opacity='0.16'/%3E%3C/svg%3E");
+  opacity: var(--b2v5-exit);
+  pointer-events: none;
+}
+#b02x5 .b2v5-para { position: relative; z-index: 1; } /* 질감 레이어 위에 유지 */
+
+/* 카드 위 어두운 오버레이 — 다음 카드가 드리우는 그늘 (0 → 0.22) */
+#b02x5 .b2v5-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: #0F1115;
+  opacity: calc(var(--b2v5-exit) * 0.22);
+  pointer-events: none;
+}
+
+/* 중앙 문단 — 어절 연한 색 → 진한 색 */
+#b02x5 .b2v5-para {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 300;
+  font-size: clamp(16.8px, calc(26.4 / 1440 * 100vw), 38.4px);
+  line-height: 1.58;
+  letter-spacing: -0.01em;
+  text-align: center;
+  word-break: keep-all;
+  margin: -12vh 0 0;
+  padding: 0 var(--gutter);
+}
+
+#b02x5 .b2v5-chunk {
+  color: var(--neutral-5);
+  transition: color var(--dur-reveal) var(--ease-soft);
+}
+
+#b02x5 .b2v5-chunk.b2v5-on {
+  color: var(--neutral-1);
+}
+
+/* 카드 하단 중앙 브랜드 (q 0.45~0.6 스크럽 페이드) */
+#b02x5 .b2v5-brand {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(30px, 5.5vh, 60px);
+  text-align: center;
+  opacity: var(--b2v5-brand);
+  transform: translate3d(0, calc((1 - var(--b2v5-brand)) * 14px), 0);
+}
+
+#b02x5 .b2v5-brand h2 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(50.4px, calc(105 / 1440 * 100vw), 147px);
+  letter-spacing: -1px;
+  margin: 0;
+  color: var(--neutral-1);
+}
+
+#b02x5 .b2v5-label {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(10.4px, calc(14.4 / 1440 * 100vw), 20.8px);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--neutral-3);
+  margin: 10px 0 0;
+}
+
+@media (max-width: 767px) {
+  #b02x5 .b2v5-para {
+    font-size: clamp(22px, 6.4vw, 30px);
+    line-height: 1.66;
+    max-width: 15em;
+    padding: 0 20px;
+  }
+  #b02x5 .b2v5-para br { display: none; }
+  #b02x5 .b2v5-brand { bottom: 26px; }
+  #b02x5 .b2v5-brand h2 { font-size: 31px; }
+  #b02x5 .b2v5-label { padding: 0 16px; }
+}
+
+/* 감속 모션: 카드 정적 완성 상태 (리빌 완료 · 후퇴 없음) */
+@media (prefers-reduced-motion: reduce) {
+  #b02x5 { height: auto; }
+  #b02x5 .b2v5-stage { position: relative; }
+  #b02x5 .b2v5-chunk { transition: none; color: var(--neutral-1); }
+  #b02x5 .b2v5-brand { opacity: 1; transform: none; }
+  #b02x5 .b2v5-card { transform: none; }
+  #b02x5 .b2v5-card::after { opacity: 0; }
+}
+</style>
+
+<section class="b02x b02x-v5" id="b02x5">
+  <div class="b2v5-stage">
+    <div class="b2v5-card">
+      <div class="b2v5-para" aria-label="한 사람만을 위해 존재하는 버틀러 — 성형외과 수술과 의원의 시술을 한곳에서 밀착 케어 합니다."><img class="b2v5-symbol" src="img/brand_01.jpg" alt="Butler Clinic 심볼">
+        <span class="b2v5-chunk">한 </span><span class="b2v5-chunk">사람만을 </span><span class="b2v5-chunk">위해 </span><span class="b2v5-chunk">존재하는 </span><span class="b2v5-chunk">버틀러</span><br>
+        <span class="b2v5-chunk">성형외과 </span><span class="b2v5-chunk">수술과 </span><span class="b2v5-chunk">의원의 </span><span class="b2v5-chunk">시술을</span><br>
+        <span class="b2v5-chunk">한곳에서 </span><span class="b2v5-chunk">밀착 </span><span class="b2v5-chunk">케어 </span><span class="b2v5-chunk">합니다.</span>
+      </div>
+      <div class="b2v5-brand">
+        <h2>Butler Clinic</h2>
+        <p class="b2v5-label">Plastic surgery &amp; age management clinic</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+/* 버전 5 — 카드 스택 스크럽: q = clamp(-top / (트랙 - 스테이지), 0, 1)
+   어절 0.05~0.5(클래스 토글 + 1.4s 컬러 트랜지션) ·
+   브랜드 0.45~0.6 · 카드 후퇴 0.68~1 (smoothstep, CSS 변수 구동) */
+(function () {
+  var sec = document.getElementById('b02x5');
+  if (!sec) return;
+  var stage = sec.querySelector('.b2v5-stage');
+  var chunks = [].slice.call(sec.querySelectorAll('.b2v5-chunk'));
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var CH = [0.05, 0.5];
+  var BR = [0.45, 0.6];
+  var EX = [0.68, 1];
+  var step = (CH[1] - CH[0]) / chunks.length;
+
+  function ramp(q, a, b) { return Math.min(1, Math.max(0, (q - a) / (b - a))); }
+  function smooth(t) { return t * t * (3 - 2 * t); }
+
+  var ticking = false;
+  function update() {
+    ticking = false;
+    if (!sec.offsetParent) return;
+    var r = sec.getBoundingClientRect();
+    var span = r.height - (stage.offsetHeight || window.innerHeight);
+    var q = span > 0
+      ? Math.min(1, Math.max(0, -r.top / span))
+      : (r.top < 0 ? 1 : 0);
+
+    for (var i = 0; i < chunks.length; i++) {
+      chunks[i].classList.toggle('b2v5-on', q >= CH[0] + i * step);
+      if (i === 0) { var symEl = sec.querySelector('.b2v5-symbol'); if (symEl) symEl.classList.toggle('b2v5-on', q > 0.005); }
+    }
+    sec.style.setProperty('--b2v5-brand', smooth(ramp(q, BR[0], BR[1])).toFixed(3));
+    sec.style.setProperty('--b2v5-exit', smooth(ramp(q, EX[0], EX[1])).toFixed(3));
+  }
+  function queue() {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }
+  window.addEventListener('scroll', queue, { passive: true });
+  window.addEventListener('resize', queue, { passive: true });
+  document.addEventListener('click', queue, true);
+  update();
+})();
+</script>
+
+<!-- ── 심볼 공통 — 원샷 45° 회전 + 페이드 등장 (내릴 때 등장, 올라가면 역재생) ── -->
+<style>
+#b02x1 .b2v1-symbol,
+#b02x5 .b2v5-symbol {
+  display: block;
+  margin: 0 auto clamp(20px, calc(32 / 1440 * 100vw), 48px);
+  width: clamp(40px, calc(56 / 1440 * 100vw), 80px);
+  height: auto;
+  mix-blend-mode: multiply; /* JPG 심볼(흰 배경) 대응 — 흰 배경을 지색에 녹여 소거 */
+  opacity: 0; /* 완전히 안 보이는 상태에서 시작 — 90° 시작은 왜곡돼 보임 */
+  transform: rotate(-45deg);
+  transition: opacity 1.6s var(--ease-soft), transform 1.6s var(--ease-soft);
+}
+#b02x1 .b2v1-symbol.b2v1-on,
+#b02x5 .b2v5-symbol.b2v5-on {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  #b02x1 .b2v1-symbol, #b02x5 .b2v5-symbol { opacity: 1 !important; transform: none !important; transition: none; }
+}
+</style>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     섹션 3 — identity 스택 (Surgery ↔ Skin care)
+     모션: 스크럽 줌 아웃 리빌 — Surgery 카드 위로 Skin care 카드가
+     1.25배 확대 상태에서 페이드 인하며 1배율로 정착, 하부 카드 스모크 암전.
+     모바일은 크로스페이드 밴드 + 1.15배 줌 아웃
+     이미지: 클리닉 컷 수급 전 임시 텍스처
+     ═══════════════════════════════════════════════════════════════ -->
+<style>
+#block-03 {
+  background: #fff;
+}
+
+#block-03 .b03s-stack { position: relative; height: 380vh; } /* 양쪽 홀드 확보용 러닝웨이 */
+#block-03 .b03s-viewport {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  clip-path: inset(0); /* 스티키+오버플로 조합에서 하위 페인트 누출 방지 */
+}
+#block-03 .b03s-card {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  will-change: transform;
+}
+#block-03 .b03s-card[data-card="1"] { opacity: 0; } /* 크로스페이드 줌 시작 상태 */
+#block-03 .b03s-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+}
+#block-03 .b03s-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 42%, rgba(0, 0, 0, 0.62) 100%);
+}
+#block-03 .b03s-smoke {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  pointer-events: none;
+}
+/* A안 진입 블러 포커스 인 — 섹션이 뷰포트에 들어올 때 흐리게 시작,
+   화면을 채울 즈음 초점이 맞음. 블러+확대 보정은 스크럽 스크립트가
+   Surgery 카드(card 0)에 매 프레임 구동 — 뷰포트가 확대분을 클리핑 */
+#block-03 .b03s-card[data-card="0"] { will-change: transform, filter; }
+#block-03 .b03s-detail {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: clamp(40px, calc(64 / 1440 * 100vw), 96px);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 중앙 하단 배치 */
+  text-align: center;
+  color: #fff;
+}
+#block-03 .b03s-name {
+  margin-bottom: 18px;
+  font-family: 'NT Fabulous', 'Noto Serif KR', serif;
+  font-weight: 400;
+  font-size: var(--fs-d2);
+  line-height: var(--lh-display);
+  color: #fff;
+}
+#block-03 .b03s-text {
+  max-width: none;
+  font-family: 'Pretendard', sans-serif;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: rgba(255, 255, 255, 0.82);
+  word-break: keep-all;
+}
+
+@media (max-width: 767px) {
+  /* 모바일: 풀스크린 와이프 → 90svh 단일 밴드 크로스페이드, 텍스트 수직 중앙 */
+  #block-03 .b03s-stack { height: 280vh; }
+  #block-03 .b03s-viewport {
+    top: 5svh; /* 핀 상태에서 밴드가 화면 세로 중앙에 위치 */
+    height: 90svh;
+  }
+  #block-03 .b03s-card[data-card="1"] { transform: none; opacity: 0; }
+  #block-03 .b03s-smoke { display: none; }
+  #block-03 .b03s-text br { display: none; } /* 데스크톱 2줄 지정 해제 */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #block-03 .b03s-stack { height: auto; }
+  #block-03 .b03s-viewport { position: static; height: auto; overflow: visible; }
+  #block-03 .b03s-card { position: relative; inset: auto; height: 100svh; transform: none !important; opacity: 1 !important; }
+  #block-03 .b03s-media { transform: none !important; }
+  #block-03 .b03s-smoke { display: none; }
+  #block-03 .b03s-card { filter: none !important; will-change: auto; }
+}
+</style>
+
+<section id="block-03" class="b03s-identity">
+  <div class="b03s-stack">
+    <div class="b03s-viewport">
+
+      <article class="b03s-card" data-card="0">
+        <img class="b03s-media" src="img/identity_01.jpg" alt="젖빛 유리 너머로 응시하는 얼굴 — 수술의 정밀함">
+        <div class="b03s-shade" aria-hidden="true"></div>
+        <div class="b03s-detail">
+          <h3 class="b03s-name">Surgery</h3>
+          <p class="b03s-text">얼굴의 뼈와 층을 읽어 온 성형외과 전문의가 눈수술부터 안면거상까지, 처짐의 깊이와 방향에 맞춰 직접 설계하고 집도합니다. <br>겉을 바꾸기보다 균형을 되찾아, 시간이 지나도 자연스러운 인상을 남깁니다.</p>
+        </div>
+        <div class="b03s-smoke" aria-hidden="true"></div>
+      </article>
+
+      <article class="b03s-card" data-card="1">
+        <img class="b03s-media" src="img/identity_02.jpg" alt="종이 위에 부드럽게 엠보싱된 질감 — 피부의 결과 탄력">
+        <div class="b03s-shade" aria-hidden="true"></div>
+        <div class="b03s-detail">
+          <h3 class="b03s-name">Skin care</h3>
+          <p class="b03s-text">레이저·부스터·재생 시술로 피부의 결과 탄력을 안에서부터 끌어올립니다. <br>수술이 필요 없는 단계는 밀착 관리로, 오늘의 컨디션과 나이의 흐름을 함께 살피며 한 분만을 위한 프로토콜로 이어갑니다.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<script>
+/* 섹션 3 — 스크럽 줌 아웃 리빌: p = clamp(-top / (높이 - vh))
+   Surgery 홀드 p 0~0.45 → 리빌 w = smoothstep((p - 0.45) / 0.3) →
+   Skin care 홀드 p 0.75~1 · card1 opacity w · 미디어 scale 1.25→1 ·
+   스모크 w×0.85. 모바일도 동일 구조(홀드 0.4 / 페이드 0.35 / 홀드 0.25) */
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sec = document.getElementById('block-03');
+
+  if (reduce) return;
+  var stack = sec.querySelector('.b03s-stack');
+  var card0 = stack.querySelector('[data-card="0"]');
+  var card1 = stack.querySelector('[data-card="1"]');
+  var media1 = card1.querySelector('.b03s-media');
+  var detail0 = card0.querySelector('.b03s-detail');
+  var detail1 = card1.querySelector('.b03s-detail');
+  var smoke = stack.querySelector('.b03s-smoke');
+  var ticking = false;
+
+  function clamp01(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+  function smooth(t) { return t * t * (3 - 2 * t); }
+
+  function onFrame() {
+    ticking = false;
+    var rect = stack.getBoundingClientRect();
+    var vh = window.innerHeight;
+    var total = rect.height - vh;
+    if (total <= 0) return;
+    var p = clamp01(-rect.top / total);
+
+    /* A안 진입 블러 포커스 인 — 진입도 e: 섹션 상단이 뷰포트 하단(e=0) → 상단 고정(e=1).
+       e=0(진입 직후) 블러 18px → e=0.9(화면을 거의 채운 시점) 0px로 초점 인. B안은 항상 꺼짐.
+       블러는 클리핑 컨테이너 안쪽의 카드에 걸고 강도에 비례해 확대 —
+       블러 가장자리가 투명하게 번져 배경색이 비치는 것을 클립 밖으로 밀어냄 */
+    var e = clamp01(1 - rect.top / vh);
+    var blur = document.body.getAttribute('data-tx') === '1'
+      ? (1 - smooth(clamp01(e / 0.9))) * 18
+      : 0;
+    if (blur > 0.05) {
+      card0.style.filter = 'blur(' + blur.toFixed(2) + 'px)';
+      card0.style.transform = 'scale(' + (1 + blur / 300).toFixed(4) + ')';
+    } else {
+      card0.style.filter = 'none';
+      card0.style.transform = 'none';
+    }
+    if (window.matchMedia('(max-width: 767px)').matches) {
+      /* Surgery 홀드 p 0~0.4 → 크로스페이드 0.4~0.75 → Skin care 홀드 0.75~1 */
+      var f = smooth(clamp01((p - 0.4) / 0.35));
+      card1.style.transform = 'none';
+      media1.style.transform = 'scale(' + (1.15 - 0.15 * f).toFixed(4) + ')'; /* 줌 아웃 리빌 */
+      card1.style.opacity = f.toFixed(3);
+      detail0.style.opacity = Math.min(smooth(clamp01((e - 0.55) / 0.35)), 1 - smooth(clamp01((p - 0.35) / 0.2))).toFixed(3);
+      detail1.style.opacity = f > 0 ? smooth(clamp01((p - 0.62) / 0.2)).toFixed(3) : '0';
+      smoke.style.opacity = '0';
+    } else {
+      /* Surgery 홀드 p 0~0.45 → 크로스페이드 0.45~0.75 → Skin care 홀드 0.75~1 */
+      var w = smooth(clamp01((p - 0.45) / 0.3));
+      /* Skin care — 크로스페이드 줌: 1.25배 확대 상태에서 페이드 인하며 1배율로 정착 */
+      card1.style.transform = 'none';
+      card1.style.opacity = w.toFixed(3);
+      media1.style.transform = 'scale(' + (1.25 - 0.25 * w).toFixed(4) + ')';
+      /* Surgery 텍스트: 진입 시 페이드 인(e) → 리빌 시작되면 선퇴장(w 0.1~0.4) —
+         카드가 반투명하게 겹치는 동안 두 타이틀 이중 노출 방지 */
+      var out0 = 1 - smooth(clamp01((w - 0.1) / 0.3));
+      detail0.style.opacity = (smooth(clamp01((e - 0.55) / 0.35)) * out0).toFixed(3);
+      detail1.style.opacity = smooth(clamp01((w - 0.55) / 0.4)).toFixed(3);
+      smoke.style.opacity = (w * 0.85).toFixed(3);
+    }
+  }
+
+  function requestFrame() { if (!ticking) { ticking = true; requestAnimationFrame(onFrame); } }
+  window.addEventListener('scroll', requestFrame, { passive: true });
+  window.addEventListener('resize', requestFrame, { passive: true });
+  onFrame();
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     섹션 4 — Featured Operation (시술 카드 3칼럼 × 2그룹)
+     호버: 슬로우 줌 + 타이틀 언더라인 드로우. 모바일: 스크롤 연동 캐러셀
+     ═══════════════════════════════════════════════════════════════ -->
+<style>
+#block-05 {
+  width: 100%;
+  padding: clamp(115.2px, calc(192 / 1440 * 100vw), 288px) 0 clamp(192px, calc(320 / 1440 * 100vw), 480px);
+  background: #fff;
+  font-family: 'Pretendard', var(--font-body); /* 본문급 영문은 한국어 서체와 동일 */
+}
+
+#block-05 .b05-heading {
+  font-family: 'NT Fabulous', 'Pretendard', serif; /* 디스플레이 영문은 웹폰트 유지 */
+  margin: 0 0 clamp(16px, calc(26 / 1440 * 100vw), 39px);
+  font-size: clamp(40px, calc(72 / 1440 * 100vw), 108px);
+  font-weight: 400;
+  line-height: var(--lh-display);
+  text-align: center;
+  color: var(--neutral-1);
+}
+
+#block-05 .b05-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, calc(40 / 1440 * 100vw), 60px) clamp(4.8px, calc(8 / 1440 * 100vw), 12px);
+  padding: 0 var(--gutter);
+}
+
+/* B안 — 6개 카드 그리드를 풀블리드 대신 컨테이너 폭(최대 1600px)으로 중앙 정렬 */
+body[data-tx="5"] #block-05 .b05-grid {
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  column-gap: clamp(7.2px, calc(12 / 1440 * 100vw), 18px); /* 기본 대비 +50% */
+}
+
+/* 텍스트 우측 안전 여백 — 칼럼 간격은 유지하며 글자만 이격 */
+#block-05 .b05-titlerow,
+#block-05 .b05-desc {
+  padding-right: clamp(16px, calc(28 / 1440 * 100vw), 42px);
+}
+
+#block-05 .b05-card {
+  position: relative;
+  display: block;
+}
+
+/* 카드 순차 리빌 (A/B/C 공통) — 회전 없이 아래에서 떠올라
+   순번(--i 0~5)대로 1→2→3 차례차례 나타남 */
+#block-05 .b05-card[data-inview] {
+  opacity: 0;
+  transform: translateY(44px);
+  transition: opacity 1s var(--ease-soft), transform 1s var(--ease-soft);
+  transition-delay: calc(var(--i, 0) * 0.13s);
+}
+#block-05 .b05-card[data-inview].is-inview {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  #block-05 .b05-card[data-inview] { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+#block-05 .b05-media {
+  position: relative;
+  display: block;
+  aspect-ratio: 458 / 481;
+  overflow: hidden;
+}
+
+#block-05 .b05-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-reveal) var(--ease-soft);
+}
+#block-05 .b05-card:hover .b05-media img { transform: scale(1.05); }
+
+#block-05 .b05-titlerow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: clamp(14.4px, calc(24 / 1440 * 100vw), 36px);
+}
+
+#block-05 .b05-title {
+  position: relative;
+  padding-bottom: 6px;
+  word-break: keep-all;
+  font-size: clamp(12px, calc(20 / 1440 * 100vw), 22px); /* 상한 A/B/C 공통 */
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--neutral-1);
+}
+#block-05 .b05-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--neutral-1);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--dur-std) var(--ease-soft);
+}
+#block-05 .b05-card:hover .b05-title::after { transform: scaleX(1); }
+
+#block-05 .b05-desc {
+  display: block;
+  word-break: keep-all;
+  margin-top: clamp(3.6px, calc(6 / 1440 * 100vw), 9px);
+  font-size: clamp(10.4px, calc(13 / 1440 * 100vw), 14.5px); /* 상한 A/B/C 공통 */
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--neutral-2);
+}
+
+/* 모바일: 1칼럼 가로 트랙 — 스크럽 진행도에 비례해 좌우 롤링 */
+@media (max-width: 767px) {
+  #block-05 {
+    height: 500vw; /* 스크럽 구간 (트랙 이동 거리 확보) */
+    padding: 0;
+  }
+  #block-05 .b05-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+  #block-05 .b05-heading {
+    margin-bottom: 24px;
+  }
+  #block-05 .b05-grid {
+    display: flex;
+    gap: 8px;
+    padding: 0 16px;
+    width: max-content;
+    will-change: transform;
+  }
+  #block-05 .b05-card { width: 78vw; flex: none; }
+  #block-05 .b05-title { font-size: 20px; }
+  #block-05 .b05-desc { font-size: 13px; }
+}
+
+@media (min-width: 768px) {
+  #block-05 .b05-sticky { position: static; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #block-05 .b05-media img, #block-05 .b05-title::after { transition: none; }
+  #block-05 { height: auto; }
+  #block-05 .b05-grid { transform: none !important; overflow-x: auto; }
+}
+</style>
+
+<section id="block-05" class="b05-features">
+  <div class="b05-sticky">
+    <p class="b05-heading" data-inview>Featured Operation</p>
+    <div class="b05-grid">
+
+      <a class="b05-card" href="#consult" data-inview style="--i:0">
+        <span class="b05-media"><img src="img/featured_01.jpg" alt="눈매에 빛이 드리운 흑백 인물 — 눈 수술" style="object-position:50% 26%">
+        </span>
+        <span class="b05-titlerow">
+          <span class="b05-title">눈 수술</span>
+        </span>
+        <span class="b05-desc">쌍꺼풀부터 눈썹하거상까지 일곱 가지 방법으로 눈매의 형태와 기능을 개인의 결에 맞게 다듬는 수술로 얼굴 전체의 균형을 맞추어 인상의 균형을 맞춥니다.</span>
+      </a>
+
+      <a class="b05-card" href="#consult" data-inview style="--i:1">
+        <span class="b05-media"><img src="img/featured_02.jpg" alt="어두운 질감 위의 원형 각인 — 상안면의 비율" style="object-position:38% 30%">
+        </span>
+        <span class="b05-titlerow">
+          <span class="b05-title">이마 수술</span>
+        </span>
+        <span class="b05-desc">처진 이마와 눈썹을 올리는 거상, 넓은 이마를 좁히는 축소, 두 과정을 한 번에 담는 축소거상으로 상안면의 비율과 인상을 정돈하는 수술입니다.</span>
+      </a>
+
+      <a class="b05-card" href="#consult" data-inview style="--i:2">
+        <span class="b05-media"><img src="img/featured_03.jpg" alt="부드럽게 솟은 엠보싱의 곡면 — 얼굴의 윤곽과 라인" style="object-position:64% 18%">
+        </span>
+        <span class="b05-titlerow">
+          <span class="b05-title">안면부 수술</span>
+        </span>
+        <span class="b05-desc">안면부 수술은 턱밑 지방·근육 교정부터 미니리프팅, 하프거상, 안면거상까지 처짐의 범위와 깊이에 맞춰 얼굴의 윤곽과 라인을 정돈하는 수술입니다.</span>
+      </a>
+
+      <a class="b05-card" href="#consult" data-inview style="--i:3">
+        <span class="b05-media"><img src="img/featured_04.jpg" alt="어둠을 가르며 떨어지는 빛의 결 — 깊은 층에 닿는 에너지" style="object-position:12% 40%">
+        </span>
+        <span class="b05-titlerow">
+          <span class="b05-title">레이저 리프팅</span>
+        </span>
+        <span class="b05-desc">초음파·고주파·마이크로파 에너지로 피부 깊은 층의 콜라겐 재생을 이끌어, 절개 없이 처짐과 탄력을 되살리는 비수술 리프팅입니다.</span>
+      </a>
+
+      <a class="b05-card" href="#consult" data-inview style="--i:4">
+        <span class="b05-media"><img src="img/featured_05.jpg" alt="빛을 받은 beauté 인쇄물의 곡면 — 안에서부터 차오르는 밀도" style="object-position:44% 60%">
+        </span>
+        <span class="b05-titlerow">
+          <span class="b05-title">스킨 · 콜라겐 · ECM 부스터</span>
+        </span>
+        <span class="b05-desc">수분·재생 성분과 콜라겐을 깨우는 생분해 입자, 피부 구조 성분(ECM)까지 직접 전해 결과 탄력·밀도를 안에서부터 다시 세우는 부스터 시술입니다.</span>
+      </a>
+
+      <a class="b05-card" href="#consult" data-inview style="--i:5">
+        <span class="b05-media"><img src="img/featured_06.jpg" alt="겹겹이 쌓인 질감의 결 — 다시 깨어나는 세포" style="object-position:78% 72%">
+        </span>
+        <span class="b05-titlerow">
+          <span class="b05-title">재생세포</span>
+        </span>
+        <span class="b05-desc">혈액·지방에서 얻은 성장인자와 사이토카인을 피부와 혈액에 전해, 둔해진 세포의 재생과 탄력 회복을 안에서부터 돕는 재생 안티에이징 시술입니다.</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<script>
+/* 섹션 4 — 모바일 스크롤 연동 캐러셀: 블럭 스크럽 진행도 p에 비례해 트랙을
+   translateX. 스크럽이므로 다운 시 좌로, 업 시 우로 양방향 자동 */
+(function () {
+  var sec = document.getElementById('block-05');
+  var grid = sec.querySelector('.b05-grid');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;
+
+  var ticking = false;
+  function update() {
+    ticking = false;
+    if (window.innerWidth > 767) { grid.style.transform = ''; return; }
+    var r = sec.getBoundingClientRect();
+    var vh = window.innerHeight;
+    var range = r.height - vh;
+    if (range <= 0) { grid.style.transform = ''; return; }
+    var p = Math.min(1, Math.max(0, -r.top / range));
+    var overflow = grid.scrollWidth - window.innerWidth;
+    grid.style.transform = 'translateX(' + (-p * Math.max(0, overflow)) + 'px)';
+  }
+  function onScroll() {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  update();
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     섹션 5 — 시그니처 장비 인덱스 (Laser lifting · Ultherapy · Thermage …)
+     호버: 인라인 이미지 확장 · CTA 행은 ✳ 페이드인 + 연속 회전
+     이미지: 클리닉 컷 수급 전 임시
+     ═══════════════════════════════════════════════════════════════ -->
+<style>
+#block-06 {
+  width: 100%;
+  background: #fff; /* 리빌 풋터 뒤비침 방지 */
+  padding: var(--pad-b06) 0;
+}
+
+#block-06 .b06-list {
+  border-top: 1px solid var(--neutral-1);
+}
+
+#block-06 .b06-item {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid var(--neutral-1);
+}
+
+#block-06 .b06-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: max(11.15px, calc(20.75 / 1440 * 100vw)) 0 max(5px, calc(9 / 1440 * 100vw));
+  font-family: var(--font-heading);
+  font-size: clamp(62.4px, calc(112.3 / 1440 * 100vw), 146.4px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.025em;
+  color: var(--neutral-1);
+  white-space: nowrap;
+}
+
+/* 타이틀 중간 인라인 이미지 — 호버 시 width 확장 (1em = 타이틀 폰트 기준 자동 비례) */
+#block-06 .b06-visual {
+  width: 0;
+  height: 1em;
+  margin: 0 0.12em;
+  overflow: hidden;
+  flex: none;
+  transition: width var(--dur-std) var(--ease-soft);
+}
+
+#block-06 .b06-item:hover .b06-visual {
+  width: 1.5em;
+}
+
+#block-06 .b06-visual-inner {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url('img/equipment_00.jpg') center / cover no-repeat;
+}
+
+#block-06 .b06-visual-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CTA 행 장식 글리프 — 호버 시 페이드인 + 연속 회전.
+   paused/running 토글이라 이탈 시 각도가 유지돼 스냅이 없음 */
+#block-06 .b06-deco {
+  display: inline-block;
+  min-width: 0;
+  opacity: 0;
+  transition: opacity var(--dur-micro) var(--ease-soft);
+  animation: b06-spin 3.2s linear infinite;
+  animation-play-state: paused;
+}
+
+#block-06 .b06-item--cta:hover .b06-deco {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+@keyframes b06-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 숨김 링크 — 행 전체 클릭 영역 */
+#block-06 .b06-link {
+  position: absolute;
+  inset: 0;
+  font-size: 0;
+  font-family: var(--font-body);
+  color: var(--neutral-1);
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #block-06 .b06-visual { transition: none; }
+  #block-06 .b06-deco { transition: none; animation: none; }
+}
+</style>
+
+<section id="block-06" class="b06-featured-links" aria-label="시그니처 장비 인덱스">
+  <ul class="b06-list">
+
+    <li class="b06-item b06-item--cta" data-inview style="--i:0">
+      <h3 class="sr-only">Laser lifting</h3>
+      <div aria-hidden="true" class="b06-title">
+        <span class="b06-deco">✳</span>
+        <span>Laser lifting</span>
+        <span class="b06-deco">✳</span>
+      </div>
+      <a href="#consult" class="b06-link">레이저 리프팅 자세히 보기</a>
+    </li>
+
+    <li class="b06-item" data-inview style="--i:1">
+      <h3 class="sr-only">Ultherapy PRIME®</h3>
+      <div aria-hidden="true" class="b06-title">
+        <span>Ultherapy</span>
+        <div class="b06-visual"><span class="b06-visual-inner"><img alt="" width="300" height="189" src="img/equipment_01.jpg"></span></div>
+        <span>PRIME®</span>
+      </div>
+      <a href="#consult" class="b06-link">Ultherapy PRIME® 자세히 보기</a>
+    </li>
+
+    <li class="b06-item" data-inview style="--i:2">
+      <h3 class="sr-only">Thermage FLX®</h3>
+      <div aria-hidden="true" class="b06-title">
+        <span>Thermage</span>
+        <div class="b06-visual"><span class="b06-visual-inner"><img alt="" width="300" height="189" src="img/equipment_02.jpg"></span></div>
+        <span>FLX®</span>
+      </div>
+      <a href="#consult" class="b06-link">Thermage FLX® 자세히 보기</a>
+    </li>
+
+    <li class="b06-item" data-inview style="--i:3">
+      <h3 class="sr-only">ONDA®</h3>
+      <div aria-hidden="true" class="b06-title">
+        <span>ONDA®</span>
+        <div class="b06-visual"><span class="b06-visual-inner"><img alt="" width="300" height="189" src="img/equipment_03.jpg"></span></div>
+        <span></span>
+      </div>
+      <a href="#consult" class="b06-link">ONDA® 자세히 보기</a>
+    </li>
+
+    <li class="b06-item" data-inview style="--i:4">
+      <h3 class="sr-only">ALLTITE</h3>
+      <div aria-hidden="true" class="b06-title">
+        <span>ALLTITE</span>
+        <div class="b06-visual"><span class="b06-visual-inner"><img alt="" width="300" height="189" src="img/equipment_04.jpg"></span></div>
+        <span></span>
+      </div>
+      <a href="#consult" class="b06-link">ALLTITE 자세히 보기</a>
+    </li>
+
+    <li class="b06-item" data-inview style="--i:5">
+      <h3 class="sr-only">Potenza</h3>
+      <div aria-hidden="true" class="b06-title">
+        <span>Potenza</span>
+        <div class="b06-visual"><span class="b06-visual-inner"><img alt="" width="300" height="189" src="img/equipment_05.jpg"></span></div>
+        <span></span>
+      </div>
+      <a href="#consult" class="b06-link">Potenza 자세히 보기</a>
+    </li>
+
+  </ul>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     섹션 6 — 리빌 풋터
+     푸터를 화면 뒤에 고정(fixed, z-index -1)하고 위 콘텐츠가 올라가며
+     걷히듯 드러남 — 문서 흐름의 높이는 .b07-spacer가 대신 차지
+     ═══════════════════════════════════════════════════════════════ -->
+<style>
+#block-07 {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  height: clamp(420px, 50vw, 720px); border-radius: 0;
+  overflow: hidden;
+  background: var(--neutral-1);
+}
+
+.b07-spacer {
+  height: clamp(420px, 50vw, 720px); /* 푸터와 동일 — 흐름 높이 확보 */
+  pointer-events: none;
+}
+
+#block-07 .b07-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.06);
+  will-change: transform;
+}
+
+#block-07 .b07-filter {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--neutral-1) 20%, transparent);
+}
+
+#block-07 .b07-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#block-07 .b07-logo {
+  font-family: var(--font-heading);
+  font-size: var(--fs-d2);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -1px; /* 워드마크 자간 통일 */
+  color: #fff;
+  white-space: nowrap;
+}
+
+#block-07 .b07-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(9.6px, calc(16 / 1440 * 100vw), 24px);
+  padding: clamp(14.4px, calc(24 / 1440 * 100vw), 36px) var(--gutter);
+  font-family: 'Pretendard', sans-serif; /* 본문급 영문은 한국어 서체와 동일 */
+  font-size: var(--fs-meta);
+  font-weight: 500;
+  letter-spacing: var(--ls-meta);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#block-07 .b07-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(9.6px, calc(16 / 1440 * 100vw), 24px) clamp(19.2px, calc(32 / 1440 * 100vw), 48px);
+}
+
+@media (max-width: 767px) {
+  #block-07 { height: 130vw; }
+  .b07-spacer { height: clamp(400px, 70vw, 560px); }
+  #block-07 { height: clamp(400px, 70vw, 560px); }
+  #block-07 .b07-logo { font-size: 10.5vw; }
+  #block-07 .b07-info {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+    font-size: 11px;
+  }
+  #block-07 .b07-meta { flex-direction: column; gap: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #block-07 .b07-bg { transform: none !important; }
+}
+</style>
+
+<footer id="block-07" class="b07-footer">
+  <img class="b07-bg" src="img/footer_01.jpg" alt="">
+  <div class="b07-filter" aria-hidden="true"></div>
+  <div class="b07-inner">
+    <p class="b07-logo">Butler Clinic</p>
+  </div>
+  <div class="b07-info">
+    <div class="b07-meta">
+      <span>Address. 서울특별시 강남구 테헤란로 123, 버틀러타워 5F</span>
+      <span>Tel. 02-1234-5678</span>
+      <span>Business No. 123-45-67890</span>
+    </div>
+    <span>© 2026 Butler Clinic. All rights reserved.</span>
+  </div>
+</footer>
+<div class="b07-spacer" id="consult" aria-hidden="true"></div>
+
+<script>
+/* 섹션 6 — 리빌 진행도(스페이서 기준)에 따른 안무:
+   배경 1.06→1 축소 · 로고 40px 패럴랙스 · 인포 지연 페이드(p 0.55~0.9) */
+(function () {
+  var sec = document.getElementById('block-07');
+  var spacer = document.querySelector('.b07-spacer');
+  var bg = sec.querySelector('.b07-bg');
+  var logo = sec.querySelector('.b07-logo');
+  var info = sec.querySelector('.b07-info');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;
+
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var r = spacer.getBoundingClientRect();
+    var vh = window.innerHeight;
+    var p = Math.min(1, Math.max(0, (vh - r.top) / r.height));
+    bg.style.transform = 'scale(' + (1.06 - 0.06 * p) + ')';
+      var cut = Math.max(0, r.top - (vh - sec.offsetHeight)); var R = window.innerWidth <= 768 ? 40 : 80; var rr = (R * Math.min(1, Math.max(0, (p - 0.7) / 0.3))).toFixed(1); sec.style.clipPath = 'inset(' + cut.toFixed(1) + 'px 0 0 0 round ' + rr + 'px ' + rr + 'px 0 0)';
+    if (window.__fmLogo) { window.__fmLogo(p); } else { logo.style.transform = 'translateY(' + (40 * (1 - p)).toFixed(1) + 'px)'; }
+    var ip = Math.min(1, Math.max(0, (p - 0.55) / 0.35));
+    ip = ip * ip * (3 - 2 * ip);
+    info.style.opacity = ip.toFixed(3);
+  }
+  function onScroll() {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  update();
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     공용 스크립트
+     ═══════════════════════════════════════════════════════════════ -->
+<script>
+/* 진입 리빌 옵저버 — [data-inview] 요소가 뷰포트에 20% 들어오면
+   .is-inview 토글 (1회, unobserve). 애니메이션은 공용 CSS 문법이 정의 */
+(function () {
+  var els = document.querySelectorAll('[data-inview]');
+  if (!els.length) return;
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced || !('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('is-inview'); });
+    return;
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-inview');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+<!-- 임시: A/B 시안 스위처 (히어로 미디어·타이포 + 섹션2 버전 연동) — 확정 후
+     이 블록(마크업+스크립트)과 각 섹션의 body[data-tx] 스코프 스타일,
+     미선택 버전 요소를 함께 제거 -->
+<style>
+/* ===== D 타입 — 도산밀리 웜 톤 (배경·뉴트럴 토큰 오버라이드) ===== */
+body.tone-d{
+  --neutral-1:#1A1A1A;
+  --neutral-2:#474747;
+  --neutral-3:#767676;
+  --neutral-5:#E3E3E3;
+  background:#FBFAF8;
+}
+body.tone-d .gnb{background:rgba(251,250,248,0.96);}
+/* 전 섹션 배경 — 웜 아이보리 */
+body.tone-d #block-01,
+body.tone-d #b02x1,
+body.tone-d #b02x1 .b2v1-stage,
+body.tone-d #b02x1.b2v1-static,
+body.tone-d #block-03,
+body.tone-d #block-05,
+body.tone-d #block-06{background:#FBFAF8;}
+body.tone-d #b02x5{background:#F4F4F4;}
+body.tone-d #b02x5 .b2v5-stage{background-color:#F4F4F4;}
+/* 다크 스테이지·후터 밴드는 웜 잉크(--neutral-1 오버라이드)로 자동 전환 */
+/* 영문 킥커 — Cormorant 세리프 악센트 */
+body.tone-d .b01h-kicker{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:0.42em;}
+body.tone-d .b05-eyebrow,body.tone-d .b06-eyebrow{font-family:'Cormorant Garamond',Georgia,serif;letter-spacing:0.34em;}
+/* 카드류는 화이트 유지 — 아이보리 위 대비 */
+body.tone-d .gnb .gnb-mili-anchor{display:none;}
+/* 메인 전용 — 도산밀리 헤더 스케일 (내비 15px/400/0.03em · 높이 70px) */
+/* 푸터 워드마크 20% 확대 + 하단 정보 굵기 완화 */
+#block-07 .b07-logo{font-size:clamp(62px,calc(115 / 1440 * 100vw),150px);}
+#block-07 .b07-info{font-weight:300;}
+@media(max-width:768px){ #block-07 .b07-logo{font-size:12.6vw;} }
+/* 메인 디테일 (2026-07-24) */
+body.tone-d .b03s-text{font-weight:300;}
+@media(min-width:769px){ body.tone-d .b03s-text{font-size:clamp(13px, calc(15 / 1440 * 100vw), 19px);} }
+@media(min-width:769px){ body.tone-d #block-06{padding-top:calc(clamp(57.6px, calc(96 / 1440 * 100vw), 144px) / 2);} }
+</style>
+<div id="tx-switch" style="position:fixed;left:16px;bottom:16px;z-index:9999;display:flex;gap:6px;align-items:center;padding:10px 14px;background:#fff;border:1px solid #E5E7EB;border-radius:8px;font:12px/1 'Pretendard',sans-serif;color:#6B7280;box-shadow:0 2px 12px rgba(17,24,39,0.08);">
+  시안
+  <button data-v="1" style="padding:6px 10px;border:1px solid #E5E7EB;background:#fff;border-radius:6px;cursor:pointer;">A</button>
+  <button data-v="5" style="padding:6px 10px;border:1px solid #E5E7EB;background:#fff;border-radius:6px;cursor:pointer;">B</button>
+</div>
+<script>
+(function () {
+  var box = document.getElementById('tx-switch');
+  function paint() {
+    var cur = document.body.getAttribute('data-tx');
+    box.querySelectorAll('button[data-v]').forEach(function (b) {
+      var on = b.getAttribute('data-v') === cur;
+      b.style.background = on ? '#111827' : '#fff';
+      b.style.color = on ? '#fff' : '#111827';
+    });
+  }
+  /* 시안 전환 시 히어로 타이포 등장 모션(블러 포커스 인·순차 라이즈) 재생 —
+     로드 때 1회 재생되는 CSS 애니메이션을 리플로우로 리셋해 다시 시작 */
+  function replayHeroTypo() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var els = document.querySelectorAll('#block-01 .b01h-kicker, #block-01 .b01h-title h1, #block-01 .b01h-sub');
+    els.forEach(function (el) {
+      el.style.animation = 'none';
+      void el.offsetWidth;
+      el.style.animation = '';
+    });
+  }
+  box.addEventListener('click', function (e) {
+    var v = e.target.getAttribute && e.target.getAttribute('data-v');
+    if (v) {
+      var changed = document.body.getAttribute('data-tx') !== v;
+      document.body.setAttribute('data-tx', v);
+      paint();
+      if (changed) replayHeroTypo();
+      window.dispatchEvent(new Event('resize'));
+      window.dispatchEvent(new Event('scroll'));
+    }
+  });
+  paint();
+})();
+</script>
+
+<script>
+/* 스무스 스크롤 — 마우스 휠의 스텝 입력을 관성 보간으로 트랙패드처럼 부드럽게.
+   터치 기기·모션 축소 설정·줌 제스처는 네이티브 유지.
+   스크럽 스크립트들은 실제 scrollY를 읽으므로 그대로 동작 */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if ('ontouchstart' in window && !window.matchMedia('(pointer: fine)').matches) return;
+
+  var target = window.scrollY;
+  var current = target;
+  var animating = false;
+
+  function maxScroll() {
+    return Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  }
+
+  window.addEventListener('wheel', function (e) {
+    if (e.ctrlKey || e.metaKey) return; /* 줌 제스처 통과 */
+    e.preventDefault();
+    var d = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? window.innerHeight : 1);
+    if (!animating) { target = window.scrollY; current = target; }
+    target = Math.max(0, Math.min(maxScroll(), target + d));
+    if (!animating) { animating = true; requestAnimationFrame(step); }
+  }, { passive: false });
+
+  /* 키보드·스크롤바·앵커 등 외부 스크롤과 동기화 */
+  window.addEventListener('scroll', function () {
+    if (!animating) { target = window.scrollY; current = target; }
+  }, { passive: true });
+
+  function step() {
+    current += (target - current) * 0.09;
+    if (Math.abs(target - current) < 0.5) {
+      window.scrollTo(0, target);
+      current = target;
+      animating = false;
+      return;
+    }
+    window.scrollTo(0, current);
+    requestAnimationFrame(step);
+  }
+})();
+</script>
+
+
+<script>
+/* 커서 호버 확대 — 링크/버튼 위에서 원이 커지며 반투명 */
+(function () {
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+  var frame = document.querySelector('.cursor-frame');
+  if (!frame) return;
+  var ticking = false;
+  document.addEventListener('mousemove', function (e) {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      var el = document.elementFromPoint(e.clientX, e.clientY);
+      frame.classList.toggle('is-hovering', !!(el && el.closest('a, button')));
+      ticking = false;
+    });
+  }, { passive: true });
+})();
+</script>
+
+<script>
+/* 푸터 워드마크 — 글자 스태거 리빌 (확정) */
+(function () {
+  var logo = document.querySelector('#block-07 .b07-logo');
+  if (!logo) return;
+  var letters = [];
+  var txt = logo.textContent;
+  logo.textContent = '';
+  for (var i = 0; i < txt.length; i++) {
+    var s = document.createElement('span');
+    s.textContent = txt[i] === ' ' ? '\u00A0' : txt[i];
+    s.style.display = 'inline-block';
+    logo.appendChild(s);
+    letters.push(s);
+  }
+  window.__fmLogo = function (p) {
+    letters.forEach(function (s, i) {
+      var pi = Math.min(1, Math.max(0, (p - i * 0.035) / 0.6));
+      s.style.transform = 'translateY(' + (110 * (1 - pi)).toFixed(1) + 'px)';
+      s.style.opacity = pi.toFixed(2);
+    });
+  };
+  window.dispatchEvent(new Event('scroll'));
+})();
+</script>
+</body>
+</html>

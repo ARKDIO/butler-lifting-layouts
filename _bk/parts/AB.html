@@ -1,0 +1,257 @@
+<<<CSS>>>
+/* ===== A+B variants — namespaced .a1-…/.b5-…; reuse .vv utilities. NO chroma; emphasis = weight 700 only. ===== */
+
+/* shared hero helpers */
+.vv .hbtn-w{background:#fff;color:#111;}
+.vv .hbtn-w:hover{background:#ececec;}
+.vv .atabs{display:flex;flex-wrap:wrap;}
+.vv .atabs a{font-size:14px;font-weight:500;padding:15px 22px;color:rgba(255,255,255,0.62);}
+.vv .atabs a.on{color:#fff;font-weight:700;background:rgba(255,255,255,0.16);}
+.vv .atabs a:not(.on):hover{color:#fff;background:rgba(255,255,255,0.06);}
+/* dark-on-light tab set (light hero variants) */
+.vv .atabs-d a{color:#8a8a8a;}
+.vv .atabs-d a.on{color:#111;font-weight:700;background:#EEF0F1;}
+.vv .atabs-d a:not(.on):hover{color:#111;background:#F5F6F8;}
+
+/* ---- A v1 : centered full-bleed, tracked EN + weight-mixed KR title ---- */
+.vv .a1-hero{position:relative;min-height:92vh;display:flex;flex-direction:column;justify-content:center;background:#0d0d0d url('img/0402_header.jpg') center/cover no-repeat;}
+.vv .a1-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,12,11,0.78),rgba(10,12,11,0.28) 55%,rgba(10,12,11,0.5));}
+.vv .a1-mid{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 24px;}
+.vv .a1-en{font-size:14px;letter-spacing:0.42em;text-transform:uppercase;color:rgba(255,255,255,0.62);font-weight:500;margin-bottom:22px;}
+.vv .a1-title{font-size:clamp(46px,32px + 3vw,80px);line-height:1.05;letter-spacing:-0.02em;color:#fff;}
+.vv .a1-title .lt{font-weight:300;}
+.vv .a1-title .hv{font-weight:700;}
+.vv .a1-slo{margin-top:14px;font-size:clamp(17px,16px + 0.4vw,21px);font-weight:400;line-height:1.4;color:rgba(255,255,255,0.82);}
+.vv .a1-btns{display:flex;gap:10px;margin-top:30px;flex-wrap:wrap;justify-content:center;}
+.vv .a1-tabs{position:relative;z-index:2;background:rgba(255,255,255,0.05);border-top:1px solid rgba(255,255,255,0.14);}
+.vv .a1-tabs .atabs{justify-content:center;}
+
+/* ---- A v2 : bottom-left title anchor + bottom-right CTA, bottom tab bar ---- */
+.vv .a2-hero{position:relative;min-height:92vh;display:flex;flex-direction:column;justify-content:flex-end;background:#0d0d0d url('img/0401_header.jpg') center/cover no-repeat;}
+.vv .a2-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,12,11,0.85),rgba(10,12,11,0.1) 60%,rgba(10,12,11,0.2));}
+.vv .a2-body{position:relative;z-index:2;width:100%;display:flex;align-items:flex-end;justify-content:space-between;gap:40px;padding-bottom:44px;flex-wrap:wrap;}
+.vv .a2-en{display:block;font-size:14px;letter-spacing:0.4em;text-transform:uppercase;color:rgba(255,255,255,0.6);font-weight:500;margin-bottom:18px;}
+.vv .a2-title{font-size:clamp(46px,32px + 3vw,80px);line-height:1.02;letter-spacing:-0.02em;color:#fff;font-weight:300;}
+.vv .a2-title strong{font-weight:700;}
+.vv .a2-slo{margin-top:16px;font-size:clamp(17px,16px + 0.4vw,21px);font-weight:400;line-height:1.42;color:rgba(255,255,255,0.82);}
+.vv .a2-cta{display:flex;flex-direction:column;gap:10px;align-items:flex-start;}
+.vv .a2-tabs{position:relative;z-index:2;background:rgba(255,255,255,0.06);border-top:1px solid rgba(255,255,255,0.14);}
+.vv .a2-tabs .atabs{justify-content:flex-start;}
+@media(max-width:768px){ .vv .a2-cta{flex-direction:row;flex-wrap:wrap;} }
+
+/* ---- A v3 : typography-only on solid dark plane, oversized weight-mixed ---- */
+.vv .a3-hero{position:relative;min-height:92vh;background:#171B18;display:flex;flex-direction:column;justify-content:center;}
+.vv .a3-in{width:100%;padding:80px 24px 40px;}
+.vv .a3-en{display:block;font-size:14px;letter-spacing:0.42em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:500;margin-bottom:26px;}
+.vv .a3-title{font-size:clamp(60px,34px + 6vw,120px);line-height:0.98;letter-spacing:-0.03em;color:#fff;font-weight:300;}
+.vv .a3-title strong{font-weight:700;}
+.vv .a3-slo{margin-top:24px;font-size:clamp(18px,16px + 0.5vw,22px);font-weight:400;line-height:1.45;color:rgba(255,255,255,0.72);}
+.vv .a3-btns{display:flex;gap:10px;margin-top:34px;flex-wrap:wrap;}
+.vv .a3-tabs{position:relative;background:transparent;border-top:1px solid rgba(255,255,255,0.14);}
+.vv .a3-tabs .atabs{justify-content:flex-start;}
+
+/* ---- A v4 : hero + integrated translucent bottom bar (tabs + CTAs) ---- */
+.vv .a4-hero{position:relative;min-height:92vh;display:flex;flex-direction:column;justify-content:center;background:#0d0d0d url('img/0403_header.jpg') center/cover no-repeat;}
+.vv .a4-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,12,11,0.7),rgba(10,12,11,0.25) 50%,rgba(10,12,11,0.45));}
+.vv .a4-center{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:70px 24px;}
+.vv .a4-en{font-size:14px;letter-spacing:0.42em;text-transform:uppercase;color:rgba(255,255,255,0.6);font-weight:500;margin-bottom:20px;}
+.vv .a4-title{font-size:clamp(46px,32px + 3vw,78px);line-height:1.05;letter-spacing:-0.02em;color:#fff;font-weight:300;}
+.vv .a4-title strong{font-weight:700;}
+.vv .a4-slo{margin-top:14px;font-size:clamp(17px,16px + 0.4vw,21px);font-weight:400;color:rgba(255,255,255,0.82);}
+.vv .a4-bar{position:relative;z-index:2;background:rgba(23,27,24,0.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,0.14);}
+.vv .a4-bar-in{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.vv .a4-tabs a{padding:16px 18px;}
+.vv .a4-cta{display:flex;gap:8px;padding:10px 0;}
+@media(max-width:768px){ .vv .a4-bar-in{justify-content:center;} }
+
+/* ---- A v5 : 50/50 split — dark text panel left, image right ---- */
+.vv .a5-hero{display:grid;grid-template-columns:46% 54%;min-height:92vh;}
+.vv .a5-txt{background:#171B18;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(40px,4vw,64px) clamp(28px,3vw,56px);}
+.vv .a5-txt-in{flex:1;display:flex;flex-direction:column;justify-content:center;}
+.vv .a5-en{font-size:14px;letter-spacing:0.4em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:500;margin-bottom:22px;}
+.vv .a5-title{font-size:clamp(44px,26px + 4vw,84px);line-height:1.0;letter-spacing:-0.02em;color:#fff;font-weight:300;}
+.vv .a5-title strong{font-weight:700;}
+.vv .a5-slo{margin-top:18px;font-size:clamp(17px,16px + 0.4vw,21px);font-weight:400;line-height:1.42;color:rgba(255,255,255,0.72);}
+.vv .a5-btns{display:flex;gap:10px;margin-top:30px;flex-wrap:wrap;}
+.vv .a5-tabs{margin-top:40px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.14);padding-top:6px;}
+.vv .a5-tabs a{padding:12px 16px 12px 0;}
+.vv .a5-im{background:#0d0d0d url('img/0401_header.jpg') center/cover no-repeat;}
+@media(max-width:768px){ .vv .a5-hero{grid-template-columns:1fr;} .vv .a5-im{min-height:340px;order:-1;} }
+
+/* ---- B v1 : dark image band (distinct image from v0) ---- */
+.vv .b1-band{position:relative;background:#101210 url('img/bg_bottom.jpg') center/cover no-repeat;padding:clamp(96px,9vw,150px) 0;}
+.vv .b1-band::before{content:'';position:absolute;inset:0;background:rgba(12,14,13,0.62);}
+.vv .b1-in{position:relative;z-index:2;}
+.vv .b1-band .h-int{color:#fff;}
+.vv .b1-band .bd-lg{color:rgba(255,255,255,0.85);}
+
+/* ---- B v2 : bright/light image, dark text, left-anchored ---- */
+.vv .b2-band{position:relative;background:#e9eaec url('img/0403_bg_01.jpg') center/cover no-repeat;padding:clamp(96px,9vw,150px) 0;}
+.vv .b2-band::before{content:'';position:absolute;inset:0;background:rgba(245,246,248,0.8);}
+.vv .b2-in{position:relative;z-index:2;max-width:820px;}
+.vv .b2-en{display:block;font-size:14px;letter-spacing:0.2em;text-transform:uppercase;color:#8a8a8a;font-weight:500;margin-bottom:18px;}
+.vv .b2-band .h-int{color:#111;}
+.vv .b2-band .bd-lg{color:#111;}
+
+/* ---- B v3 : typography-only oversized weight-mixed, dark plane ---- */
+.vv .b3-plane{background:#171B18;padding:clamp(90px,9vw,140px) 0;}
+.vv .b3-big{font-size:clamp(30px,20px + 2.6vw,54px);line-height:1.22;letter-spacing:-0.02em;font-weight:300;color:#fff;}
+.vv .b3-big strong{font-weight:700;}
+.vv .b3-sub{margin-top:22px;font-size:clamp(16px,15px + 0.3vw,19px);font-weight:400;line-height:1.6;color:rgba(255,255,255,0.7);max-width:760px;}
+
+/* ---- B v4 : left image / right one-liner split, light ---- */
+.vv .b4-split{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;background:#fff;}
+.vv .b4-im{background:#ddd url('img/Thermage-FLX-Treatment.jpeg') center/cover no-repeat;min-height:440px;}
+.vv .b4-txt{display:flex;flex-direction:column;justify-content:center;padding:clamp(48px,5vw,88px) clamp(28px,4vw,64px);}
+.vv .b4-txt .h-int{color:#111;}
+.vv .b4-txt .bd-lg{color:#111;}
+@media(max-width:768px){ .vv .b4-split{grid-template-columns:1fr;} .vv .b4-im{min-height:300px;order:-1;} }
+
+/* ---- B v5 : shallow full-bleed horizon band, dark ---- */
+.vv .b5-horizon{position:relative;background:#0d0d0d url('img/0401_bg_01.jpg') center/cover no-repeat;background-attachment:fixed;padding:clamp(64px,6vw,92px) 0;}
+.vv .b5-horizon::before{content:'';position:absolute;inset:0;background:rgba(10,12,11,0.6);}
+.vv .b5-in{position:relative;z-index:2;}
+.vv .b5-horizon .h-int{color:#fff;}
+.vv .b5-horizon .bd-lg{color:rgba(255,255,255,0.85);max-width:760px;margin-left:auto;margin-right:auto;}
+<<<END CSS>>>
+<<<SEC A>>>
+<div class="variant vv v1">
+  <div class="a1-hero">
+    <div class="a1-mid">
+      <span class="a1-en">Laser Lifting</span>
+      <h1 class="a1-title"><span class="lt">레이저</span><span class="hv">리프팅</span></h1>
+      <p class="a1-slo">흐른 시간은 그대로 두고, 흘러내린 선만 끌어올리다</p>
+      <div class="a1-btns">
+        <a href="#secG" class="btn btn-m btn-ghost-w pill">전후사진 보기</a>
+        <a href="#" class="btn btn-m hbtn-w pill">가격표 보기</a>
+      </div>
+    </div>
+    <div class="a1-tabs">
+      <nav class="atabs wrap">
+        <a class="on" href="#secE">레이저리프팅</a><a href="#secE">울쎄라</a><a href="#secE">써마지 FLX</a><a href="#secE">온다</a><a href="#secE">올타이트</a>
+      </nav>
+    </div>
+  </div>
+</div>
+<div class="variant vv v2">
+  <div class="a2-hero">
+    <div class="a2-body wrap">
+      <div class="a2-left">
+        <span class="a2-en">Laser Lifting</span>
+        <h1 class="a2-title">레이저<strong>리프팅</strong></h1>
+        <p class="a2-slo">흐른 시간은 그대로 두고,<br>흘러내린 선만 끌어올리다</p>
+      </div>
+      <div class="a2-cta">
+        <a href="#secG" class="btn btn-m btn-ghost-w pill">전후사진 보기</a>
+        <a href="#" class="btn btn-m hbtn-w pill">가격표 보기</a>
+      </div>
+    </div>
+    <div class="a2-tabs">
+      <nav class="atabs wrap">
+        <a class="on" href="#secE">레이저리프팅</a><a href="#secE">울쎄라</a><a href="#secE">써마지 FLX</a><a href="#secE">온다</a><a href="#secE">올타이트</a>
+      </nav>
+    </div>
+  </div>
+</div>
+<div class="variant vv v3">
+  <div class="a3-hero">
+    <div class="a3-in wrap">
+      <span class="a3-en">Laser Lifting</span>
+      <h1 class="a3-title"><strong>레이저</strong><br>리프팅</h1>
+      <p class="a3-slo">흐른 시간은 그대로 두고, 흘러내린 선만 끌어올리다</p>
+      <div class="a3-btns">
+        <a href="#secG" class="btn btn-m btn-ghost-w pill">전후사진 보기</a>
+        <a href="#" class="btn btn-m hbtn-w pill">가격표 보기</a>
+      </div>
+    </div>
+    <div class="a3-tabs">
+      <nav class="atabs wrap">
+        <a class="on" href="#secE">레이저리프팅</a><a href="#secE">울쎄라</a><a href="#secE">써마지 FLX</a><a href="#secE">온다</a><a href="#secE">올타이트</a>
+      </nav>
+    </div>
+  </div>
+</div>
+<div class="variant vv v4">
+  <div class="a4-hero">
+    <div class="a4-center">
+      <span class="a4-en">Laser Lifting</span>
+      <h1 class="a4-title">레이저<strong>리프팅</strong></h1>
+      <p class="a4-slo">흐른 시간은 그대로 두고, 흘러내린 선만 끌어올리다</p>
+    </div>
+    <div class="a4-bar">
+      <div class="wrap a4-bar-in">
+        <nav class="atabs a4-tabs">
+          <a class="on" href="#secE">레이저리프팅</a><a href="#secE">울쎄라</a><a href="#secE">써마지 FLX</a><a href="#secE">온다</a><a href="#secE">올타이트</a>
+        </nav>
+        <div class="a4-cta">
+          <a href="#secG" class="btn btn-s btn-ghost-w pill">전후사진 보기</a>
+          <a href="#" class="btn btn-s hbtn-w pill">가격표 보기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="variant vv v5">
+  <div class="a5-hero">
+    <div class="a5-txt">
+      <div class="a5-txt-in">
+        <span class="a5-en">Laser Lifting</span>
+        <h1 class="a5-title"><strong>레이저</strong><br>리프팅</h1>
+        <p class="a5-slo">흐른 시간은 그대로 두고,<br>흘러내린 선만 끌어올리다</p>
+        <div class="a5-btns">
+          <a href="#secG" class="btn btn-m btn-ghost-w pill">전후사진 보기</a>
+          <a href="#" class="btn btn-m hbtn-w pill">가격표 보기</a>
+        </div>
+      </div>
+      <nav class="atabs a5-tabs">
+        <a class="on" href="#secE">레이저리프팅</a><a href="#secE">울쎄라</a><a href="#secE">써마지 FLX</a><a href="#secE">온다</a><a href="#secE">올타이트</a>
+      </nav>
+    </div>
+    <div class="a5-im"></div>
+  </div>
+</div>
+<<<END SEC A>>>
+<<<SEC B>>>
+<div class="variant vv v1">
+  <div class="b1-band">
+    <div class="wrap-n tC b1-in">
+      <h2 class="h-int"><strong>흐른 시간은 그대로 두고,</strong><br>흘러내린 선만 끌어올리다</h2>
+      <p class="bd-lg">레이저리프팅은 초음파·고주파·마이크로파 에너지로 피부 깊은 층의 콜라겐 재생을 이끌어,<br>절개 없이 처짐과 탄력을 개선하는 <strong>비수술 리프팅</strong>입니다.</p>
+    </div>
+  </div>
+</div>
+<div class="variant vv v2">
+  <div class="b2-band">
+    <div class="wrap-n b2-in">
+      <span class="b2-en">Non-surgical Lifting</span>
+      <h2 class="h-int"><strong>흐른 시간은 그대로 두고,</strong><br>흘러내린 선만 끌어올리다</h2>
+      <p class="bd-lg">레이저리프팅은 초음파·고주파·마이크로파 에너지로 피부 깊은 층의 콜라겐 재생을 이끌어, 절개 없이 처짐과 탄력을 개선하는 <strong>비수술 리프팅</strong>입니다.</p>
+    </div>
+  </div>
+</div>
+<div class="variant vv v3">
+  <div class="b3-plane">
+    <div class="wrap-n">
+      <h2 class="b3-big"><strong>흐른 시간은</strong> 그대로 두고,<br>흘러내린 <strong>선만</strong> 끌어올리다</h2>
+      <p class="b3-sub">레이저리프팅은 초음파·고주파·마이크로파 에너지로 피부 깊은 층의 콜라겐 재생을 이끌어, 절개 없이 처짐과 탄력을 개선하는 <strong>비수술 리프팅</strong>입니다.</p>
+    </div>
+  </div>
+</div>
+<div class="variant vv v4">
+  <div class="b4-split">
+    <div class="b4-im"></div>
+    <div class="b4-txt">
+      <h2 class="h-int"><strong>흐른 시간은 그대로 두고,</strong><br>흘러내린 선만 끌어올리다</h2>
+      <p class="bd-lg">레이저리프팅은 초음파·고주파·마이크로파 에너지로 피부 깊은 층의 콜라겐 재생을 이끌어, 절개 없이 처짐과 탄력을 개선하는 <strong>비수술 리프팅</strong>입니다.</p>
+    </div>
+  </div>
+</div>
+<div class="variant vv v5">
+  <div class="b5-horizon">
+    <div class="wrap-n tC b5-in">
+      <h2 class="h-int"><strong>흐른 시간은 그대로 두고,</strong> 흘러내린 선만 끌어올리다</h2>
+      <p class="bd-lg">레이저리프팅은 초음파·고주파·마이크로파 에너지로 피부 깊은 층의 콜라겐 재생을 이끌어, 절개 없이 처짐과 탄력을 개선하는 <strong>비수술 리프팅</strong>입니다.</p>
+    </div>
+  </div>
+</div>
+<<<END SEC B>>>

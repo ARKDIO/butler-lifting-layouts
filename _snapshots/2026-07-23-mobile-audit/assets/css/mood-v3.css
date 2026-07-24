@@ -1,0 +1,78 @@
+/* ============================================================
+   mood-v3.css — 도산밀리 무드 확정판 (2026-07-23)
+   시술 서브페이지 공통. body 끝에서 로드(캐스케이드 최후순위).
+   Cormorant 영문 세리프 + 라이트 고딕 한글 + 웜 아이보리.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+KR:wght@800&display=swap');
+
+/* 배경·톤 */
+body{background:#FBFAF8;}
+.m2-gray{background:#F4F4F4;}
+.vv .a2-hero{background:#151515;}
+
+/* 섹션 여백 확대 */
+.v0sec,.vv .v0sec{padding:clamp(96px,78px + 2.2vw,140px) 0;}
+
+/* 영문 세리프 디스플레이 */
+.vv .a2-en{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:16px;letter-spacing:0.44em;color:rgba(255,255,255,0.66);}
+.m2-eyeb{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:16px;letter-spacing:0.4em;color:#8a8a8a;}
+.tag,.vv .tag{font-family:'Cormorant Garamond',Georgia,serif;text-transform:uppercase;letter-spacing:0.18em;font-size:13px;}
+.m2-no,.rno,.vv .rno{font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;font-style:italic;color:#8a8a8a;}
+
+/* 한글 — 라이트 고딕 + 여유 자간, 강조 600 */
+.vv .a2-title{font-weight:700;letter-spacing:0.015em;}
+.vv .a2-title strong{font-weight:700;}
+.vv .a2-slo{font-weight:300;letter-spacing:0.02em;}
+.h-int,.vv .h-int,.h-blk,.vv .h-blk,.m2-big{font-weight:300;letter-spacing:0.01em;}
+.h-int strong,.vv .h-int strong,.h-blk strong,.vv .h-blk strong,.m2-big strong{font-weight:600;}
+.h-md,.vv .h-md{font-weight:500;letter-spacing:0.12em;}
+
+/* F존 소제목 (버틀러의 원칙~FAQ) — 한 단계 두껍게 */
+#secF .fz-right .h-md{font-weight:800;letter-spacing:0.1em;}
+
+/* 시술&장비 정보 칩 — '시술 안내' 박스와 동일 배경 */
+.fz-right .i4-list .chip{background:#F4F4F4;}
+
+/* 면·모서리 — 직각화 + 웜 뉴트럴 */
+.btn,.gbtn{border-radius:0;letter-spacing:0.08em;}
+.gbox,.vv .gbox,.dx5-box{border-radius:0;background:#F4F4F4;}
+.fz-photo{border-radius:0;background:#ECECEC;}
+.fz-photo::after{color:#9a9a9a;}
+.wf-img{background:#ECECEC;color:#9a9a9a;}
+
+/* 헤어라인 — 웜 그레이 */
+.m2-dev,.m2-rows .m2-row{border-top-color:#E3E3E3;}
+.fz-right .fz-blk{border-top-color:#E3E3E3;}
+.dx2-cols{border-top-color:#E3E3E3;}
+
+/* 스티키존 — 좌 블럭·우 텍스트 갭 +20px (데스크톱만, 모바일 동결) */
+@media (min-width: 901px) {
+  .fz-grid { gap: clamp(60px, 3vw + 20px, 92px); }
+}
+
+/* 좌블럭/우텍스트 스플릿 갭 통일 — 스티키존과 동일 (데스크톱만, 모바일 동결) */
+@media (min-width: 901px) {
+  .m2-split { gap: clamp(60px, 3vw + 20px, 92px); }
+  .p2-grid, .d2-grid { gap: clamp(60px, 3vw + 20px, 92px); }
+  .d3-hist-grid { gap: clamp(60px, 3vw + 20px, 92px); }
+}
+
+/* 본문 문단 양끝 정렬 (2026-07-23 확정) — justify + 글자단위 개행 + 외톨이 방지
+   제목·리드·리스트는 keep-all 좌정렬 유지. 상세 근거: docs/TYPO.md */
+.bd { text-align: justify; word-break: normal; text-wrap: pretty; }
+
+/* ── 타이포 스케일 다운 (2026-07-23) — 메인 스케일 인용: 큰 글자일수록 가볍게 ──
+   메인 기준: 본문 clamp(14.5~22px), 대형 카피 최대 38px·굵기 300 */
+.h-int,.vv .h-int{font-size:clamp(24px,20px + 1.2vw,34px);}
+.h-blk,.vv .h-blk{font-size:clamp(21px,18px + 1vw,29px);}
+.m2-big{font-size:clamp(24px,21px + 1.2vw,34px);}
+.bd-lg{font-size:clamp(16px,15px + 0.4vw,19px);}
+/* 강조 굵기 완화 — 600 → 500 (제목 내 혼용) */
+.h-int strong,.vv .h-int strong,.h-blk strong,.vv .h-blk strong,.m2-big strong{font-weight:500;}
+.vv .a2-title strong{font-weight:700;}
+
+/* ── 페이지 대형 타이틀 — 영문 디스플레이(NT Fabulous) + 한글 부제 (도산밀리 패턴) ── */
+.en-hero{display:block;font-family:'NT Fabulous','Instrument Serif',Georgia,serif;font-size:clamp(53px,41px + 3.1vw,94px);font-weight:400;line-height:1.02;letter-spacing:-0.5px;margin-bottom:clamp(6px,5px + 0.24vw,9px);}
+.ko-sub{display:block;font-size:clamp(18px,16px + 0.6vw,24px);font-weight:400;line-height:1.55;letter-spacing:0;}
+.ko-sub strong{font-weight:700;}
+.ko-sub br.br-m{display:none;}

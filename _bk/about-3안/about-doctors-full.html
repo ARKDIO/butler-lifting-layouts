@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>의료진 소개 | 버틀러클리닉</title>
+<link rel="stylesheet" href="/assets/css/typo-guard.css?v=2">
+<meta name="description" content="버틀러 성형외과의원 의료진 소개. 의사 14년, 성형외과 전문의 9년 — 재건 수술부터 눈·코·안티에이징 수술과 시술까지, 개별화된 진단부터 이후의 관리까지 한 분의 얼굴을 처음부터 끝까지 책임지는 대표원장 윤태빈을 소개합니다.">
+<!-- IA: /about/doctors · 정식 작업본(레이아웃 3안 스위처) — 배포 시 open 버전을 about/doctors/index.html 로 복사 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ 베이스 (무채색 팔레트 — 유채색 0회) ============ */
+html { font-size: 62.5%; scroll-behavior: smooth; }
+body { overflow-x: hidden; }
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Noto Sans','Noto Sans KR',sans-serif; font-size:16px; line-height:1.6; color:#111; background:#FBFAF8; }
+img { max-width:100%; display:block; }
+a { color:inherit; text-decoration:none; }
+ul,ol { list-style:none; }
+button { font-family:inherit; cursor:pointer; border:none; background:none; }
+:focus-visible { outline:2px solid #8a8a8a; outline-offset:2px; }
+
+/* 레이아웃 */
+.wrap{max-width:1280px;margin:0 auto;padding-left:24px;padding-right:24px;}
+.wrap-n{max-width:920px;margin:0 auto;padding-left:24px;padding-right:24px;}
+
+/* ===== v0 공통 토큰 (여수스노우 실측 기준 — sub-full.html 재사용) ===== */
+.v0sec{padding:clamp(72px,56px + 2vw,110px) 0;}
+.vv .tC{text-align:center;}
+.vv .h-int{font-size:clamp(28px,24px + 1.1vw,42px);line-height:1.25;font-weight:400;color:#111;letter-spacing:-0.01em;}
+.vv .h-blk{font-size:clamp(24px,21px + 0.9vw,36px);line-height:1.25;font-weight:400;color:#111;letter-spacing:-0.01em;}
+.vv .h-md{font-size:clamp(23px,21px + 0.5vw,28px);line-height:1.43;font-weight:600;color:#111;}
+.vv .h-int strong,.vv .h-blk strong{font-weight:700;}
+.vv .bd{font-size:16px;font-weight:400;line-height:1.6;color:#111;margin-top:10px;}
+.vv .bd-lg{font-size:clamp(17px,16px + 0.3vw,20px);font-weight:400;line-height:1.55;color:#111;margin-top:12px;}
+.vv .bd strong,.vv .bd-lg strong{font-weight:700;}
+.vv .dots{margin-top:14px;}
+.vv .dots li{display:flex;gap:10px;font-size:15.5px;font-weight:300;line-height:2;color:#111;}
+.vv .dots li::before{content:'·';font-weight:700;flex:none;}
+.vv .tag{display:block;font-size:13px;font-weight:400;color:#8a8a8a;margin-bottom:8px;}
+
+/* ===== 이미지 와이어프레임 박스 ===== */
+.wf-img{background:#EDEAE4;display:flex;align-items:center;justify-content:center;color:#9a9a9a;font-size:12px;letter-spacing:0.02em;text-align:center;width:100%;}
+.wf-dark{background:#34302B;color:rgba(255,255,255,0.4);}
+.wf-219{aspect-ratio:21/9;}
+.wf-169{aspect-ratio:16/9;}
+.wf-32{aspect-ratio:3/2;}
+.wf-45{aspect-ratio:4/5;}
+.wf-34{aspect-ratio:3/4;}
+
+/* ============ 스위처 (시안 선택 UI — 수정 금지) ============ */
+.sec{position:relative;}
+.sec > .variant{display:none;}
+.sec > .variant.active{display:block;}
+.sec-chip{position:absolute;top:10px;left:10px;z-index:60;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.82);border:none;border-radius:999px;padding:3px 7px;opacity:0.9;transition:opacity .2s;}
+.sec-chip:hover{opacity:1;}
+.sec-chip .badge{display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:999px;background:rgba(120,120,120,0.3);color:#6a6a6a;font-size:10px;font-weight:400;}
+.sec-chip .nm{font-size:10px;font-weight:400;color:#6a6a6a;letter-spacing:0;}
+.sec-chip .vbtns{display:flex;gap:3px;margin-left:3px;}
+.sec-chip .vbtns button{width:17px;height:17px;border-radius:999px;font-size:10px;font-weight:400;color:#8a8a8a;border:none;background:rgba(150,150,150,0.16);}
+.sec-chip .vbtns button.on{background:rgba(100,100,100,0.85);color:#fff;}
+
+/* ============ 헤더 (여수스노우 카피 — 임시) ============ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;font-weight:600;transition:background .2s,color .2s,border-color .2s;}
+.btn-m{font-size:14px;padding:11px 22px;}
+.btn-primary{background:#1D1B18;color:#fff;}
+.btn-primary:hover{background:#000;}
+.pill{border-radius:999px;}
+.gnb{position:sticky;top:0;z-index:80;background:#FBFAF8;border-bottom:1px solid #E4E0D8;}
+.gnb .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:1440px;}
+.gnb img{height:36px;width:auto;}
+.gnb nav{display:flex;gap:28px;font-size:14px;font-weight:500;color:#111;}
+.gnb nav a:hover{color:#1D1B18;}
+@media(max-width:1024px){ .gnb nav{display:none;} }
+
+/* ============ D1 — 대표원장 중심 센터 에디토리얼 (세로형 프로필 + 에세이 흐름 + 다크 클로징) ============ */
+.d1-hero{padding:clamp(110px,90px + 5vw,190px) 24px clamp(44px,36px + 1.5vw,64px);text-align:center;background:#FBFAF8;}
+.d1-en{display:block;font-size:13px;letter-spacing:0.42em;text-transform:uppercase;color:#9a9a9a;font-weight:500;margin-bottom:26px;}
+.d1-title{font-size:clamp(38px,28px + 2.6vw,68px);line-height:1.16;letter-spacing:-0.02em;color:#111;font-weight:400;}
+.d1-title strong{font-weight:700;}
+.d1-sub{margin-top:18px;font-size:12px;letter-spacing:0.16em;color:#9a9a9a;font-weight:500;}
+.d1-portrait{max-width:420px;margin:0 auto;}
+.d1-essay{max-width:720px;margin:0 auto;padding-left:24px;padding-right:24px;}
+.d1-essay p{margin-top:0;}
+.d1-essay p + p{margin-top:26px;}
+.d1-img{max-width:920px;margin:clamp(40px,32px + 1.5vw,60px) auto;padding-left:24px;padding-right:24px;}
+.d1-close{background:#1D1B18;padding:clamp(90px,70px + 4vw,150px) 0;}
+.d1-close-grid{display:grid;grid-template-columns:6fr 5fr;gap:clamp(40px,3vw + 16px,72px);align-items:start;}
+.d1-close-en{display:block;font-size:13px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.45);font-weight:500;margin-bottom:20px;}
+.d1-close-h{color:#fff;font-size:clamp(24px,21px + 0.9vw,36px);line-height:1.32;letter-spacing:-0.01em;font-weight:400;}
+.d1-close-h strong{font-weight:700;}
+.d1-career{border-top:1px solid rgba(255,255,255,0.16);padding-top:22px;}
+.d1-career li{font-size:15.5px;font-weight:300;line-height:2;color:rgba(255,255,255,0.75);}
+.d1-career li:last-child{font-weight:700;color:#fff;}
+@media(max-width:768px){
+  .d1-hero{padding-top:88px;}
+  .d1-portrait{max-width:280px;}
+  .d1-close-grid{grid-template-columns:1fr;gap:36px;}
+}
+
+/* ============ D2 — 좌 프로필·이력 스티키 / 우 본문 스크롤 비대칭 ============ */
+.d2-pad{padding-top:clamp(88px,70px + 3vw,140px);padding-bottom:clamp(72px,56px + 2vw,110px);}
+.d2-grid{display:grid;grid-template-columns:minmax(280px,4.5fr) 7fr;gap:clamp(48px,3vw + 24px,88px);align-items:start;}
+.d2-sticky{position:sticky;top:104px;}
+.d2-en{display:block;font-size:13px;letter-spacing:0.42em;text-transform:uppercase;color:#9a9a9a;font-weight:500;margin-bottom:22px;}
+.d2-portrait{max-width:360px;}
+.d2-role{margin-top:24px;font-size:13px;letter-spacing:0.04em;color:#8a8a8a;font-weight:400;}
+.d2-name{margin-top:4px;font-size:clamp(26px,23px + 0.8vw,34px);font-weight:700;color:#111;letter-spacing:-0.01em;}
+.d2-career{margin-top:26px;border-top:1px solid #E4E0D8;padding-top:20px;max-width:360px;}
+.d2-career-tag{display:block;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#9a9a9a;font-weight:500;margin-bottom:8px;}
+.d2-career li{font-size:15px;font-weight:300;line-height:1.9;color:#111;}
+.d2-career li:last-child{font-weight:700;}
+.d2-title{font-size:clamp(34px,26px + 2vw,54px);line-height:1.18;letter-spacing:-0.02em;color:#111;font-weight:400;margin-bottom:clamp(32px,26px + 1.2vw,48px);}
+.d2-title strong{font-weight:700;}
+.d2-blk{padding:clamp(34px,28px + 1.2vw,52px) 0;border-top:1px solid #E4E0D8;}
+.d2-blk:last-child{padding-bottom:0;}
+.d2-no{display:block;font-size:12px;color:#9a9a9a;letter-spacing:0.1em;font-weight:500;margin-bottom:10px;}
+.d2-blk .bd{margin-top:0;}
+.d2-img{margin-top:30px;}
+@media(max-width:768px){
+  .d2-grid{grid-template-columns:1fr;gap:44px;}
+  .d2-sticky{position:static;}
+  .d2-portrait{max-width:260px;}
+}
+
+/* ============ D3 — 다크 인트로(프로필 스플릿) + 인터뷰 카드 그리드 + 이력 존 ============ */
+.d3-hero{background:#1D1B18;padding:clamp(100px,80px + 4vw,160px) 0 clamp(64px,52px + 2vw,96px);}
+.d3-hero-grid{display:grid;grid-template-columns:7fr 4fr;gap:clamp(40px,3vw + 16px,72px);align-items:end;}
+.d3-en{display:block;font-size:13px;letter-spacing:0.42em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:500;margin-bottom:24px;}
+.d3-title{color:#fff;font-size:clamp(38px,28px + 2.4vw,64px);line-height:1.14;letter-spacing:-0.02em;font-weight:300;}
+.d3-title strong{font-weight:700;}
+.d3-sig{margin-top:22px;font-size:15px;font-weight:300;letter-spacing:0.02em;color:rgba(255,255,255,0.65);}
+.d3-sig strong{font-weight:700;color:#fff;}
+.d3-portrait{width:100%;max-width:360px;justify-self:end;}
+.d3-cards{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,1.5vw,28px);margin-top:14px;}
+.d3-card{border:1px solid #E4E0D8;padding:clamp(26px,22px + 1vw,40px);}
+.d3-card .no{display:block;font-size:12px;color:#9a9a9a;letter-spacing:0.1em;font-weight:500;margin-bottom:10px;}
+.d3-card .bd{margin-top:0;}
+.d3-hist{background:#F5F3EF;padding:clamp(64px,52px + 2vw,96px) 0;}
+.d3-hist-grid{display:grid;grid-template-columns:260px 1fr;gap:clamp(28px,2vw,48px);align-items:start;}
+.d3-hist-en{display:block;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#9a9a9a;font-weight:500;margin-bottom:8px;}
+.d3-hist-role{font-size:13px;color:#8a8a8a;font-weight:400;}
+.d3-hist-name{margin-top:2px;font-size:clamp(22px,20px + 0.5vw,26px);font-weight:700;color:#111;letter-spacing:-0.01em;}
+.d3-hist ul{border-top:1px solid #E4E0D8;}
+.d3-hist li{font-size:15.5px;font-weight:300;line-height:2;color:#111;padding:9px 0;border-bottom:1px solid #E4E0D8;}
+.d3-hist li:last-child{font-weight:700;}
+@media(max-width:768px){
+  .d3-hero-grid{grid-template-columns:1fr;gap:36px;align-items:start;}
+  .d3-portrait{max-width:240px;justify-self:start;}
+  .d3-cards{grid-template-columns:1fr;}
+  .d3-hist-grid{grid-template-columns:1fr;gap:24px;}
+}
+
+/* ============ 프로모션 + 푸터 (여수스노우 카피 — 임시) ============ */
+.promo{background:#F5F3EF;padding:clamp(72px,56px + 2vw,110px) 0;}
+.promo .head{text-align:center;margin-bottom:clamp(40px,32px + 1.5vw,56px);}
+.promo .kicker{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:600;color:#8a8a8a;letter-spacing:0.12em;margin-bottom:18px;}
+.promo .kicker::before{content:'';width:24px;height:1px;background:#c9c9c9;}
+.promo h2{font-size:clamp(29px,23.5px + 1.15vw,40px);font-weight:600;line-height:1.3;letter-spacing:-0.02em;color:#111;}
+.promo .sub{font-size:16px;color:#8a8a8a;margin-top:12px;}
+.promo .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;}
+@media(max-width:1024px){ .promo .grid{grid-template-columns:repeat(3,1fr);} }
+@media(max-width:600px){ .promo .grid{grid-template-columns:repeat(2,1fr);} }
+.promo .pcard{border-radius:10px;overflow:hidden;background:#fff;border:1px solid #E4E0D8;}
+.promo .pcard img{width:100%;aspect-ratio:1/1;object-fit:cover;}
+.promo .pcard .cap{padding:12px 14px;}
+.promo .pcard .cap .s{font-size:10px;letter-spacing:0.1em;color:#8a8a8a;font-weight:500;}
+.promo .pcard .cap .n{font-size:14px;font-weight:600;color:#111;margin-top:2px;}
+footer.site{background:#1D1B18;color:rgba(255,255,255,0.6);padding:clamp(48px,40px + 1.5vw,64px) 0;}
+footer.site .wrap{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;font-size:12px;line-height:1.8;}
+footer.site .logo{font-weight:700;color:#fff;font-size:15px;letter-spacing:0.06em;}
+</style>
+</head>
+<body>
+
+<!-- ================= 헤더 (여수스노우 카피 — 임시, 추후 교체) ================= -->
+<header class="gnb">
+<style>
+.gnb{position:sticky;top:0;z-index:80;background:#FBFAF8;border-bottom:1px solid rgba(112,112,112,0.45);font-family:'Noto Sans','Noto Sans KR',sans-serif;}
+.gnb .gwrap{display:flex;align-items:center;justify-content:space-between;height:60px;max-width:none;margin:0;padding:0 30px;gap:0;}
+.gnb .glogo{display:flex;align-items:center;text-decoration:none;}
+.gnb .glogo img{height:22px;width:auto;display:block;}
+.gnb nav.gnav{display:flex;gap:0;font-size:13px;font-weight:400;letter-spacing:0.03em;text-transform:uppercase;color:#333;}
+.gnb .nv{position:relative;padding:0 17px;}
+.gnb .nv > a{color:#333;text-decoration:none;padding:20px 0;display:inline-block;}
+.gnb .nv > a:hover{color:#111;}
+.gnb .nv-t{color:#333;cursor:default;padding:20px 0;display:inline-block;}
+.gnb .dp{position:absolute;top:100%;left:50%;transform:translateX(-50%);text-transform:none;background:#FBFAF8;border:1px solid #EDEAE4;box-shadow:0 10px 28px rgba(0,0,0,0.07);border-radius:0;padding:8px 0;display:none;min-width:158px;z-index:120;}
+.gnb .nv:hover .dp{display:block;}
+.gnb .dp a{display:block;padding:8px 20px;font-size:12.5px;font-weight:400;color:#555;text-decoration:none;white-space:nowrap;text-align:left;}
+.gnb .dp a:hover{color:#111;background:#F5F3EF;}
+@media(max-width:1024px){ .gnb nav.gnav{display:none;} }
+</style>
+<div class="gwrap">
+  <a href="index.html" class="glogo"><img src="img/00_home/logo_h_dark.png" alt="Butler Clinic"></a>
+  <nav class="gnav">
+    <div class="nv"><a href="about-brand-story-full.html">Butler Clinic</a>
+      <div class="dp">
+        <a href="about-brand-story-full.html">브랜딩 스토리</a>
+        <a href="about-doctors-full.html">의료진 소개</a>
+        <a href="about-equipment-full.html">보유장비·의약품</a>
+        <a href="about-tour-full.html">둘러보기</a>
+        <a href="about-location-full.html">오시는 길</a>
+      </div>
+    </div>
+    <div class="nv"><a href="surgery-eye-open.html">Surgery</a>
+      <div class="dp">
+        <a href="surgery-eye-open.html">눈 수술</a>
+        <a href="surgery-face-open.html">안면부 수술</a>
+        <a href="surgery-forehead-open.html">이마 수술</a>
+      </div>
+    </div>
+    <div class="nv"><a href="sub-open.html">Skin Care</a>
+      <div class="dp">
+        <a href="skincare-thread-lifting-open.html">실 리프팅</a>
+        <a href="sub-open.html">레이저 리프팅</a>
+        <a href="skincare-botox-filler-open.html">보톡스·필러</a>
+        <a href="skincare-skin-booster-open.html">스킨부스터</a>
+        <a href="skincare-regenerative-cell-open.html">재생세포</a>
+        <a href="skincare-hyperbaric-oxygen-open.html">고압산소치료</a>
+      </div>
+    </div>
+    <div class="nv"><span class="nv-t">Doctor's Column</span></div>
+    <div class="nv"><span class="nv-t">Before / After</span></div>
+    <div class="nv"><span class="nv-t">Promotion</span></div>
+  </nav>
+</div>
+</header>
+
+<!-- ================= P. 의료진 소개 (레이아웃 3안 스위처) ================= -->
+<section class="sec" data-label="P" data-name="의료진 소개">
+
+  <!-- ===== 1안 — 대표원장 중심 센터 에디토리얼: 세로형 프로필 → 에세이 흐름 → 다크 클로징(서명+약력) ===== -->
+  <div class="variant vv active">
+
+    <!-- 히어로 — 인사말 헤드라인 -->
+    <div class="d1-hero">
+      <span class="d1-en">Medical Team</span>
+      <h1 class="d1-title">한분의 얼굴을<br><strong>처음부터 끝까지</strong></h1>
+      <p class="d1-sub">BUTLER CLINIC — MEDICAL TEAM</p>
+    </div>
+    <div class="d1-portrait">
+      <div class="wf-img wf-34">IMG — 대표원장 프로필 (세로 3:4)</div>
+    </div>
+
+    <!-- 에세이 본문 -->
+    <div class="v0sec">
+      <div class="d1-essay">
+        <p class="bd-lg">의사가 된 지 14년, 성형외과 전문의로서 9년. 저는 얼굴의 구조를 다루는 재건 수술부터, 미용 의료로는 눈 수술로 시작해 코, 안티에이징 수술, 그리고 전반적인 시술까지 여러 길을 하나씩 밟아 왔습니다. 돌아보면 그 모든 시간은 결국 <strong>한 사람을 온전히 책임지기 위한 준비</strong>였습니다.</p>
+        <p class="bd">수술만 하는 병원에서도, 시술만 하는 병원에서도 저는 늘 같은 아쉬움을 느꼈습니다. 눈앞의 당신에게 더 나은 방법이 분명히 있는데, 그것이 내 병원의 방식이 아니라는 이유로 건네지 못하는 순간들. 저는 그 아쉬움을 없애고 싶었습니다.</p>
+      </div>
+      <div class="d1-img">
+        <div class="wf-img wf-169">IMG — 진료·상담 장면</div>
+      </div>
+      <div class="d1-essay">
+        <p class="bd">버틀러 성형외과에서는 얼굴을 직접 박리하고 그 구조를 깊이 이해한 성형외과 전문의가 당신을 만납니다. 당신에게 진짜 필요한 것이 무엇인지 파악하고, 개별화된 진단부터 수술, 시술, 그리고 이후의 관리까지 <strong>한 분을 끝까지 책임집니다.</strong> 수술과 시술의 영역을 넘나들며, 필요한 것이 수술이면 수술, 시술이면 시술, 필요하다면 둘 다 적절히 조합해 드립니다.</p>
+        <p class="bd">상담 몇 분으로 판단하지 않고, 당신의 나이와 얼굴이 지나온 시간을 함께 읽습니다. 노화를 완전히 막을 수는 없지만, 당신의 나이 듦을 가장 적합하게 설계하는 'age management'를 지향합니다. 저는 제가 받지 않을 수술, 시술은 권하지 않습니다. 매일 스스로를 관리하며, 자신 있게 추천할 수 있는 것만 당신께 드립니다. 그것이 버틀러의 방식이고, <strong>버틀러 성형외과가 지키려는 약속</strong>입니다.</p>
+      </div>
+    </div>
+
+    <!-- 다크 클로징 — 서명 + 약력 -->
+    <div class="d1-close"><div class="wrap">
+      <div class="d1-close-grid">
+        <div>
+          <span class="d1-close-en">Career</span>
+          <h2 class="d1-close-h">버틀러 성형외과의원 대표 원장.<br><strong>윤태빈</strong></h2>
+        </div>
+        <ul class="d1-career">
+          <li>전 1mm 성형외과</li>
+          <li>전 그날성형외과</li>
+          <li>전 리팅성형외과</li>
+          <li>전 엠레드클리닉</li>
+          <li>현 버틀러성형외과 대표원장</li>
+        </ul>
+      </div>
+    </div></div>
+
+  </div>
+
+  <!-- ===== 2안 — 좌 프로필·이력 스티키 / 우 본문 스크롤: 헤어라인 넘버 블록 비대칭 ===== -->
+  <div class="variant vv">
+
+    <div class="wrap d2-pad">
+      <div class="d2-grid">
+
+        <!-- 좌 — 고정 프로필 + 약력 -->
+        <aside class="d2-left">
+          <div class="d2-sticky">
+            <span class="d2-en">Medical Team</span>
+            <div class="wf-img wf-34 d2-portrait">IMG — 대표원장 프로필 (세로 3:4)</div>
+            <p class="d2-role">버틀러 성형외과의원 대표 원장.</p>
+            <p class="d2-name">윤태빈</p>
+            <div class="d2-career">
+              <span class="d2-career-tag">Career</span>
+              <ul>
+                <li>전 1mm 성형외과</li>
+                <li>전 그날성형외과</li>
+                <li>전 리팅성형외과</li>
+                <li>전 엠레드클리닉</li>
+                <li>현 버틀러성형외과 대표원장</li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+
+        <!-- 우 — 스크롤 본문 -->
+        <div class="d2-right">
+          <h1 class="d2-title">한분의 얼굴을<br><strong>처음부터 끝까지</strong></h1>
+          <article class="d2-blk">
+            <span class="d2-no">01</span>
+            <p class="bd">의사가 된 지 14년, 성형외과 전문의로서 9년. 저는 얼굴의 구조를 다루는 재건 수술부터, 미용 의료로는 눈 수술로 시작해 코, 안티에이징 수술, 그리고 전반적인 시술까지 여러 길을 하나씩 밟아 왔습니다. 돌아보면 그 모든 시간은 결국 <strong>한 사람을 온전히 책임지기 위한 준비</strong>였습니다.</p>
+          </article>
+          <article class="d2-blk">
+            <span class="d2-no">02</span>
+            <p class="bd">수술만 하는 병원에서도, 시술만 하는 병원에서도 저는 늘 같은 아쉬움을 느꼈습니다. 눈앞의 당신에게 더 나은 방법이 분명히 있는데, 그것이 내 병원의 방식이 아니라는 이유로 건네지 못하는 순간들. 저는 그 아쉬움을 없애고 싶었습니다.</p>
+          </article>
+          <article class="d2-blk">
+            <span class="d2-no">03</span>
+            <p class="bd">버틀러 성형외과에서는 얼굴을 직접 박리하고 그 구조를 깊이 이해한 성형외과 전문의가 당신을 만납니다. 당신에게 진짜 필요한 것이 무엇인지 파악하고, 개별화된 진단부터 수술, 시술, 그리고 이후의 관리까지 <strong>한 분을 끝까지 책임집니다.</strong> 수술과 시술의 영역을 넘나들며, 필요한 것이 수술이면 수술, 시술이면 시술, 필요하다면 둘 다 적절히 조합해 드립니다.</p>
+            <div class="wf-img wf-32 d2-img">IMG — 수술 집도 장면</div>
+          </article>
+          <article class="d2-blk">
+            <span class="d2-no">04</span>
+            <p class="bd">상담 몇 분으로 판단하지 않고, 당신의 나이와 얼굴이 지나온 시간을 함께 읽습니다. 노화를 완전히 막을 수는 없지만, 당신의 나이 듦을 가장 적합하게 설계하는 'age management'를 지향합니다. 저는 제가 받지 않을 수술, 시술은 권하지 않습니다. 매일 스스로를 관리하며, 자신 있게 추천할 수 있는 것만 당신께 드립니다. 그것이 버틀러의 방식이고, <strong>버틀러 성형외과가 지키려는 약속</strong>입니다.</p>
+          </article>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== 3안 — 다크 인트로(제목+서명+프로필 스플릿) + 화이트 인터뷰 카드 그리드 + 이력 존 ===== -->
+  <div class="variant vv">
+
+    <!-- 다크 히어로 — 헤드라인 + 서명 + 프로필 -->
+    <div class="d3-hero"><div class="wrap">
+      <div class="d3-hero-grid">
+        <div>
+          <span class="d3-en">Medical Team</span>
+          <h1 class="d3-title">한분의 얼굴을<br>처음부터 <strong>끝까지</strong></h1>
+          <p class="d3-sig">버틀러 성형외과의원 대표 원장. <strong>윤태빈</strong></p>
+        </div>
+        <div class="wf-img wf-dark wf-34 d3-portrait">IMG — 대표원장 프로필 (세로 3:4)</div>
+      </div>
+    </div></div>
+
+    <!-- 화이트 — 인터뷰 카드 4매 -->
+    <div class="v0sec"><div class="wrap">
+      <span class="tag">MEDICAL TEAM — INTERVIEW</span>
+      <div class="d3-cards">
+        <article class="d3-card">
+          <span class="no">01</span>
+          <p class="bd">의사가 된 지 14년, 성형외과 전문의로서 9년. 저는 얼굴의 구조를 다루는 재건 수술부터, 미용 의료로는 눈 수술로 시작해 코, 안티에이징 수술, 그리고 전반적인 시술까지 여러 길을 하나씩 밟아 왔습니다. 돌아보면 그 모든 시간은 결국 <strong>한 사람을 온전히 책임지기 위한 준비</strong>였습니다.</p>
+        </article>
+        <article class="d3-card">
+          <span class="no">02</span>
+          <p class="bd">수술만 하는 병원에서도, 시술만 하는 병원에서도 저는 늘 같은 아쉬움을 느꼈습니다. 눈앞의 당신에게 더 나은 방법이 분명히 있는데, 그것이 내 병원의 방식이 아니라는 이유로 건네지 못하는 순간들. 저는 그 아쉬움을 없애고 싶었습니다.</p>
+        </article>
+        <article class="d3-card">
+          <span class="no">03</span>
+          <p class="bd">버틀러 성형외과에서는 얼굴을 직접 박리하고 그 구조를 깊이 이해한 성형외과 전문의가 당신을 만납니다. 당신에게 진짜 필요한 것이 무엇인지 파악하고, 개별화된 진단부터 수술, 시술, 그리고 이후의 관리까지 <strong>한 분을 끝까지 책임집니다.</strong> 수술과 시술의 영역을 넘나들며, 필요한 것이 수술이면 수술, 시술이면 시술, 필요하다면 둘 다 적절히 조합해 드립니다.</p>
+        </article>
+        <article class="d3-card">
+          <span class="no">04</span>
+          <p class="bd">상담 몇 분으로 판단하지 않고, 당신의 나이와 얼굴이 지나온 시간을 함께 읽습니다. 노화를 완전히 막을 수는 없지만, 당신의 나이 듦을 가장 적합하게 설계하는 'age management'를 지향합니다. 저는 제가 받지 않을 수술, 시술은 권하지 않습니다. 매일 스스로를 관리하며, 자신 있게 추천할 수 있는 것만 당신께 드립니다. 그것이 버틀러의 방식이고, <strong>버틀러 성형외과가 지키려는 약속</strong>입니다.</p>
+        </article>
+      </div>
+    </div></div>
+
+    <!-- 연회색 — 이력 존 (좌 타이틀 / 우 리스트) -->
+    <div class="d3-hist"><div class="wrap">
+      <div class="d3-hist-grid">
+        <div>
+          <span class="d3-hist-en">Career</span>
+          <p class="d3-hist-role">버틀러 성형외과의원 대표 원장.</p>
+          <p class="d3-hist-name">윤태빈</p>
+        </div>
+        <ul>
+          <li>전 1mm 성형외과</li>
+          <li>전 그날성형외과</li>
+          <li>전 리팅성형외과</li>
+          <li>전 엠레드클리닉</li>
+          <li>현 버틀러성형외과 대표원장</li>
+        </ul>
+      </div>
+    </div></div>
+
+  </div>
+
+</section>
+
+<!-- ================= 프로모션 + 푸터 (여수스노우 카피 — 임시) ================= -->
+<div class="promo">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">PROMOTION</p>
+      <h2>Event &amp; Price</h2>
+      <p class="sub">가장 아름다워야 할 순간, 섬세한 혜택으로 함께합니다.</p>
+    </div>
+    <div class="grid">
+      <a class="pcard" href="#"><img src="img/img_carousel_01.jpg" alt=""><div class="cap"><p class="s">EVENT &amp; PRICE</p><p class="n">모공·흉터</p></div></a>
+      <a class="pcard" href="#"><img src="img/img_carousel_02.jpg" alt=""><div class="cap"><p class="s">EVENT &amp; PRICE</p><p class="n">여드름 치료</p></div></a>
+      <a class="pcard" href="#"><img src="img/img_carousel_03.jpg" alt=""><div class="cap"><p class="s">EVENT &amp; PRICE</p><p class="n">색소 치료</p></div></a>
+      <a class="pcard" href="#"><img src="img/img_carousel_04.jpg" alt=""><div class="cap"><p class="s">EVENT &amp; PRICE</p><p class="n">리프팅</p></div></a>
+      <a class="pcard" href="#"><img src="img/img_carousel_05.jpg" alt=""><div class="cap"><p class="s">EVENT &amp; PRICE</p><p class="n">스킨부스터</p></div></a>
+      <a class="pcard" href="#"><img src="img/img_carousel_06.jpg" alt=""><div class="cap"><p class="s">EVENT &amp; PRICE</p><p class="n">보톡스·필러</p></div></a>
+    </div>
+  </div>
+</div>
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <p class="logo">BUTLER CLINIC</p>
+      <p style="margin-top:12px;">임시 푸터 — 여수스노우 구조 카피 · 추후 교체 예정<br>대표 000-0000-0000 · 사업자등록번호 000-00-00000<br>주소 ○○시 ○○구 ○○로 00, 0층</p>
+    </div>
+    <div>
+      <p>진료시간 안내<br>평일 10:00 – 19:00 · 토요일 10:00 – 14:00<br>일요일·공휴일 휴진</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== 섹션 스위처 (변형 2개 이상만) =====
+document.querySelectorAll('.sec').forEach(sec => {
+  const variants = sec.querySelectorAll(':scope > .variant');
+  if (variants.length < 2) return;
+  const label = sec.dataset.label || '', name = sec.dataset.name || '';
+  const chip = document.createElement('div');
+  chip.className = 'sec-chip';
+  chip.innerHTML = '<span class="badge">' + label + '</span><span class="nm">' + name + '</span><span class="vbtns"></span>';
+  const btns = chip.querySelector('.vbtns');
+  variants.forEach((v, i) => {
+    const b = document.createElement('button');
+    b.textContent = i;
+    if (v.classList.contains('active')) b.classList.add('on');
+    b.addEventListener('click', () => {
+      variants.forEach(x => x.classList.remove('active'));
+      v.classList.add('active');
+      btns.querySelectorAll('button').forEach(x => x.classList.remove('on'));
+      b.classList.add('on');
+    });
+    btns.appendChild(b);
+  });
+  sec.prepend(chip);
+});
+</script>
+<link rel="stylesheet" href="/assets/css/mood-v3.css?v=2">
+</body>
+</html>

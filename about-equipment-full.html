@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>보유장비·의약품 | 버틀러클리닉</title>
+<link rel="stylesheet" href="/assets/css/typo-guard.css?v=2">
+<link rel="preload" href="assets/fonts/nt_fabulous-webfont.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'NT Fabulous';src:url('assets/fonts/nt_fabulous-webfont.woff2') format('woff2'),url('assets/fonts/nt_fabulous-webfont.woff') format('woff');font-weight:400;font-style:normal;font-display:swap;}</style>
+<meta name="description" content="버틀러 성형외과의원의 보유장비·의약품 안내. 울쎄라피 프라임, 써마지, 포텐자, 온다, 올타이트까지 — 버틀러는 검증된 장비와 정품만 준비되어 있습니다.">
+<!-- IA: /about/equipment · 정식 작업본(레이아웃 3안 스위처) — 배포 시 open 버전을 about/equipment/index.html 로 복사 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ 베이스 (무채색 팔레트 — 유채색 0회) ============ */
+html { font-size: 62.5%; scroll-behavior: smooth; }
+body { overflow-x: hidden; }
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Noto Sans','Noto Sans KR',sans-serif; font-size:16px; line-height:1.6; color:#111; background:#FBFAF8; }
+img { max-width:100%; display:block; }
+a { color:inherit; text-decoration:none; }
+ul,ol { list-style:none; }
+button { font-family:inherit; cursor:pointer; border:none; background:none; }
+:focus-visible { outline:2px solid #8a8a8a; outline-offset:2px; }
+
+/* 레이아웃 */
+.wrap{max-width:1280px;margin:0 auto;padding-left:24px;padding-right:24px;}
+.wrap-n{max-width:920px;margin:0 auto;padding-left:24px;padding-right:24px;}
+
+/* ===== v0 공통 토큰 (여수스노우 실측 기준 — sub-full.html 재사용) ===== */
+.v0sec{padding:clamp(72px,56px + 2vw,110px) 0;}
+.vv .tC{text-align:center;}
+.vv .h-int{font-size:clamp(28px,24px + 1.1vw,42px);line-height:1.25;font-weight:400;color:#111;letter-spacing:-0.01em;}
+.vv .h-blk{font-size:clamp(24px,21px + 0.9vw,36px);line-height:1.25;font-weight:400;color:#111;letter-spacing:-0.01em;}
+.vv .h-md{font-size:clamp(23px,21px + 0.5vw,28px);line-height:1.43;font-weight:600;color:#111;}
+.vv .h-int strong,.vv .h-blk strong{font-weight:700;}
+.vv .bd{font-size:16px;font-weight:400;line-height:1.6;color:#111;margin-top:10px;}
+.vv .bd-lg{font-size:clamp(17px,16px + 0.3vw,20px);font-weight:400;line-height:1.55;color:#111;margin-top:12px;}
+.vv .bd strong,.vv .bd-lg strong{font-weight:700;}
+.vv .dots{margin-top:14px;}
+.vv .dots li{display:flex;gap:10px;font-size:15.5px;font-weight:300;line-height:2;color:#111;}
+.vv .dots li::before{content:'·';font-weight:700;flex:none;}
+.vv .tag{display:block;font-size:13px;font-weight:400;color:#8a8a8a;margin-bottom:8px;}
+
+/* ===== 이미지 와이어프레임 박스 ===== */
+.wf-img{background:#ECECEC;display:flex;align-items:center;justify-content:center;color:#9a9a9a;font-size:12px;letter-spacing:0.02em;text-align:center;width:100%;}
+.wf-dark{background:#2E2E2E;color:rgba(255,255,255,0.4);}
+.wf-219{aspect-ratio:21/9;}
+.wf-169{aspect-ratio:16/9;}
+.wf-43{aspect-ratio:4/3;}
+.wf-32{aspect-ratio:3/2;}
+.wf-45{aspect-ratio:4/5;}
+
+/* ============ 스위처 (시안 선택 UI — 수정 금지) ============ */
+.sec{position:relative;}
+.sec > .variant{display:none;}
+.sec > .variant.active{display:block;}
+.sec-chip{position:absolute;top:10px;left:10px;z-index:60;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.82);border:none;border-radius:999px;padding:3px 7px;opacity:0.9;transition:opacity .2s;}
+.sec-chip:hover{opacity:1;}
+.sec-chip .badge{display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:999px;background:rgba(120,120,120,0.3);color:#6a6a6a;font-size:10px;font-weight:400;}
+.sec-chip .nm{font-size:10px;font-weight:400;color:#6a6a6a;letter-spacing:0;}
+.sec-chip .vbtns{display:flex;gap:3px;margin-left:3px;}
+.sec-chip .vbtns button{width:17px;height:17px;border-radius:999px;font-size:10px;font-weight:400;color:#8a8a8a;border:none;background:rgba(150,150,150,0.16);}
+.sec-chip .vbtns button.on{background:rgba(100,100,100,0.85);color:#fff;}
+
+/* ============ 헤더 (여수스노우 카피 — 임시) ============ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;font-weight:600;transition:background .2s,color .2s,border-color .2s;}
+.btn-m{font-size:14px;padding:11px 22px;}
+.btn-primary{background:#1A1A1A;color:#fff;}
+.btn-primary:hover{background:#000;}
+.pill{border-radius:999px;}
+.gnb{position:sticky;top:0;z-index:80;background:#FBFAF8;border-bottom:1px solid #E3E3E3;}
+.gnb .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:1440px;}
+.gnb img{height:36px;width:auto;}
+.gnb nav{display:flex;gap:28px;font-size:14px;font-weight:500;color:#111;}
+.gnb nav a:hover{color:#1A1A1A;}
+@media(max-width:1024px){ .gnb nav{display:none;} }
+
+/* ============ E1 — 다크 히어로 + 4열 장비 그리드 + 라이트박스 (프롬프트 지시 반영) ============ */
+.e1-hero{padding:clamp(88px,70px + 3vw,140px) 24px clamp(12px,10px + 0.3vw,16px);text-align:center;}
+.e1-en{display:block;font-size:13px;letter-spacing:0.42em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:500;margin-bottom:26px;}
+.e1-title{color:#111;font-size:clamp(34px,26px + 2vw,56px);line-height:1.2;letter-spacing:-0.02em;font-weight:400;}
+.e1-title strong{font-weight:700;}
+.e1-grid-sec{padding:clamp(24px,20px + 0.6vw,34px) 0 clamp(72px,56px + 2vw,110px);background:#FBFAF8;}
+.e1-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:44px 24px;}
+.e1-item{flex:0 0 calc(25% - 18px);text-align:left;display:block;padding:0;}
+.e1-item .wf-img{transition:opacity .2s;}
+.e1-item:hover .wf-img{opacity:0.78;}
+.e1-name{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;font-size:16px;font-weight:600;color:#111;letter-spacing:-0.01em;}
+.e1-plus{color:#9a9a9a;font-weight:300;font-size:19px;line-height:1;flex:none;}
+.e1-lb{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(17,17,17,0.92);}
+.e1-lb.open{display:flex;}
+.e1-lb-panel{position:relative;background:transparent;width:100%;max-width:420px;max-height:92vh;overflow-y:auto;padding:0;}
+.e1-lb-close{position:absolute;top:12px;right:12px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:300;color:rgba(255,255,255,0.7);line-height:1;}
+.e1-lb-close:hover{color:#fff;}
+.e1-lb-body{font-family:'Noto Sans','Noto Sans KR',sans-serif;}
+.e1-lb-body .wf-img{aspect-ratio:3/4;width:100%;margin:0 auto 18px;background:#2E2E2E;color:rgba(255,255,255,0.4);}
+.e1-lb-body h3{font-size:18px;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:8px;font-family:'Noto Sans','Noto Sans KR',sans-serif;}
+.e1-lb-body .e1-lines p{font-size:13px;font-weight:400;line-height:1.55;color:rgba(255,255,255,0.82);margin:0 0 3px;text-align:left;}
+.e1-lb-body .e1-areas{margin-top:10px;font-size:12px;color:rgba(255,255,255,0.5);}
+.e1-areas{margin-top:14px;font-size:13px;color:#8a8a8a;}
+@media(max-width:1024px){ .e1-item{flex-basis:calc(50% - 12px);} }
+@media(max-width:768px){
+  .e1-hero{padding-top:88px;}
+  .e1-grid{gap:32px 0;}
+  .e1-item{flex-basis:100%;}
+}
+
+/* ============ E2 — 번호 헤어라인 리스트형 (에디토리얼 · 좌 번호 / 중 텍스트 / 우 이미지) ============ */
+.e2-intro{padding:clamp(96px,80px + 3vw,150px) 24px clamp(44px,36px + 1.5vw,64px);text-align:center;background:#FBFAF8;}
+.e2-en{display:block;font-size:13px;letter-spacing:0.42em;text-transform:uppercase;color:#9a9a9a;font-weight:500;margin-bottom:26px;}
+.e2-title{font-size:clamp(30px,25px + 1.4vw,44px);line-height:1.22;letter-spacing:-0.02em;color:#111;font-weight:400;}
+.e2-title strong{font-weight:700;}
+.e2-list-sec{padding:clamp(32px,26px + 1vw,48px) 0 clamp(72px,56px + 2vw,110px);background:#FBFAF8;}
+.e2-list{max-width:1080px;margin:0 auto;padding:0 24px;}
+.e2-row{display:grid;grid-template-columns:64px 1fr minmax(280px,380px);gap:clamp(22px,14px + 1.5vw,44px);align-items:start;padding:clamp(36px,30px + 1vw,52px) 0;border-top:1px solid #E3E3E3;}
+.e2-row:first-child{border-top:none;padding-top:0;}
+.e2-no{font-size:12px;color:#9a9a9a;letter-spacing:0.1em;font-weight:500;padding-top:6px;}
+.e2-row h3{margin-top:6px;font-size:22px;font-weight:700;color:#111;letter-spacing:-0.01em;}
+.e2-row .dots{margin-top:10px;max-width:560px;}
+.e2-areas{margin-top:14px;font-size:13px;color:#8a8a8a;}
+@media(max-width:768px){
+  .e2-row{grid-template-columns:1fr;gap:12px;padding:30px 0;}
+  .e2-no{padding-top:0;}
+  .e2-row .wf-img{margin-top:8px;}
+}
+
+/* ============ E3 — 다크/라이트 교차 풀와이드 밴드형 (지그재그 스플릿) ============ */
+.e3-intro{padding:clamp(96px,80px + 3vw,150px) 24px clamp(64px,52px + 2vw,96px);text-align:center;background:#FBFAF8;}
+.e3-en{display:block;font-size:13px;letter-spacing:0.42em;text-transform:uppercase;color:#9a9a9a;font-weight:500;margin-bottom:26px;}
+.e3-title{font-size:clamp(30px,25px + 1.4vw,44px);line-height:1.22;letter-spacing:-0.02em;color:#111;font-weight:400;}
+.e3-title strong{font-weight:700;}
+.e3-band{padding:clamp(72px,56px + 2vw,110px) 0;background:#FBFAF8;}
+.e3-band.e3-dark{background:#1A1A1A;}
+.e3-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,12px + 3vw,72px);align-items:center;}
+.e3-no{display:block;font-size:12px;letter-spacing:0.14em;color:#9a9a9a;font-weight:500;margin-bottom:14px;}
+.e3-tag{display:block;font-size:13px;font-weight:400;color:#8a8a8a;margin-bottom:8px;}
+.e3-band h3{font-size:clamp(24px,21px + 0.9vw,36px);line-height:1.25;font-weight:700;color:#111;letter-spacing:-0.01em;}
+.e3-band .dots{margin-top:10px;}
+.e3-areas{margin-top:14px;font-size:13px;color:#8a8a8a;}
+.e3-dark .e3-no{color:rgba(255,255,255,0.45);}
+.e3-dark .e3-tag{color:rgba(255,255,255,0.55);}
+.e3-dark h3{color:#fff;}
+.e3-dark .dots li{color:#fff;}
+.e3-dark .e3-areas{color:rgba(255,255,255,0.5);}
+@media(max-width:768px){
+  .e3-grid{grid-template-columns:1fr;gap:26px;}
+  .e3-grid .e3-txt{order:1;}
+  .e3-grid .e3-imgbox{order:2;}
+}
+
+/* ============ 프로모션 + 푸터 (여수스노우 카피 — 임시) ============ */
+.promo{background:#FBFAF8;padding:clamp(72px,56px + 2vw,110px) 0;}
+.promo .head{text-align:center;margin-bottom:clamp(40px,32px + 1.5vw,56px);}
+.promo .kicker{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:600;color:#8a8a8a;letter-spacing:0.12em;margin-bottom:18px;}
+.promo .kicker::before{content:'';width:24px;height:1px;background:#c9c9c9;}
+.promo h2{font-size:clamp(29px,23.5px + 1.15vw,40px);font-weight:600;line-height:1.3;letter-spacing:-0.02em;color:#111;}
+.promo .sub{font-size:16px;color:#8a8a8a;margin-top:12px;}
+.promo .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;}
+@media(max-width:1024px){ .promo .grid{grid-template-columns:repeat(3,1fr);} }
+@media(max-width:600px){ .promo .grid{grid-template-columns:repeat(2,1fr);} }
+.promo .pcard{border-radius:10px;overflow:hidden;background:#fff;border:1px solid #E3E3E3;}
+.promo .pcard img{width:100%;aspect-ratio:1/1;object-fit:cover;}
+.promo .pcard .cap{padding:12px 14px;}
+.promo .pcard .cap .s{font-size:10px;letter-spacing:0.1em;color:#8a8a8a;font-weight:500;}
+.promo .pcard .cap .n{font-size:14px;font-weight:600;color:#111;margin-top:2px;}
+footer.site{background:#1A1A1A;color:rgba(255,255,255,0.6);padding:clamp(48px,40px + 1.5vw,64px) 0;}
+footer.site .wrap{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;font-size:12px;line-height:1.8;}
+footer.site .logo{font-weight:700;color:#fff;font-size:15px;letter-spacing:0.06em;}
+</style>
+<style id="equip-fix">
+.e1-item:focus,.e1-item:focus-visible{outline:none;}
+.e1-grid{display:grid;grid-template-columns:repeat(3,1fr);justify-content:start;gap:14px;}
+.e1-grid .wf-img{aspect-ratio:3/4;}
+.e1-name{justify-content:center;text-align:center;}
+@media(max-width:900px){ .e1-grid{grid-template-columns:repeat(2,1fr);} }
+@media(max-width:520px){ .e1-grid{grid-template-columns:1fr;} }
+</style>
+<style id="rv-css">
+/* 스크롤 리빌 — 시술 페이지와 동일한 결 (26px/0.8s 페이드업 단일 효과) */
+.rv{opacity:0;transition:opacity 1.1s ease;will-change:opacity;}
+.rv.in{opacity:1;}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}}
+
+/* 히어로 — 시술 heroRise와 동일: 타이틀 영역이 한 덩어리로 상승 */
+@keyframes aboutRise{from{opacity:0;}to{opacity:1;}}
+.p1-title,.d2-title,.e1-title,.e2-title,.e3-title,.t1-title,.l2-title{animation:aboutRise 1.1s cubic-bezier(0.22,0.61,0.36,1) .25s both;}
+@media(prefers-reduced-motion:reduce){.p1-title,.d2-title,.e1-title,.e2-title,.e3-title,.t1-title,.l2-title{animation:none;}}
+
+/* 콘텐츠 도미노 — 순수 CSS 키프레임 (히어로와 동일 메커니즘, JS 무관) */
+@keyframes rvFade{from{opacity:0;}to{opacity:1;}}
+.wf-219{animation:rvFade 1.05s ease 0.39s both;}
+.bs1-s1 .wrap-n{animation:rvFade 1.05s ease 0.59s both;}
+.bs1-orn{animation:rvFade 1.05s ease 0.8s both;}
+.bs1-s2 .h-blk{animation:rvFade 1.05s ease 0.94s both;}
+.p1-duo{animation:rvFade 1.05s ease 1.12s both;}
+.p1-close-h{animation:rvFade 1.05s ease 1.29s both;}
+.d2-portrait{animation:rvFade 1.05s ease 0.35s both;}
+.d2-right .d2-blk:nth-of-type(1){animation:rvFade 1.05s ease 0.56s both;}
+.d2-right .d2-blk:nth-of-type(2){animation:rvFade 1.05s ease 0.77s both;}
+.d2-right .d2-blk:nth-of-type(3){animation:rvFade 1.05s ease 0.98s both;}
+.d2-right .d2-blk:nth-of-type(4){animation:rvFade 1.05s ease 1.19s both;}
+.ds2{animation:rvFade 1.05s ease 1.4s both;}
+.e1-grid > *:nth-child(1){animation:rvFade 1.05s ease 0.39s both;}
+.e1-grid > *:nth-child(2){animation:rvFade 1.05s ease 0.52s both;}
+.e1-grid > *:nth-child(3){animation:rvFade 1.05s ease 0.66s both;}
+.e1-grid > *:nth-child(4){animation:rvFade 1.05s ease 0.8s both;}
+.e1-grid > *:nth-child(5){animation:rvFade 1.05s ease 0.94s both;}
+.t1-grid .t1-cell{animation:rvFade 1.05s ease both;}
+.t1-grid .t1-cell:nth-child(5n+1){animation-delay:0.39s;}
+.t1-grid .t1-cell:nth-child(5n+2){animation-delay:0.49s;}
+.t1-grid .t1-cell:nth-child(5n+3){animation-delay:0.59s;}
+.t1-grid .t1-cell:nth-child(5n+4){animation-delay:0.7s;}
+.t1-grid .t1-cell:nth-child(5n){animation-delay:0.8s;}
+.t1-hint{animation:rvFade 1.05s ease 0.98s both;}
+.l2-map{animation:rvFade 1.05s ease 0.35s both;}
+.l2-cap{animation:rvFade 1.05s ease 0.52s both;}
+.l2-blk{animation:rvFade 1.05s ease both;}
+.l2-blk:nth-of-type(1){animation-delay:0.56s;}
+.l2-blk:nth-of-type(2){animation-delay:0.77s;}
+.l2-blk:nth-of-type(3){animation-delay:0.98s;}
+.l2-blk:nth-of-type(4){animation-delay:1.19s;}
+.promo .head{animation:rvFade 1.05s ease 0.21s both;}
+.promo .pcard{animation:rvFade 1.05s ease both;}
+.promo .pcard:nth-child(1){animation-delay:0.35s;}
+.promo .pcard:nth-child(2){animation-delay:0.45s;}
+.promo .pcard:nth-child(3){animation-delay:0.56s;}
+.promo .pcard:nth-child(4){animation-delay:0.66s;}
+.promo .pcard:nth-child(5){animation-delay:0.77s;}
+.promo .pcard:nth-child(6){animation-delay:0.88s;}
+@media(prefers-reduced-motion:reduce){
+  .wf-219,.bs1-s1 .wrap-n,.bs1-orn,.bs1-s2 .h-blk,.p1-duo,.p1-close-h,
+  .d2-portrait,.d2-right .d2-blk,.ds2,.e1-grid > *,.t1-grid .t1-cell,.t1-hint,
+  .l2-map,.l2-cap,.l2-blk,.promo .head,.promo .pcard{animation:none;}
+}
+</style>
+</head>
+<body>
+<div id="pgwrap">
+
+<!-- ================= 헤더 (여수스노우 카피 — 임시, 추후 교체) ================= -->
+<header class="gnb">
+<style>
+.gnb{position:sticky;top:0;z-index:80;/*lang 기준*/ background:#FBFAF8;border-bottom:1px solid rgba(112,112,112,0.45);font-family:'Noto Sans','Noto Sans KR',sans-serif;}
+.gnb .gwrap{display:flex;align-items:center;justify-content:flex-start;height:60px;max-width:none;margin:0;padding:0 30px;gap:0;}
+.gnb .glogo{display:flex;align-items:center;text-decoration:none;}
+.gnb .glogo img{height:22px;width:auto;display:block;}
+.gnb nav.gnav{display:flex;gap:0;margin-left:auto;font-size:13px;font-weight:400;letter-spacing:0.03em;text-transform:uppercase;color:#333;}
+.gnb .nv{position:relative;padding:0 17px;}
+.gnb .nv > a{color:#333;text-decoration:none;padding:20px 0;display:inline-block;}
+.gnb .nv > a:hover{color:#111;}
+.gnb .nv-t{color:#333;cursor:default;padding:20px 0;display:inline-block;}
+.gnb .dp{position:absolute;top:100%;left:50%;transform:translateX(-50%);text-transform:none;background:#FBFAF8;border:1px solid #ECECEC;box-shadow:0 10px 28px rgba(0,0,0,0.07);border-radius:0;padding:8px 0;display:none;min-width:158px;z-index:120;}
+.gnb .nv:hover .dp{display:block;}
+.gnb .dp a{display:block;padding:8px 20px;font-size:11.5px;font-weight:400;color:#555;text-decoration:none;white-space:nowrap;text-align:left;}
+.gnb .dp a:hover{color:#111;background:#F4F4F4;}
+.gnb .gglobe{position:relative;margin-left:17px;display:flex;align-items:center;align-self:stretch;}
+.gnb .gglobe:hover::before,.gnb .gglobe.open::before{content:'';position:absolute;top:0;bottom:-6px;right:0;width:110px;}
+.gnb .gglobe-btn{display:flex;align-items:center;justify-content:center;padding:20px 0;background:none;border:none;outline:none;cursor:pointer;color:#333;}
+.gnb .gglobe-btn:focus,.gnb .gglobe-btn:focus-visible{outline:none;}
+.gnb .gglobe .gdp{position:absolute;top:100%;right:0;background:#FBFAF8;border:1px solid #EBEBEB;box-shadow:0 10px 24px rgba(0,0,0,0.07);min-width:92px;padding:6px 0;display:none;z-index:130;}
+.gnb .gglobe:hover .gdp,.gnb .gglobe.open .gdp{display:block;}
+.gnb .gglobe .gdp a{display:block;padding:7px 18px;font-size:12px;letter-spacing:0.06em;color:#555;text-decoration:none;text-align:right;}
+.gnb .gglobe .gdp a:hover{color:#111;background:#F4F4F4;}
+.gnb .gglobe .gdp a.on{color:#111;font-weight:600;}
+.gnb .gmenu-btn{display:none;margin-left:auto;width:40px;height:40px;position:relative;background:none;border:none;cursor:pointer;}
+.gnb .gmenu-btn i{position:absolute;left:9px;right:9px;height:1.5px;background:#111;transition:transform .3s ease,opacity .3s ease;}
+.gnb .gmenu-btn i:nth-child(1){top:14px;} .gnb .gmenu-btn i:nth-child(2){top:20px;} .gnb .gmenu-btn i:nth-child(3){top:26px;}
+body.gm-open .gmenu-btn i:nth-child(1){transform:translateY(6px) rotate(45deg);}
+body.gm-open .gmenu-btn i:nth-child(2){opacity:0;}
+body.gm-open .gmenu-btn i:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+.gnb-mobile{position:fixed;inset:0;z-index:190;background:#FBFAF8;padding:84px 28px 120px;overflow-y:auto;display:none;}
+body.gm-open .gnb-mobile{display:block;}
+body.gm-open{overflow:hidden;}
+.gnb-mobile .gm-grp{border-bottom:1px solid #E3E3E3;padding:18px 0;}
+.gnb-mobile .gm-solo{border-bottom:none;padding:1.5px 0;}
+.gnb-mobile .gm-grp:not(.gm-solo) + .gm-solo{padding-top:18px;}
+.gnb-mobile .gm-t{font-size:15px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#111;}
+.gnb-mobile .gm-sub{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;}
+.gnb-mobile .gm-sub a{font-size:14px;color:#555;text-decoration:none;}
+.gnb-mobile .gm-lang{display:flex;justify-content:flex-start;gap:16px;margin-top:30px;padding-bottom:24px;font-size:12px;letter-spacing:0.1em;color:#b0b0b0;}
+.gnb-mobile .gm-lang a{color:#8a8a8a;text-decoration:none;}
+.gnb-mobile .gm-lang a.on{color:#111;font-weight:600;}
+@media(max-width:1024px){ .gnb nav.gnav{display:none;} .gnb .gglobe{display:none;} .gnb .gmenu-btn{display:block;} }
+@media(min-width:1025px){ .gnb-mobile{display:none !important;} }
+</style>
+<div class="gwrap">
+  <a href="index.html" class="glogo"><img src="img/00_home/logo_h_dark.png" alt="Butler Clinic"></a>
+  <nav class="gnav">
+    <div class="nv"><a href="about-brand-story-full.html">Butler Clinic</a>
+      <div class="dp">
+        <a href="about-brand-story-full.html">브랜딩 스토리</a>
+        <a href="about-doctors-full.html">의료진 소개</a>
+        <a href="about-equipment-full.html">보유장비·의약품</a>
+        <a href="about-tour-full.html">둘러보기</a>
+        <a href="about-location-full.html">오시는 길</a>
+      </div>
+    </div>
+    <div class="nv"><a href="surgery-eye-open.html">Surgery</a>
+      <div class="dp">
+        <a href="surgery-eye-open.html">눈 수술</a>
+        <a href="surgery-face-open.html">안면부 수술</a>
+        <a href="surgery-forehead-open.html">이마 수술</a>
+      </div>
+    </div>
+    <div class="nv"><a href="sub-open.html">Skin Care</a>
+      <div class="dp">
+        <a href="skincare-thread-lifting-open.html">실 리프팅</a>
+        <a href="sub-open.html">레이저 리프팅</a>
+        <a href="skincare-botox-filler-open.html">보톡스·필러</a>
+        <a href="skincare-skin-booster-open.html">스킨부스터</a>
+        <a href="skincare-regenerative-cell-open.html">재생세포</a>
+        <a href="skincare-hyperbaric-oxygen-open.html">고압산소치료</a>
+      </div>
+    </div>
+    <div class="nv"><span class="nv-t">Doctor's Column</span></div>
+    <div class="nv"><span class="nv-t">Before / After</span></div>
+    <div class="nv"><span class="nv-t">Promotion</span></div>
+  </nav>
+  <div class="gglobe">
+    <button class="gglobe-btn" type="button" aria-label="언어 선택"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9s1.3-6.4 3.8-9z"/></svg></button>
+    <div class="gdp"><a href="#" class="on">Korea</a><a href="#">English</a><a href="#">China</a><a href="#">Japan</a></div>
+  </div>
+  <button class="gmenu-btn" aria-label="메뉴 열기"><i></i><i></i><i></i></button>
+</div>
+<div class="gnb-mobile">
+  <div class="gm-grp"><span class="gm-t">Butler Clinic</span>
+    <div class="gm-sub">
+      <a href="about-brand-story-full.html">브랜딩 스토리</a>
+      <a href="about-doctors-full.html">의료진 소개</a>
+      <a href="about-equipment-full.html">보유장비·의약품</a>
+      <a href="about-tour-full.html">둘러보기</a>
+      <a href="about-location-full.html">오시는 길</a>
+    </div>
+  </div>
+  <div class="gm-grp"><span class="gm-t">Surgery</span>
+    <div class="gm-sub">
+      <a href="surgery-eye-open.html">눈 수술</a>
+      <a href="surgery-face-open.html">안면부 수술</a>
+      <a href="surgery-forehead-open.html">이마 수술</a>
+    </div>
+  </div>
+  <div class="gm-grp"><span class="gm-t">Skin Care</span>
+    <div class="gm-sub">
+      <a href="skincare-thread-lifting-open.html">실 리프팅</a>
+      <a href="sub-open.html">레이저 리프팅</a>
+      <a href="skincare-botox-filler-open.html">보톡스·필러</a>
+      <a href="skincare-skin-booster-open.html">스킨부스터</a>
+      <a href="skincare-regenerative-cell-open.html">재생세포</a>
+      <a href="skincare-hyperbaric-oxygen-open.html">고압산소치료</a>
+    </div>
+  </div>
+  <div class="gm-grp gm-solo"><span class="gm-t nv-t">Doctor's Column</span></div>
+  <div class="gm-grp gm-solo"><span class="gm-t nv-t">Before / After</span></div>
+  <div class="gm-grp gm-solo"><span class="gm-t nv-t">Promotion</span></div>
+  <div class="gm-lang"><a href="#" class="on">KR</a><a href="#">EN</a><a href="#">CH</a><a href="#">JP</a></div>
+</div>
+<script>
+(function(){
+  var btn = document.querySelector('.gnb .gmenu-btn');
+  if (btn) btn.addEventListener('click', function(){ document.body.classList.toggle('gm-open'); });
+  var gb = document.querySelector('.gnb .gglobe');
+  if (gb) {
+    gb.querySelector('.gglobe-btn').addEventListener('click', function(e){ e.stopPropagation(); gb.classList.toggle('open'); });
+    document.addEventListener('click', function(){ gb.classList.remove('open'); });
+  }
+  document.querySelectorAll('.nv-t').forEach(function(el){
+    el.style.cursor = 'pointer';
+    el.addEventListener('click', function(){ alert('준비중 입니다'); });
+  });
+})();
+</script>
+</header>
+
+<!-- ================= P. 보유장비/의약품 (레이아웃 3안 스위처) ================= -->
+<section class="sec" data-label="P" data-name="보유장비/의약품">
+
+  <!-- ===== 1안 — 프롬프트 지시 반영: 다크 히어로 + 4열 장비 그리드(이미지+장비명) + 클릭 라이트박스 ===== -->
+  <div class="variant vv active">
+
+    <!-- 다크 히어로 -->
+    <div class="e1-hero">
+      <h1 class="e1-title"><span class="en-hero">Equipment</span><span class="ko-sub">버틀러는 <strong>검증된 장비와 정품</strong>만,<br>준비되어 있습니다.</span></h1>
+    </div>
+
+    <!-- 4열 장비 그리드 — 이미지 하단 장비명, 클릭 시 라이트박스 -->
+    <div class="e1-grid-sec"><div class="wrap">
+      <div class="e1-grid">
+        <button class="e1-item" type="button" data-dev="e1-tpl-1">
+          <div class="wf-img wf-43"></div>
+          <span class="e1-name">울쎄라피 프라임</span>
+        </button>
+        <button class="e1-item" type="button" data-dev="e1-tpl-2">
+          <div class="wf-img wf-43"></div>
+          <span class="e1-name">써마지</span>
+        </button>
+        <button class="e1-item" type="button" data-dev="e1-tpl-3">
+          <div class="wf-img wf-43"></div>
+          <span class="e1-name">포텐자</span>
+        </button>
+        <button class="e1-item" type="button" data-dev="e1-tpl-4">
+          <div class="wf-img wf-43"></div>
+          <span class="e1-name">온다</span>
+        </button>
+        <button class="e1-item" type="button" data-dev="e1-tpl-5">
+          <div class="wf-img wf-43"></div>
+          <span class="e1-name">올타이트</span>
+        </button>
+      </div>
+    </div></div>
+
+    <!-- 라이트박스 콘텐츠 템플릿 -->
+    <template id="e1-tpl-1">
+      <div class="wf-img"></div>
+      <h3>울쎄라피 프라임</h3>
+      <div class="e1-lines">
+        <p>울쎄라의 최신 모델, 집속 초음파(HIFU) 리프팅 장비</p>
+        <p>SMAS층까지 도달하는 원리는 그대로, 8mm 깊이까지 실시간 영상 확인</p>
+        <p>에너지 전달 방식을 개선해 시술 중 통증을 완화</p>
+        <p>구동 속도가 빨라져 시술 시간과 소음을 줄임</p>
+      </div>
+      <p class="e1-areas">* 안면 리프팅 / 눈가·눈썹 / 이중턱·목</p>
+    </template>
+    <template id="e1-tpl-2">
+      <div class="wf-img"></div>
+      <h3>써마지</h3>
+      <div class="e1-lines">
+        <p>미국 FDA 승인, 고주파(RF) 리프팅의 글로벌 표준 장비</p>
+        <p>절개나 주사 없이 진피층 깊숙이 열에너지가 작용해 콜라겐을 재생시키고 처진 피부를 자연스럽게 끌어올림</p>
+        <p>시술 직후부터 변화가 시작돼 수개월에 걸쳐 효과 지속</p>
+      </div>
+      <p class="e1-areas">* 안면 리프팅 / 눈가 타이트닝 / 바디</p>
+    </template>
+    <template id="e1-tpl-3">
+      <div class="wf-img"></div>
+      <h3>포텐자</h3>
+      <div class="e1-lines">
+        <p>마이크로니들 고주파(RF)를 진피 속 정확한 깊이에 전달하는 장비</p>
+        <p>1MHz·2MHz 듀얼 주파수와 극성 전환으로 깊이와 범위를 정밀 조절</p>
+        <p>니들마다 에너지를 고르게 나누는 설계로 시술 중 통증을 완화</p>
+        <p>13종 팁으로 탄력·모공·흉터까지 한 장비로 맞춤 시술</p>
+      </div>
+      <p class="e1-areas">* 안면 탄력 / 모공·흉터 / 목·데콜테</p>
+    </template>
+    <template id="e1-tpl-4">
+      <div class="wf-img"></div>
+      <h3>온다</h3>
+      <div class="e1-lines">
+        <p>이탈리아 DEKA의 마이크로파(쿨웨이브) 리프팅 장비</p>
+        <p>극초단파가 지방세포에 선택적으로 흡수돼 지방 감소와 탄력을 함께</p>
+        <p>표피는 냉각으로 보호하며 진피·피하층에 열을 전달</p>
+        <p>마취 부담이 적고 시술 직후 일상 복귀 가능</p>
+      </div>
+      <p class="e1-areas">* 이중턱 / 바디 윤곽 / 얼굴 타이트닝</p>
+    </template>
+    <template id="e1-tpl-5">
+      <div class="wf-img"></div>
+      <h3>올타이트</h3>
+      <div class="e1-lines">
+        <p>진피와 SMAS층을 함께 겨냥하는 고주파(RF) 리프팅 장비</p>
+        <p>심부 열확산(DLTD) 방식으로 근막층까지 열에너지를 집중 전달</p>
+        <p>강력한 쿨링으로 표피를 보호해 볼륨 손실을 줄이도록 설계</p>
+        <p>통증이 적어 무마취로 진행, 다운타임 없이 바로 일상 복귀</p>
+      </div>
+      <p class="e1-areas">* 중안면 / 턱선 / 목</p>
+    </template>
+
+    <!-- 라이트박스 -->
+    <div class="e1-lb" id="e1Lightbox" aria-hidden="true">
+      <div class="e1-lb-panel" role="dialog" aria-modal="true">
+        <button class="e1-lb-close" type="button" aria-label="닫기">&times;</button>
+        <div class="e1-lb-body"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== 2안 — 번호 헤어라인 리스트형: 좌 번호 / 중 텍스트(태그·이름·설명) / 우 4:3 이미지 ===== -->
+  <div class="variant vv">
+
+    <!-- 화이트 센터 인트로 -->
+    <div class="e2-intro">
+      <h1 class="e2-title"><span class="en-hero">Equipment</span><span class="ko-sub">버틀러는 <strong>검증된 장비와 정품</strong>만,<br>준비되어 있습니다.</span></h1>
+    </div>
+
+    <!-- 넘버링 헤어라인 리스트 -->
+    <div class="e2-list-sec"><div class="e2-list">
+
+      <article class="e2-row">
+        <span class="e2-no">01</span>
+        <div>
+          <span class="tag">울쎄라의 최신 모델, 집속 초음파(HIFU) 리프팅 장비</span>
+          <h3>울쎄라피 프라임</h3>
+          <ul class="dots">
+            <li>SMAS층까지 도달하는 원리는 그대로, 8mm 깊이까지 실시간 영상 확인</li>
+            <li>에너지 전달 방식을 개선해 시술 중 통증을 완화</li>
+            <li>구동 속도가 빨라져 시술 시간과 소음을 줄임</li>
+          </ul>
+          <p class="e2-areas">* 안면 리프팅 / 눈가·눈썹 / 이중턱·목</p>
+        </div>
+        <div class="wf-img wf-43"></div>
+      </article>
+
+      <article class="e2-row">
+        <span class="e2-no">02</span>
+        <div>
+          <span class="tag">미국 FDA 승인, 고주파(RF) 리프팅의 글로벌 표준 장비</span>
+          <h3>써마지</h3>
+          <ul class="dots">
+            <li>절개나 주사 없이 진피층 깊숙이 열에너지가 작용해 콜라겐을 재생시키고 처진 피부를 자연스럽게 끌어올림</li>
+            <li>시술 직후부터 변화가 시작돼 수개월에 걸쳐 효과 지속</li>
+          </ul>
+          <p class="e2-areas">* 안면 리프팅 / 눈가 타이트닝 / 바디</p>
+        </div>
+        <div class="wf-img wf-43"></div>
+      </article>
+
+      <article class="e2-row">
+        <span class="e2-no">03</span>
+        <div>
+          <span class="tag">마이크로니들 고주파(RF)를 진피 속 정확한 깊이에 전달하는 장비</span>
+          <h3>포텐자</h3>
+          <ul class="dots">
+            <li>1MHz·2MHz 듀얼 주파수와 극성 전환으로 깊이와 범위를 정밀 조절</li>
+            <li>니들마다 에너지를 고르게 나누는 설계로 시술 중 통증을 완화</li>
+            <li>13종 팁으로 탄력·모공·흉터까지 한 장비로 맞춤 시술</li>
+          </ul>
+          <p class="e2-areas">* 안면 탄력 / 모공·흉터 / 목·데콜테</p>
+        </div>
+        <div class="wf-img wf-43"></div>
+      </article>
+
+      <article class="e2-row">
+        <span class="e2-no">04</span>
+        <div>
+          <span class="tag">이탈리아 DEKA의 마이크로파(쿨웨이브) 리프팅 장비</span>
+          <h3>온다</h3>
+          <ul class="dots">
+            <li>극초단파가 지방세포에 선택적으로 흡수돼 지방 감소와 탄력을 함께</li>
+            <li>표피는 냉각으로 보호하며 진피·피하층에 열을 전달</li>
+            <li>마취 부담이 적고 시술 직후 일상 복귀 가능</li>
+          </ul>
+          <p class="e2-areas">* 이중턱 / 바디 윤곽 / 얼굴 타이트닝</p>
+        </div>
+        <div class="wf-img wf-43"></div>
+      </article>
+
+      <article class="e2-row">
+        <span class="e2-no">05</span>
+        <div>
+          <span class="tag">진피와 SMAS층을 함께 겨냥하는 고주파(RF) 리프팅 장비</span>
+          <h3>올타이트</h3>
+          <ul class="dots">
+            <li>심부 열확산(DLTD) 방식으로 근막층까지 열에너지를 집중 전달</li>
+            <li>강력한 쿨링으로 표피를 보호해 볼륨 손실을 줄이도록 설계</li>
+            <li>통증이 적어 무마취로 진행, 다운타임 없이 바로 일상 복귀</li>
+          </ul>
+          <p class="e2-areas">* 중안면 / 턱선 / 목</p>
+        </div>
+        <div class="wf-img wf-43"></div>
+      </article>
+
+    </div></div>
+
+  </div>
+
+  <!-- ===== 3안 — 다크/라이트 교차 풀와이드 밴드형: 장비별 스플릿 밴드 지그재그 · 명암 리듬 ===== -->
+  <div class="variant vv">
+
+    <!-- 화이트 센터 인트로 -->
+    <div class="e3-intro">
+      <h1 class="e3-title"><span class="en-hero">Equipment</span><span class="ko-sub">버틀러는 <strong>검증된 장비와 정품</strong>만,<br>준비되어 있습니다.</span></h1>
+    </div>
+
+    <!-- 밴드 1 — 다크 · 이미지 우 -->
+    <div class="e3-band e3-dark"><div class="wrap">
+      <div class="e3-grid">
+        <div class="e3-txt">
+          <span class="e3-no">01</span>
+          <span class="e3-tag">울쎄라의 최신 모델, 집속 초음파(HIFU) 리프팅 장비</span>
+          <h3>울쎄라피 프라임</h3>
+          <ul class="dots">
+            <li>SMAS층까지 도달하는 원리는 그대로, 8mm 깊이까지 실시간 영상 확인</li>
+            <li>에너지 전달 방식을 개선해 시술 중 통증을 완화</li>
+            <li>구동 속도가 빨라져 시술 시간과 소음을 줄임</li>
+          </ul>
+          <p class="e3-areas">* 안면 리프팅 / 눈가·눈썹 / 이중턱·목</p>
+        </div>
+        <div class="e3-imgbox"><div class="wf-img wf-dark wf-169"></div></div>
+      </div>
+    </div></div>
+
+    <!-- 밴드 2 — 라이트 · 이미지 좌 -->
+    <div class="e3-band"><div class="wrap">
+      <div class="e3-grid">
+        <div class="e3-imgbox"><div class="wf-img wf-169"></div></div>
+        <div class="e3-txt">
+          <span class="e3-no">02</span>
+          <span class="e3-tag">미국 FDA 승인, 고주파(RF) 리프팅의 글로벌 표준 장비</span>
+          <h3>써마지</h3>
+          <ul class="dots">
+            <li>절개나 주사 없이 진피층 깊숙이 열에너지가 작용해 콜라겐을 재생시키고 처진 피부를 자연스럽게 끌어올림</li>
+            <li>시술 직후부터 변화가 시작돼 수개월에 걸쳐 효과 지속</li>
+          </ul>
+          <p class="e3-areas">* 안면 리프팅 / 눈가 타이트닝 / 바디</p>
+        </div>
+      </div>
+    </div></div>
+
+    <!-- 밴드 3 — 다크 · 이미지 우 -->
+    <div class="e3-band e3-dark"><div class="wrap">
+      <div class="e3-grid">
+        <div class="e3-txt">
+          <span class="e3-no">03</span>
+          <span class="e3-tag">마이크로니들 고주파(RF)를 진피 속 정확한 깊이에 전달하는 장비</span>
+          <h3>포텐자</h3>
+          <ul class="dots">
+            <li>1MHz·2MHz 듀얼 주파수와 극성 전환으로 깊이와 범위를 정밀 조절</li>
+            <li>니들마다 에너지를 고르게 나누는 설계로 시술 중 통증을 완화</li>
+            <li>13종 팁으로 탄력·모공·흉터까지 한 장비로 맞춤 시술</li>
+          </ul>
+          <p class="e3-areas">* 안면 탄력 / 모공·흉터 / 목·데콜테</p>
+        </div>
+        <div class="e3-imgbox"><div class="wf-img wf-dark wf-169"></div></div>
+      </div>
+    </div></div>
+
+    <!-- 밴드 4 — 라이트 · 이미지 좌 -->
+    <div class="e3-band"><div class="wrap">
+      <div class="e3-grid">
+        <div class="e3-imgbox"><div class="wf-img wf-169"></div></div>
+        <div class="e3-txt">
+          <span class="e3-no">04</span>
+          <span class="e3-tag">이탈리아 DEKA의 마이크로파(쿨웨이브) 리프팅 장비</span>
+          <h3>온다</h3>
+          <ul class="dots">
+            <li>극초단파가 지방세포에 선택적으로 흡수돼 지방 감소와 탄력을 함께</li>
+            <li>표피는 냉각으로 보호하며 진피·피하층에 열을 전달</li>
+            <li>마취 부담이 적고 시술 직후 일상 복귀 가능</li>
+          </ul>
+          <p class="e3-areas">* 이중턱 / 바디 윤곽 / 얼굴 타이트닝</p>
+        </div>
+      </div>
+    </div></div>
+
+    <!-- 밴드 5 — 다크 · 이미지 우 -->
+    <div class="e3-band e3-dark"><div class="wrap">
+      <div class="e3-grid">
+        <div class="e3-txt">
+          <span class="e3-no">05</span>
+          <span class="e3-tag">진피와 SMAS층을 함께 겨냥하는 고주파(RF) 리프팅 장비</span>
+          <h3>올타이트</h3>
+          <ul class="dots">
+            <li>심부 열확산(DLTD) 방식으로 근막층까지 열에너지를 집중 전달</li>
+            <li>강력한 쿨링으로 표피를 보호해 볼륨 손실을 줄이도록 설계</li>
+            <li>통증이 적어 무마취로 진행, 다운타임 없이 바로 일상 복귀</li>
+          </ul>
+          <p class="e3-areas">* 중안면 / 턱선 / 목</p>
+        </div>
+        <div class="e3-imgbox"><div class="wf-img wf-dark wf-169"></div></div>
+      </div>
+    </div></div>
+
+  </div>
+
+</section>
+
+<!-- ================= 프로모션 + 푸터 (여수스노우 카피 — 임시) ================= -->
+<div class="promo">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">PROMOTION</p>
+      <h2>Event &amp; Price</h2>
+      <p class="sub">가장 아름다워야 할 순간, 섬세한 혜택으로 함께합니다.</p>
+    </div>
+    <div class="grid">
+      <a class="pcard" href="#"><img src="img/img_carousel_01.jpg" alt=""><div class="cap"><p class="s">EVENT &amp; PRICE</p><p class="n">모공·흉터</p></div></a>
+      <a class="pcard" href="#"><img src="img/img_carousel_02.jpg" alt=""><div class="cap"><p class="s">EVENT &amp; PRICE</p><p class="n">여드름 치료</p></div></a>
+      <a class="pcard" href="#"><img src="img/img_carousel_03.jpg" alt=""><div class="cap"><p class="s">EVENT &amp; PRICE</p><p class="n">색소 치료</p></div></a>
+      <a class="pcard" href="#"><img src="img/img_carousel_04.jpg" alt=""><div class="cap"><p class="s">EVENT &amp; PRICE</p><p class="n">리프팅</p></div></a>
+      <a class="pcard" href="#"><img src="img/img_carousel_05.jpg" alt=""><div class="cap"><p class="s">EVENT &amp; PRICE</p><p class="n">스킨부스터</p></div></a>
+      <a class="pcard" href="#"><img src="img/img_carousel_06.jpg" alt=""><div class="cap"><p class="s">EVENT &amp; PRICE</p><p class="n">보톡스·필러</p></div></a>
+    </div>
+  </div>
+</div>
+</div>
+<div class="b07-spacer" aria-hidden="true"></div>
+<footer id="block-07" class="b07-footer">
+  <img class="b07-bg" src="img/footer_01.jpg" alt="" loading="lazy">
+  <div class="b07-filter" aria-hidden="true"></div>
+  <div class="b07-inner">
+    <p class="b07-logo">Butler Clinic</p>
+  </div>
+  <div class="b07-info">
+    <div class="b07-meta">
+      <span>Address. 서울특별시 강남구 테헤란로 123, 버틀러타워 5F</span>
+      <span>Tel. 02-1234-5678</span>
+      <span>Business No. 123-45-67890</span>
+    </div>
+    <span>© 2026 Butler Clinic. All rights reserved.</span>
+  </div>
+<style>
+@font-face{font-family:'NT Fabulous';src:url('assets/fonts/nt_fabulous-webfont.woff2') format('woff2'),url('assets/fonts/nt_fabulous-webfont.woff') format('woff');font-weight:400;font-style:normal;font-display:swap;}
+.b07-footer{position:fixed;left:0;right:0;bottom:0;z-index:0;overflow:hidden;height:clamp(420px,50vw,720px);background:#1A1A1A;margin:0;padding:0;border-radius:0;}
+.b07-spacer{height:clamp(420px,50vw,720px);}
+#pgwrap{position:relative;z-index:1;background:#FBFAF8;}
+.b07-footer .b07-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.b07-footer .b07-filter{position:absolute;inset:0;background:rgba(26,26,26,0.35);}
+.b07-footer .b07-inner{position:relative;display:flex;align-items:center;justify-content:center;height:100%;}
+.b07-footer .b07-logo{font-family:'NT Fabulous','Instrument Serif',Georgia,serif;font-size:clamp(56px,9vw,130px);font-weight:400;line-height:1;letter-spacing:-1px;color:#F5F5F5;margin:0;}
+.b07-footer .b07-info{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:18px clamp(16px,3vw,40px);font-size:12px;color:rgba(245,245,245,0.75);letter-spacing:0.02em;}
+.b07-footer .b07-meta{display:flex;flex-wrap:wrap;gap:10px 32px;}
+@media(max-width:768px){
+  .b07-footer{height:clamp(400px,70vw,560px);}
+  .b07-spacer{height:clamp(400px,70vw,560px);}
+  .b07-footer .b07-inner{height:calc(100% - 118px);}
+  .b07-footer .b07-logo{font-size:11vw;}
+  .b07-footer .b07-info{flex-direction:column;align-items:center;text-align:center;font-size:11px;gap:6px;padding:14px 16px;background:rgba(26,26,26,0.6);}
+  .b07-footer .b07-meta{flex-direction:column;align-items:center;gap:5px;}
+}
+</style>
+</footer>
+
+<script>
+// ===== 섹션 스위처 (변형 2개 이상만) =====
+document.querySelectorAll('.sec').forEach(sec => {
+  const variants = sec.querySelectorAll(':scope > .variant');
+  if (variants.length < 2) return;
+  const label = sec.dataset.label || '', name = sec.dataset.name || '';
+  const chip = document.createElement('div');
+  chip.className = 'sec-chip';
+  chip.innerHTML = '<span class="badge">' + label + '</span><span class="nm">' + name + '</span><span class="vbtns"></span>';
+  const btns = chip.querySelector('.vbtns');
+  variants.forEach((v, i) => {
+    const b = document.createElement('button');
+    b.textContent = i;
+    if (v.classList.contains('active')) b.classList.add('on');
+    b.addEventListener('click', () => {
+      variants.forEach(x => x.classList.remove('active'));
+      v.classList.add('active');
+      btns.querySelectorAll('button').forEach(x => x.classList.remove('on'));
+      b.classList.add('on');
+    });
+    btns.appendChild(b);
+  });
+  sec.prepend(chip);
+});
+
+// ===== 1안 라이트박스 (프롬프트 지시: 장비 클릭 → 확대 + 장비명·설명 노출) =====
+(function () {
+  const lb = document.getElementById('e1Lightbox');
+  if (!lb) return;
+  const body = lb.querySelector('.e1-lb-body');
+  const close = () => {
+    lb.classList.remove('open');
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+  };
+  document.querySelectorAll('.e1-item').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tpl = document.getElementById(btn.dataset.dev);
+      if (!tpl) return;
+      body.innerHTML = '';
+      body.appendChild(tpl.content.cloneNode(true));
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+  lb.querySelector('.e1-lb-close').addEventListener('click', close);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && lb.classList.contains('open')) close(); });
+})();
+</script>
+<link rel="stylesheet" href="/assets/css/mood-v3.css?v=9">
+
+<style id="site-cursor">
+.cursor-frame{z-index:99999;pointer-events:none;justify-content:center;align-items:center;display:flex;position:fixed;inset:0;}
+.cursor{background-color:#13532b;border-radius:50vw;width:.75rem;height:.75rem;opacity:0;transition:opacity .3s ease,width .35s cubic-bezier(0.22,0.61,0.36,1),height .35s cubic-bezier(0.22,0.61,0.36,1),background-color .35s ease;}
+.cursor-frame.is-live .cursor{opacity:1;}
+.cursor-frame.is-hovering .cursor{width:2.3rem;height:2.3rem;background-color:rgba(19,83,43,0.22);}
+@media (pointer: fine){ *,*::before,*::after{cursor:none !important;} }
+@media (max-width:767px),(pointer:coarse){ .cursor-frame{display:none;} }
+</style>
+<div class="cursor-frame" aria-hidden="true"><div class="cursor"></div></div>
+<script>
+(function(){
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+  var frame = document.querySelector('.cursor-frame');
+  var dot = frame.querySelector('.cursor');
+  var tx=0,ty=0,x=0,y=0,live=false,tick=false;
+  window.addEventListener('mousemove', function(e){
+    tx = e.clientX - window.innerWidth/2;
+    ty = e.clientY - window.innerHeight/2;
+    if (!live){ live = true; frame.classList.add('is-live'); }
+    if (!tick){
+      tick = true;
+      requestAnimationFrame(function(){
+        var el = document.elementFromPoint(tx + window.innerWidth/2, ty + window.innerHeight/2);
+        frame.classList.toggle('is-hovering', !!(el && el.closest('a, button')));
+        tick = false;
+      });
+    }
+  }, {passive:true});
+  (function loop(){
+    x += (tx - x) * 0.18;
+    y += (ty - y) * 0.18;
+    dot.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px)';
+    requestAnimationFrame(loop);
+  })();
+})();
+</script>
+
+<script>
+/* 푸터 리빌 — 고정 배경 + 워드마크 글자 스태거 (메인과 동일 모션) */
+(function () {
+  var sec = document.getElementById('block-07');
+  var spacer = document.querySelector('.b07-spacer');
+  if (!sec || !spacer) return;
+  var bg = sec.querySelector('.b07-bg');
+  var logo = sec.querySelector('.b07-logo');
+  var info = sec.querySelector('.b07-info');
+  var letters = [];
+  var txt = logo.textContent;
+  logo.textContent = '';
+  for (var i = 0; i < txt.length; i++) {
+    var s = document.createElement('span');
+    s.textContent = txt[i] === ' ' ? '\u00A0' : txt[i];
+    s.style.display = 'inline-block';
+    logo.appendChild(s);
+    letters.push(s);
+  }
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var r = spacer.getBoundingClientRect();
+    var vh = window.innerHeight;
+    var p = Math.min(1, Math.max(0, (vh - r.top) / r.height));
+    if (bg) bg.style.transform = 'scale(' + (1.06 - 0.06 * p) + ')';
+    var cut = Math.max(0, r.top - (vh - sec.offsetHeight)); var R = window.innerWidth <= 768 ? 40 : 80; var rr = (R * Math.min(1, Math.max(0, (p - 0.7) / 0.3))).toFixed(1); sec.style.clipPath = 'inset(' + cut.toFixed(1) + 'px 0 0 0 round ' + rr + 'px ' + rr + 'px 0 0)';
+    if (info) info.style.opacity = Math.min(1, p * 1.6).toFixed(2);
+    letters.forEach(function (s, i) {
+      var pi = Math.min(1, Math.max(0, (p - i * 0.035) / 0.6));
+      s.style.transform = 'translateY(' + (110 * (1 - pi)).toFixed(1) + 'px)';
+      s.style.opacity = pi.toFixed(2);
+    });
+  }
+  if (reduced) { letters.forEach(function (s) { s.style.opacity = 1; }); sec.style.borderRadius = (window.innerWidth <= 768 ? '40px 40px' : '80px 80px') + ' 0 0'; return; }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</body>
+</html>

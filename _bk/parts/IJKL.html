@@ -1,0 +1,407 @@
+<<<CSS>>>
+/* ===== I·J·K·L 컴팩트 변형 — 무채색 전용 (그린/유채색 0회) =====
+   팔레트: #111 / #171B18 / #8a8a8a·#9a9a9a / #E8E9EA·#EEF0F1 / #F5F6F8 / #fff
+   강조 = font-weight:700 만. 재사용: .v0z .zg .h-md .bd .dots .gbox .li .sm .fq */
+
+/* --- I: 시술 & 장비 정보 (6 라벨/값 행) --- */
+/* I v1 — 회색박스 라벨+값 정렬 */
+.i1-box{background:#F5F6F8;border-radius:14px;padding:18px 26px;}
+.i1-box .r{display:flex;gap:14px;font-size:15px;font-weight:300;line-height:1.75;color:#111;padding:8px 0;align-items:baseline;}
+.i1-box .r + .r{border-top:1px solid #EEF0F1;}
+.i1-box .k{flex:none;width:92px;font-weight:600;white-space:nowrap;}
+.i1-box .sm{color:#8a8a8a;font-size:13px;font-weight:300;}
+
+/* I v2 — 헤어라인 정의 리스트 */
+.i2-dl .r{display:grid;grid-template-columns:100px 1fr;gap:16px;padding:11px 0;border-top:1px solid #EEF0F1;align-items:baseline;}
+.i2-dl .r:first-child{border-top:none;}
+.i2-dl dt{font-size:15px;font-weight:600;color:#111;}
+.i2-dl dd{font-size:15px;font-weight:300;line-height:1.75;color:#111;}
+.i2-dl .sm{display:block;color:#8a8a8a;font-size:13px;margin-top:2px;}
+@media(max-width:600px){.i2-dl .r{grid-template-columns:1fr;gap:3px;}}
+
+/* I v3 — 2열 페어 그리드 */
+.i3-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#EEF0F1;border:1px solid #EEF0F1;border-radius:12px;overflow:hidden;}
+@media(max-width:600px){.i3-grid{grid-template-columns:1fr;}}
+.i3-grid .c{background:#fff;padding:14px 18px;}
+.i3-grid .k{font-size:12.5px;font-weight:600;color:#8a8a8a;letter-spacing:0.02em;}
+.i3-grid .v{font-size:15px;font-weight:300;line-height:1.65;color:#111;margin-top:5px;}
+.i3-grid .sm{color:#8a8a8a;font-size:12.5px;}
+
+/* I v4 — 인라인 라벨칩 */
+.i4-list .r{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-top:1px solid #EEF0F1;flex-wrap:wrap;}
+.i4-list .r:first-child{border-top:none;}
+.i4-list .chip{flex:none;font-size:12.5px;font-weight:600;color:#111;background:#F5F6F8;border-radius:999px;padding:5px 13px;}
+.i4-list .v{font-size:15px;font-weight:300;line-height:1.7;color:#111;}
+.i4-list .sm{color:#8a8a8a;font-size:13px;}
+
+/* I v5 — 테두리 테이블 */
+.i5-wrap{overflow-x:auto;}
+.i5-tbl{width:100%;border-collapse:collapse;font-size:15px;}
+.i5-tbl th{white-space:nowrap;text-align:left;vertical-align:top;font-weight:600;color:#111;background:#F5F6F8;padding:11px 16px;border:1px solid #E8E9EA;width:100px;}
+.i5-tbl td{padding:11px 16px;border:1px solid #E8E9EA;font-weight:300;line-height:1.65;color:#111;}
+.i5-tbl .sm{color:#8a8a8a;font-size:13px;}
+
+/* --- J: 시술 안내 (7 스텝) --- */
+/* J v1 — 회색박스 스텝(넘버 배지) */
+.j1-box{background:#F5F6F8;border-radius:14px;padding:16px 24px;}
+.j1-box .s{display:flex;gap:14px;align-items:baseline;padding:7px 0;font-size:15px;font-weight:300;line-height:1.7;color:#111;}
+.j1-box .n{flex:none;width:24px;height:24px;border-radius:999px;background:#fff;border:1px solid #E8E9EA;color:#111;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;align-self:flex-start;margin-top:1px;}
+
+/* J v2 — 넘버 헤어라인 행 */
+.j2-rows .s{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:baseline;padding:10px 0;border-top:1px solid #EEF0F1;}
+.j2-rows .s:first-child{border-top:none;}
+.j2-rows .n{font-size:14px;font-weight:700;color:#111;letter-spacing:0.04em;}
+.j2-rows .t{font-size:15px;font-weight:300;line-height:1.7;color:#111;}
+
+/* J v3 — 가로 스텝바 (7 미니블록) */
+.j3-bar{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;}
+@media(max-width:900px){.j3-bar{grid-template-columns:repeat(4,1fr);}}
+@media(max-width:560px){.j3-bar{grid-template-columns:repeat(2,1fr);}}
+.j3-bar .st{background:#F5F6F8;border-radius:10px;padding:14px 10px;text-align:center;}
+.j3-bar .n{width:26px;height:26px;margin:0 auto 8px;border-radius:999px;background:#fff;border:1px solid #E8E9EA;color:#111;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.j3-bar .t{font-size:12px;font-weight:300;line-height:1.5;color:#111;}
+
+/* J v4 — 2열 넘버 */
+.j4-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px 30px;}
+@media(max-width:600px){.j4-grid{grid-template-columns:1fr;}}
+.j4-grid .s{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:baseline;padding:8px 0;border-top:1px solid #EEF0F1;}
+.j4-grid .n{font-size:14px;font-weight:700;color:#111;letter-spacing:0.04em;}
+.j4-grid .t{font-size:14.5px;font-weight:300;line-height:1.65;color:#111;}
+
+/* J v5 — 컴팩트 타임라인(뉴트럴 도트) */
+.j5-tl{padding-left:4px;}
+.j5-tl .s{position:relative;display:grid;grid-template-columns:20px 1fr;gap:16px;padding:0 0 15px;}
+.j5-tl .s:last-child{padding-bottom:0;}
+.j5-tl .s::before{content:'';position:absolute;left:5px;top:15px;bottom:-2px;width:1px;background:#E8E9EA;}
+.j5-tl .s:last-child::before{display:none;}
+.j5-tl .dot{width:11px;height:11px;margin-top:5px;border-radius:999px;background:#fff;border:1px solid #9a9a9a;position:relative;z-index:2;}
+.j5-tl .t{font-size:15px;font-weight:300;line-height:1.7;color:#111;}
+.j5-tl .t b{font-weight:700;margin-right:4px;}
+
+/* --- K: 시술 후 주의사항 (8) --- */
+/* K v2 — 2열 넘버 리스트 */
+.k2-grid{columns:2;column-gap:36px;}
+@media(max-width:640px){.k2-grid{columns:1;}}
+.k2-grid li{display:flex;gap:11px;break-inside:avoid;padding:6px 0;font-size:14.5px;font-weight:300;line-height:1.7;color:#111;}
+.k2-grid li .n{flex:none;font-weight:700;font-size:13px;color:#111;letter-spacing:0.04em;margin-top:1px;}
+
+/* K v3 — 회색박스 그리드 */
+.k3-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+@media(max-width:640px){.k3-grid{grid-template-columns:1fr;}}
+.k3-grid .c{background:#F5F6F8;border-radius:10px;padding:12px 16px;display:flex;gap:11px;font-size:14px;font-weight:300;line-height:1.65;color:#111;}
+.k3-grid .c .n{flex:none;font-weight:700;font-size:12.5px;color:#8a8a8a;letter-spacing:0.04em;margin-top:1px;}
+
+/* K v4 — 헤어라인 분리 행 */
+.k4-rows li{padding:9px 0;border-top:1px solid #EEF0F1;font-size:15px;font-weight:300;line-height:1.7;color:#111;}
+.k4-rows li:first-child{border-top:none;}
+
+/* K v5 — 리딩제로 넘버 리스트 */
+.k5-list li{display:flex;gap:14px;padding:7px 0;font-size:15px;font-weight:300;line-height:1.75;color:#111;}
+.k5-list li .n{flex:none;font-size:13px;font-weight:700;color:#9a9a9a;letter-spacing:0.06em;margin-top:2px;}
+
+/* --- L: FAQ (5 Q&A) --- */
+/* L v3 — Q/A 스택 + 헤어라인 */
+.l3-qa .one{padding:14px 0;border-top:1px solid #EEF0F1;}
+.l3-qa .one:first-child{border-top:none;}
+.l3-qa .q{display:flex;gap:10px;font-size:15.5px;font-weight:700;color:#111;line-height:1.5;}
+.l3-qa .q::before{content:'Q';flex:none;font-weight:700;}
+.l3-qa .a{display:flex;gap:10px;margin-top:8px;font-size:14.5px;font-weight:300;line-height:1.75;color:#111;}
+.l3-qa .a::before{content:'A';flex:none;font-weight:700;color:#9a9a9a;}
+
+/* L v4 — 2열 Q&A 카드(무채색) */
+.l4-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media(max-width:640px){.l4-cards{grid-template-columns:1fr;}}
+.l4-cards .c{background:#F5F6F8;border-radius:12px;padding:16px 18px;}
+.l4-cards .q{font-size:14.5px;font-weight:700;color:#111;line-height:1.5;}
+.l4-cards .a{margin-top:8px;font-size:13.5px;font-weight:300;line-height:1.7;color:#111;}
+
+/* L v5 — 넘버 Q1~Q5 리스트 */
+.l5-list .one{display:grid;grid-template-columns:38px 1fr;gap:14px;padding:13px 0;border-top:1px solid #EEF0F1;}
+.l5-list .one:first-child{border-top:none;}
+.l5-list .qn{font-size:14px;font-weight:700;color:#111;letter-spacing:0.02em;}
+.l5-list .q{font-size:15.5px;font-weight:700;color:#111;line-height:1.5;}
+.l5-list .a{margin-top:7px;font-size:14.5px;font-weight:300;line-height:1.75;color:#111;}
+<<<END CSS>>>
+<<<SEC I>>>
+<div class="variant vv v1"><div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">시술 &amp; 장비 정보</h2>
+      <div class="i1-box">
+        <div class="r"><span class="k">시술시간</span><span>약 15~90분 <span class="sm">장비·샷 또는 시술 에너지 용량에 따라 상이</span></span></div>
+        <div class="r"><span class="k">마취</span><span>무마취~마취크림·수면마취 선택 가능 <span class="sm">장비·통증 민감도에 따라 조절</span></span></div>
+        <div class="r"><span class="k">다운타임</span><span>거의 없음 <span class="sm">일시적 홍조·열감·붓기, 수 시간~수일 내 호전</span></span></div>
+        <div class="r"><span class="k">유지기간</span><span>약 1개월~1년 <span class="sm">장비, 샷 또는 시술 에너지 용량에 따라 상이</span></span></div>
+        <div class="r"><span class="k">시술간격</span><span>울쎄라·써마지 6개월~1년 / 온다·올타이트 4주 간격 3회 내외</span></div>
+        <div class="r"><span class="k">장비 인증</span><span>미국 FDA 승인 · 한국 식약처(MFDS) 허가 · CE 인증 <span class="sm">장비별 상이</span></span></div>
+      </div>
+    </div></div></div>
+<div class="variant vv v2"><div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">시술 &amp; 장비 정보</h2>
+      <dl class="i2-dl">
+        <div class="r"><dt>시술시간</dt><dd>약 15~90분<span class="sm">장비·샷 또는 시술 에너지 용량에 따라 상이</span></dd></div>
+        <div class="r"><dt>마취</dt><dd>무마취~마취크림·수면마취 선택 가능<span class="sm">장비·통증 민감도에 따라 조절</span></dd></div>
+        <div class="r"><dt>다운타임</dt><dd>거의 없음<span class="sm">일시적 홍조·열감·붓기, 수 시간~수일 내 호전</span></dd></div>
+        <div class="r"><dt>유지기간</dt><dd>약 1개월~1년<span class="sm">장비, 샷 또는 시술 에너지 용량에 따라 상이</span></dd></div>
+        <div class="r"><dt>시술간격</dt><dd>울쎄라·써마지 6개월~1년 / 온다·올타이트 4주 간격 3회 내외</dd></div>
+        <div class="r"><dt>장비 인증</dt><dd>미국 FDA 승인 · 한국 식약처(MFDS) 허가 · CE 인증<span class="sm">장비별 상이</span></dd></div>
+      </dl>
+    </div></div></div>
+<div class="variant vv v3"><div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">시술 &amp; 장비 정보</h2>
+      <div class="i3-grid">
+        <div class="c"><div class="k">시술시간</div><div class="v">약 15~90분 <span class="sm">장비·샷 또는 시술 에너지 용량에 따라 상이</span></div></div>
+        <div class="c"><div class="k">마취</div><div class="v">무마취~마취크림·수면마취 선택 가능 <span class="sm">장비·통증 민감도에 따라 조절</span></div></div>
+        <div class="c"><div class="k">다운타임</div><div class="v">거의 없음 <span class="sm">일시적 홍조·열감·붓기, 수 시간~수일 내 호전</span></div></div>
+        <div class="c"><div class="k">유지기간</div><div class="v">약 1개월~1년 <span class="sm">장비, 샷 또는 시술 에너지 용량에 따라 상이</span></div></div>
+        <div class="c"><div class="k">시술간격</div><div class="v">울쎄라·써마지 6개월~1년 / 온다·올타이트 4주 간격 3회 내외</div></div>
+        <div class="c"><div class="k">장비 인증</div><div class="v">미국 FDA 승인 · 한국 식약처(MFDS) 허가 · CE 인증 <span class="sm">장비별 상이</span></div></div>
+      </div>
+    </div></div></div>
+<div class="variant vv v4"><div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">시술 &amp; 장비 정보</h2>
+      <div class="i4-list">
+        <div class="r"><span class="chip">시술시간</span><span class="v">약 15~90분 <span class="sm">장비·샷 또는 시술 에너지 용량에 따라 상이</span></span></div>
+        <div class="r"><span class="chip">마취</span><span class="v">무마취~마취크림·수면마취 선택 가능 <span class="sm">장비·통증 민감도에 따라 조절</span></span></div>
+        <div class="r"><span class="chip">다운타임</span><span class="v">거의 없음 <span class="sm">일시적 홍조·열감·붓기, 수 시간~수일 내 호전</span></span></div>
+        <div class="r"><span class="chip">유지기간</span><span class="v">약 1개월~1년 <span class="sm">장비, 샷 또는 시술 에너지 용량에 따라 상이</span></span></div>
+        <div class="r"><span class="chip">시술간격</span><span class="v">울쎄라·써마지 6개월~1년 / 온다·올타이트 4주 간격 3회 내외</span></div>
+        <div class="r"><span class="chip">장비 인증</span><span class="v">미국 FDA 승인 · 한국 식약처(MFDS) 허가 · CE 인증 <span class="sm">장비별 상이</span></span></div>
+      </div>
+    </div></div></div>
+<div class="variant vv v5"><div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">시술 &amp; 장비 정보</h2>
+      <div class="i5-wrap"><table class="i5-tbl"><tbody>
+        <tr><th>시술시간</th><td>약 15~90분 <span class="sm">장비·샷 또는 시술 에너지 용량에 따라 상이</span></td></tr>
+        <tr><th>마취</th><td>무마취~마취크림·수면마취 선택 가능 <span class="sm">장비·통증 민감도에 따라 조절</span></td></tr>
+        <tr><th>다운타임</th><td>거의 없음 <span class="sm">일시적 홍조·열감·붓기, 수 시간~수일 내 호전</span></td></tr>
+        <tr><th>유지기간</th><td>약 1개월~1년 <span class="sm">장비, 샷 또는 시술 에너지 용량에 따라 상이</span></td></tr>
+        <tr><th>시술간격</th><td>울쎄라·써마지 6개월~1년 / 온다·올타이트 4주 간격 3회 내외</td></tr>
+        <tr><th>장비 인증</th><td>미국 FDA 승인 · 한국 식약처(MFDS) 허가 · CE 인증 <span class="sm">장비별 상이</span></td></tr>
+      </tbody></table></div>
+    </div></div></div>
+<<<END SEC I>>>
+<<<SEC J>>>
+<div class="variant vv v1"><div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">시술 안내</h2>
+      <div>
+        <p class="bd" style="margin-top:0;">당신에게 맞는 리프팅을 찾는 정밀한 여정, 진단에서 시작해 쿨링으로 마무리합니다.</p>
+        <div class="j1-box" style="margin-top:14px;">
+          <div class="s"><span class="n">1</span><span>상담 및 진단 (피부 두께·처짐 깊이·지방량 평가)</span></div>
+          <div class="s"><span class="n">2</span><span>처짐 양상에 맞는 장비·깊이·에너지 설계</span></div>
+          <div class="s"><span class="n">3</span><span>세안 및 시술 부위 정밀 마킹</span></div>
+          <div class="s"><span class="n">4</span><span>마취크림 도포 또는 수면마취 (장비·선택에 따라)</span></div>
+          <div class="s"><span class="n">5</span><span>젤 도포 후 깊은 층부터 얕은 층 순으로 에너지 전달</span></div>
+          <div class="s"><span class="n">6</span><span>쿨링 및 진정 관리</span></div>
+          <div class="s"><span class="n">7</span><span>시술 후 주의사항 안내 및 귀가</span></div>
+        </div>
+      </div>
+    </div></div></div>
+<div class="variant vv v2"><div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">시술 안내</h2>
+      <div>
+        <p class="bd" style="margin-top:0;">당신에게 맞는 리프팅을 찾는 정밀한 여정, 진단에서 시작해 쿨링으로 마무리합니다.</p>
+        <div class="j2-rows" style="margin-top:12px;">
+          <div class="s"><span class="n">01</span><span class="t">상담 및 진단 (피부 두께·처짐 깊이·지방량 평가)</span></div>
+          <div class="s"><span class="n">02</span><span class="t">처짐 양상에 맞는 장비·깊이·에너지 설계</span></div>
+          <div class="s"><span class="n">03</span><span class="t">세안 및 시술 부위 정밀 마킹</span></div>
+          <div class="s"><span class="n">04</span><span class="t">마취크림 도포 또는 수면마취 (장비·선택에 따라)</span></div>
+          <div class="s"><span class="n">05</span><span class="t">젤 도포 후 깊은 층부터 얕은 층 순으로 에너지 전달</span></div>
+          <div class="s"><span class="n">06</span><span class="t">쿨링 및 진정 관리</span></div>
+          <div class="s"><span class="n">07</span><span class="t">시술 후 주의사항 안내 및 귀가</span></div>
+        </div>
+      </div>
+    </div></div></div>
+<div class="variant vv v3"><div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">시술 안내</h2>
+      <div>
+        <p class="bd" style="margin-top:0;">당신에게 맞는 리프팅을 찾는 정밀한 여정, 진단에서 시작해 쿨링으로 마무리합니다.</p>
+        <div class="j3-bar" style="margin-top:14px;">
+          <div class="st"><span class="n">1</span><p class="t">상담 및 진단 (피부 두께·처짐 깊이·지방량 평가)</p></div>
+          <div class="st"><span class="n">2</span><p class="t">처짐 양상에 맞는 장비·깊이·에너지 설계</p></div>
+          <div class="st"><span class="n">3</span><p class="t">세안 및 시술 부위 정밀 마킹</p></div>
+          <div class="st"><span class="n">4</span><p class="t">마취크림 도포 또는 수면마취 (장비·선택에 따라)</p></div>
+          <div class="st"><span class="n">5</span><p class="t">젤 도포 후 깊은 층부터 얕은 층 순으로 에너지 전달</p></div>
+          <div class="st"><span class="n">6</span><p class="t">쿨링 및 진정 관리</p></div>
+          <div class="st"><span class="n">7</span><p class="t">시술 후 주의사항 안내 및 귀가</p></div>
+        </div>
+      </div>
+    </div></div></div>
+<div class="variant vv v4"><div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">시술 안내</h2>
+      <div>
+        <p class="bd" style="margin-top:0;">당신에게 맞는 리프팅을 찾는 정밀한 여정, 진단에서 시작해 쿨링으로 마무리합니다.</p>
+        <div class="j4-grid" style="margin-top:12px;">
+          <div class="s"><span class="n">01</span><span class="t">상담 및 진단 (피부 두께·처짐 깊이·지방량 평가)</span></div>
+          <div class="s"><span class="n">02</span><span class="t">처짐 양상에 맞는 장비·깊이·에너지 설계</span></div>
+          <div class="s"><span class="n">03</span><span class="t">세안 및 시술 부위 정밀 마킹</span></div>
+          <div class="s"><span class="n">04</span><span class="t">마취크림 도포 또는 수면마취 (장비·선택에 따라)</span></div>
+          <div class="s"><span class="n">05</span><span class="t">젤 도포 후 깊은 층부터 얕은 층 순으로 에너지 전달</span></div>
+          <div class="s"><span class="n">06</span><span class="t">쿨링 및 진정 관리</span></div>
+          <div class="s"><span class="n">07</span><span class="t">시술 후 주의사항 안내 및 귀가</span></div>
+        </div>
+      </div>
+    </div></div></div>
+<div class="variant vv v5"><div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">시술 안내</h2>
+      <div>
+        <p class="bd" style="margin-top:0;">당신에게 맞는 리프팅을 찾는 정밀한 여정, 진단에서 시작해 쿨링으로 마무리합니다.</p>
+        <div class="j5-tl" style="margin-top:14px;">
+          <div class="s"><span class="dot"></span><span class="t"><b>Step 1</b>상담 및 진단 (피부 두께·처짐 깊이·지방량 평가)</span></div>
+          <div class="s"><span class="dot"></span><span class="t"><b>Step 2</b>처짐 양상에 맞는 장비·깊이·에너지 설계</span></div>
+          <div class="s"><span class="dot"></span><span class="t"><b>Step 3</b>세안 및 시술 부위 정밀 마킹</span></div>
+          <div class="s"><span class="dot"></span><span class="t"><b>Step 4</b>마취크림 도포 또는 수면마취 (장비·선택에 따라)</span></div>
+          <div class="s"><span class="dot"></span><span class="t"><b>Step 5</b>젤 도포 후 깊은 층부터 얕은 층 순으로 에너지 전달</span></div>
+          <div class="s"><span class="dot"></span><span class="t"><b>Step 6</b>쿨링 및 진정 관리</span></div>
+          <div class="s"><span class="dot"></span><span class="t"><b>Step 7</b>시술 후 주의사항 안내 및 귀가</span></div>
+        </div>
+      </div>
+    </div></div></div>
+<<<END SEC J>>>
+<<<SEC K>>>
+<div class="variant vv v1"><div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">시술 후 주의사항</h2>
+      <ul class="dots">
+        <li>일시적인 홍조·열감·붓기는 수 시간~1주 내 자연 호전됩니다. 사람마다 차이가 있을 수 있습니다.</li>
+        <li>당일 세안과 메이크업은 가능하나 자극은 최소화해 주세요.</li>
+        <li>1주일간 사우나·찜질방·열탕 등 고온 환경은 피해 주세요.</li>
+        <li>1주일간 격한 운동과 음주·흡연은 삼가는 것이 좋습니다.</li>
+        <li>시술 부위를 강하게 문지르거나 마사지하지 마세요.</li>
+        <li>보습제와 자외선 차단제를 평소보다 꼼꼼히 챙겨 주세요.</li>
+        <li>2주간 스크럽·필링 등 자극적인 관리는 미뤄 주세요.</li>
+        <li>드물게 멍이나 저림감이 있을 수 있으나 대부분 자연 회복됩니다.</li>
+      </ul>
+    </div></div></div>
+<div class="variant vv v2"><div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">시술 후 주의사항</h2>
+      <ol class="k2-grid">
+        <li><span class="n">01</span><span>일시적인 홍조·열감·붓기는 수 시간~1주 내 자연 호전됩니다. 사람마다 차이가 있을 수 있습니다.</span></li>
+        <li><span class="n">02</span><span>당일 세안과 메이크업은 가능하나 자극은 최소화해 주세요.</span></li>
+        <li><span class="n">03</span><span>1주일간 사우나·찜질방·열탕 등 고온 환경은 피해 주세요.</span></li>
+        <li><span class="n">04</span><span>1주일간 격한 운동과 음주·흡연은 삼가는 것이 좋습니다.</span></li>
+        <li><span class="n">05</span><span>시술 부위를 강하게 문지르거나 마사지하지 마세요.</span></li>
+        <li><span class="n">06</span><span>보습제와 자외선 차단제를 평소보다 꼼꼼히 챙겨 주세요.</span></li>
+        <li><span class="n">07</span><span>2주간 스크럽·필링 등 자극적인 관리는 미뤄 주세요.</span></li>
+        <li><span class="n">08</span><span>드물게 멍이나 저림감이 있을 수 있으나 대부분 자연 회복됩니다.</span></li>
+      </ol>
+    </div></div></div>
+<div class="variant vv v3"><div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">시술 후 주의사항</h2>
+      <div class="k3-grid">
+        <div class="c"><span class="n">01</span><span>일시적인 홍조·열감·붓기는 수 시간~1주 내 자연 호전됩니다. 사람마다 차이가 있을 수 있습니다.</span></div>
+        <div class="c"><span class="n">02</span><span>당일 세안과 메이크업은 가능하나 자극은 최소화해 주세요.</span></div>
+        <div class="c"><span class="n">03</span><span>1주일간 사우나·찜질방·열탕 등 고온 환경은 피해 주세요.</span></div>
+        <div class="c"><span class="n">04</span><span>1주일간 격한 운동과 음주·흡연은 삼가는 것이 좋습니다.</span></div>
+        <div class="c"><span class="n">05</span><span>시술 부위를 강하게 문지르거나 마사지하지 마세요.</span></div>
+        <div class="c"><span class="n">06</span><span>보습제와 자외선 차단제를 평소보다 꼼꼼히 챙겨 주세요.</span></div>
+        <div class="c"><span class="n">07</span><span>2주간 스크럽·필링 등 자극적인 관리는 미뤄 주세요.</span></div>
+        <div class="c"><span class="n">08</span><span>드물게 멍이나 저림감이 있을 수 있으나 대부분 자연 회복됩니다.</span></div>
+      </div>
+    </div></div></div>
+<div class="variant vv v4"><div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">시술 후 주의사항</h2>
+      <ul class="k4-rows">
+        <li>일시적인 홍조·열감·붓기는 수 시간~1주 내 자연 호전됩니다. 사람마다 차이가 있을 수 있습니다.</li>
+        <li>당일 세안과 메이크업은 가능하나 자극은 최소화해 주세요.</li>
+        <li>1주일간 사우나·찜질방·열탕 등 고온 환경은 피해 주세요.</li>
+        <li>1주일간 격한 운동과 음주·흡연은 삼가는 것이 좋습니다.</li>
+        <li>시술 부위를 강하게 문지르거나 마사지하지 마세요.</li>
+        <li>보습제와 자외선 차단제를 평소보다 꼼꼼히 챙겨 주세요.</li>
+        <li>2주간 스크럽·필링 등 자극적인 관리는 미뤄 주세요.</li>
+        <li>드물게 멍이나 저림감이 있을 수 있으나 대부분 자연 회복됩니다.</li>
+      </ul>
+    </div></div></div>
+<div class="variant vv v5"><div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">시술 후 주의사항</h2>
+      <ol class="k5-list">
+        <li><span class="n">01</span><span>일시적인 홍조·열감·붓기는 수 시간~1주 내 자연 호전됩니다. 사람마다 차이가 있을 수 있습니다.</span></li>
+        <li><span class="n">02</span><span>당일 세안과 메이크업은 가능하나 자극은 최소화해 주세요.</span></li>
+        <li><span class="n">03</span><span>1주일간 사우나·찜질방·열탕 등 고온 환경은 피해 주세요.</span></li>
+        <li><span class="n">04</span><span>1주일간 격한 운동과 음주·흡연은 삼가는 것이 좋습니다.</span></li>
+        <li><span class="n">05</span><span>시술 부위를 강하게 문지르거나 마사지하지 마세요.</span></li>
+        <li><span class="n">06</span><span>보습제와 자외선 차단제를 평소보다 꼼꼼히 챙겨 주세요.</span></li>
+        <li><span class="n">07</span><span>2주간 스크럽·필링 등 자극적인 관리는 미뤄 주세요.</span></li>
+        <li><span class="n">08</span><span>드물게 멍이나 저림감이 있을 수 있으나 대부분 자연 회복됩니다.</span></li>
+      </ol>
+    </div></div></div>
+<<<END SEC K>>>
+<<<SEC L>>>
+<div class="variant vv v1"><div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">FAQ</h2>
+      <div class="fq">
+        <div class="item open">
+          <button class="qh">[울쎄라] 다른 리프팅과 무엇이 다른가요?</button>
+          <div class="ab">고주파 장비가 진피층 위주로 작용한다면, 울쎄라는 안면거상술에서 다루는 SMAS층(약 4.5mm)까지 집속 초음파를 전달합니다. DeepSEE 실시간 영상으로 피부 아래를 확인하며 진행하므로 깊이 타게팅의 정확도가 높은 편입니다.</div>
+        </div>
+        <div class="item open">
+          <button class="qh">[써마지] 한 번만 받아도 효과가 있나요?</button>
+          <div class="ab">써마지는 1회 시술 기준으로 설계된 시술입니다. 시술 직후의 타이트닝과 함께 약 6개월에 걸쳐 콜라겐 리모델링이 진행되며, 효과 유지를 위해 6개월~1년 간격의 반복 시술을 고려할 수 있습니다.</div>
+        </div>
+        <div class="item open">
+          <button class="qh">[온다, 올타이트] 몇 회 받아야 하나요?</button>
+          <div class="ab">1회로도 타이트닝 변화를 느끼는 경우가 있지만, 콜라겐 재생과 지방 대사 주기를 고려해 4주 간격으로 3회 내외를 권장하는 것이 일반적입니다. 회차를 거듭할수록 유지 기간이 길어지는 경향이 있습니다.</div>
+        </div>
+        <div class="item open">
+          <button class="qh">장비 중 무엇을 선택해야 하나요?</button>
+          <div class="ab">깊이와 기전이 다릅니다. 깊은 SMAS층 처짐은 울쎄라, 진피~지방층의 넓은 타이트닝은 써마지, 탄력과 지방 정리를 함께 원한다면 온다, 다운타임 없이 진피~근막층의 타이트닝은 올타이트가 상대적으로 적합할 수 있습니다. 처짐 양상에 따라 병행이 효과적인 경우도 있어 진단 후 결정하는 것을 권합니다.</div>
+        </div>
+        <div class="item open">
+          <button class="qh">통증이나 다운타임이 있나요?</button>
+          <div class="ab">대부분 비침습 시술로 붓기·멍이 거의 없고 당일 일상 복귀가 가능하지만 사람에 따라 울쎄라는 1주 정도 잔붓기가 있을 수 있습니다. 통증은 장비와 깊이에 따라 따뜻한 열감에서 욱신한 느낌까지 다양하며, 마취크림·수면마취 등으로 부담을 줄일 수 있습니다. 반응에는 개인차가 있습니다.</div>
+        </div>
+      </div>
+    </div></div></div>
+<div class="variant vv v2"><div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">FAQ</h2>
+      <div class="fq" data-acc>
+        <div class="item open">
+          <button class="qh">[울쎄라] 다른 리프팅과 무엇이 다른가요?</button>
+          <div class="ab">고주파 장비가 진피층 위주로 작용한다면, 울쎄라는 안면거상술에서 다루는 SMAS층(약 4.5mm)까지 집속 초음파를 전달합니다. DeepSEE 실시간 영상으로 피부 아래를 확인하며 진행하므로 깊이 타게팅의 정확도가 높은 편입니다.</div>
+        </div>
+        <div class="item">
+          <button class="qh">[써마지] 한 번만 받아도 효과가 있나요?</button>
+          <div class="ab">써마지는 1회 시술 기준으로 설계된 시술입니다. 시술 직후의 타이트닝과 함께 약 6개월에 걸쳐 콜라겐 리모델링이 진행되며, 효과 유지를 위해 6개월~1년 간격의 반복 시술을 고려할 수 있습니다.</div>
+        </div>
+        <div class="item">
+          <button class="qh">[온다, 올타이트] 몇 회 받아야 하나요?</button>
+          <div class="ab">1회로도 타이트닝 변화를 느끼는 경우가 있지만, 콜라겐 재생과 지방 대사 주기를 고려해 4주 간격으로 3회 내외를 권장하는 것이 일반적입니다. 회차를 거듭할수록 유지 기간이 길어지는 경향이 있습니다.</div>
+        </div>
+        <div class="item">
+          <button class="qh">장비 중 무엇을 선택해야 하나요?</button>
+          <div class="ab">깊이와 기전이 다릅니다. 깊은 SMAS층 처짐은 울쎄라, 진피~지방층의 넓은 타이트닝은 써마지, 탄력과 지방 정리를 함께 원한다면 온다, 다운타임 없이 진피~근막층의 타이트닝은 올타이트가 상대적으로 적합할 수 있습니다. 처짐 양상에 따라 병행이 효과적인 경우도 있어 진단 후 결정하는 것을 권합니다.</div>
+        </div>
+        <div class="item">
+          <button class="qh">통증이나 다운타임이 있나요?</button>
+          <div class="ab">대부분 비침습 시술로 붓기·멍이 거의 없고 당일 일상 복귀가 가능하지만 사람에 따라 울쎄라는 1주 정도 잔붓기가 있을 수 있습니다. 통증은 장비와 깊이에 따라 따뜻한 열감에서 욱신한 느낌까지 다양하며, 마취크림·수면마취 등으로 부담을 줄일 수 있습니다. 반응에는 개인차가 있습니다.</div>
+        </div>
+      </div>
+    </div></div></div>
+<div class="variant vv v3"><div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">FAQ</h2>
+      <div class="l3-qa">
+        <div class="one"><p class="q">[울쎄라] 다른 리프팅과 무엇이 다른가요?</p><p class="a">고주파 장비가 진피층 위주로 작용한다면, 울쎄라는 안면거상술에서 다루는 SMAS층(약 4.5mm)까지 집속 초음파를 전달합니다. DeepSEE 실시간 영상으로 피부 아래를 확인하며 진행하므로 깊이 타게팅의 정확도가 높은 편입니다.</p></div>
+        <div class="one"><p class="q">[써마지] 한 번만 받아도 효과가 있나요?</p><p class="a">써마지는 1회 시술 기준으로 설계된 시술입니다. 시술 직후의 타이트닝과 함께 약 6개월에 걸쳐 콜라겐 리모델링이 진행되며, 효과 유지를 위해 6개월~1년 간격의 반복 시술을 고려할 수 있습니다.</p></div>
+        <div class="one"><p class="q">[온다, 올타이트] 몇 회 받아야 하나요?</p><p class="a">1회로도 타이트닝 변화를 느끼는 경우가 있지만, 콜라겐 재생과 지방 대사 주기를 고려해 4주 간격으로 3회 내외를 권장하는 것이 일반적입니다. 회차를 거듭할수록 유지 기간이 길어지는 경향이 있습니다.</p></div>
+        <div class="one"><p class="q">장비 중 무엇을 선택해야 하나요?</p><p class="a">깊이와 기전이 다릅니다. 깊은 SMAS층 처짐은 울쎄라, 진피~지방층의 넓은 타이트닝은 써마지, 탄력과 지방 정리를 함께 원한다면 온다, 다운타임 없이 진피~근막층의 타이트닝은 올타이트가 상대적으로 적합할 수 있습니다. 처짐 양상에 따라 병행이 효과적인 경우도 있어 진단 후 결정하는 것을 권합니다.</p></div>
+        <div class="one"><p class="q">통증이나 다운타임이 있나요?</p><p class="a">대부분 비침습 시술로 붓기·멍이 거의 없고 당일 일상 복귀가 가능하지만 사람에 따라 울쎄라는 1주 정도 잔붓기가 있을 수 있습니다. 통증은 장비와 깊이에 따라 따뜻한 열감에서 욱신한 느낌까지 다양하며, 마취크림·수면마취 등으로 부담을 줄일 수 있습니다. 반응에는 개인차가 있습니다.</p></div>
+      </div>
+    </div></div></div>
+<div class="variant vv v4"><div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">FAQ</h2>
+      <div class="l4-cards">
+        <div class="c"><p class="q">Q. [울쎄라] 다른 리프팅과 무엇이 다른가요?</p><p class="a">고주파 장비가 진피층 위주로 작용한다면, 울쎄라는 안면거상술에서 다루는 SMAS층(약 4.5mm)까지 집속 초음파를 전달합니다. DeepSEE 실시간 영상으로 피부 아래를 확인하며 진행하므로 깊이 타게팅의 정확도가 높은 편입니다.</p></div>
+        <div class="c"><p class="q">Q. [써마지] 한 번만 받아도 효과가 있나요?</p><p class="a">써마지는 1회 시술 기준으로 설계된 시술입니다. 시술 직후의 타이트닝과 함께 약 6개월에 걸쳐 콜라겐 리모델링이 진행되며, 효과 유지를 위해 6개월~1년 간격의 반복 시술을 고려할 수 있습니다.</p></div>
+        <div class="c"><p class="q">Q. [온다, 올타이트] 몇 회 받아야 하나요?</p><p class="a">1회로도 타이트닝 변화를 느끼는 경우가 있지만, 콜라겐 재생과 지방 대사 주기를 고려해 4주 간격으로 3회 내외를 권장하는 것이 일반적입니다. 회차를 거듭할수록 유지 기간이 길어지는 경향이 있습니다.</p></div>
+        <div class="c"><p class="q">Q. 장비 중 무엇을 선택해야 하나요?</p><p class="a">깊이와 기전이 다릅니다. 깊은 SMAS층 처짐은 울쎄라, 진피~지방층의 넓은 타이트닝은 써마지, 탄력과 지방 정리를 함께 원한다면 온다, 다운타임 없이 진피~근막층의 타이트닝은 올타이트가 상대적으로 적합할 수 있습니다. 처짐 양상에 따라 병행이 효과적인 경우도 있어 진단 후 결정하는 것을 권합니다.</p></div>
+        <div class="c"><p class="q">Q. 통증이나 다운타임이 있나요?</p><p class="a">대부분 비침습 시술로 붓기·멍이 거의 없고 당일 일상 복귀가 가능하지만 사람에 따라 울쎄라는 1주 정도 잔붓기가 있을 수 있습니다. 통증은 장비와 깊이에 따라 따뜻한 열감에서 욱신한 느낌까지 다양하며, 마취크림·수면마취 등으로 부담을 줄일 수 있습니다. 반응에는 개인차가 있습니다.</p></div>
+      </div>
+    </div></div></div>
+<div class="variant vv v5"><div class="v0z"><div class="wrap-n zg">
+      <h2 class="h-md">FAQ</h2>
+      <div class="l5-list">
+        <div class="one"><span class="qn">Q1</span><div><p class="q">[울쎄라] 다른 리프팅과 무엇이 다른가요?</p><p class="a">고주파 장비가 진피층 위주로 작용한다면, 울쎄라는 안면거상술에서 다루는 SMAS층(약 4.5mm)까지 집속 초음파를 전달합니다. DeepSEE 실시간 영상으로 피부 아래를 확인하며 진행하므로 깊이 타게팅의 정확도가 높은 편입니다.</p></div></div>
+        <div class="one"><span class="qn">Q2</span><div><p class="q">[써마지] 한 번만 받아도 효과가 있나요?</p><p class="a">써마지는 1회 시술 기준으로 설계된 시술입니다. 시술 직후의 타이트닝과 함께 약 6개월에 걸쳐 콜라겐 리모델링이 진행되며, 효과 유지를 위해 6개월~1년 간격의 반복 시술을 고려할 수 있습니다.</p></div></div>
+        <div class="one"><span class="qn">Q3</span><div><p class="q">[온다, 올타이트] 몇 회 받아야 하나요?</p><p class="a">1회로도 타이트닝 변화를 느끼는 경우가 있지만, 콜라겐 재생과 지방 대사 주기를 고려해 4주 간격으로 3회 내외를 권장하는 것이 일반적입니다. 회차를 거듭할수록 유지 기간이 길어지는 경향이 있습니다.</p></div></div>
+        <div class="one"><span class="qn">Q4</span><div><p class="q">장비 중 무엇을 선택해야 하나요?</p><p class="a">깊이와 기전이 다릅니다. 깊은 SMAS층 처짐은 울쎄라, 진피~지방층의 넓은 타이트닝은 써마지, 탄력과 지방 정리를 함께 원한다면 온다, 다운타임 없이 진피~근막층의 타이트닝은 올타이트가 상대적으로 적합할 수 있습니다. 처짐 양상에 따라 병행이 효과적인 경우도 있어 진단 후 결정하는 것을 권합니다.</p></div></div>
+        <div class="one"><span class="qn">Q5</span><div><p class="q">통증이나 다운타임이 있나요?</p><p class="a">대부분 비침습 시술로 붓기·멍이 거의 없고 당일 일상 복귀가 가능하지만 사람에 따라 울쎄라는 1주 정도 잔붓기가 있을 수 있습니다. 통증은 장비와 깊이에 따라 따뜻한 열감에서 욱신한 느낌까지 다양하며, 마취크림·수면마취 등으로 부담을 줄일 수 있습니다. 반응에는 개인차가 있습니다.</p></div></div>
+      </div>
+    </div></div></div>
+<<<END SEC L>>>

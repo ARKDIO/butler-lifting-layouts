@@ -1,0 +1,114 @@
+<svg width="1400" height="1450" viewBox="0 0 1400 1450" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif">
+  <!-- 실제 지도 트레이싱 · 정중앙(700,725) = 대동타워 (핀 없음) -->
+  <rect width="1400" height="1450" fill="#E2E5F1"/>
+
+  <!-- ============ 블록 음영 ============ -->
+  <g fill="#E9EBF6" stroke="#E9EBF6" stroke-width="18" stroke-linejoin="round">
+    <polygon points="110,495 555,415 585,640 140,745"/>
+    <polygon points="630,240 818,205 852,530 650,595"/>
+    <polygon points="652,700 850,602 886,828 668,876"/>
+    <polygon points="905,585 1035,512 1048,765 915,808"/>
+    <polygon points="700,905 890,852 940,1030 730,1085"/>
+    <polygon points="300,995 600,918 650,1145 330,1235"/>
+    <polygon points="1150,300 1268,278 1280,470 1162,495"/>
+    <polygon points="1160,900 1360,860 1380,1350 1200,1380"/>
+  </g>
+
+  <!-- 도산공원 (좌상단 녹지) -->
+  <rect x="-30" y="40" width="270" height="180" rx="16" fill="#D8E6DA"/>
+  <text x="105" y="140" text-anchor="middle" font-size="16" fill="#93A296">도산공원</text>
+  <rect x="405" y="552" width="100" height="62" rx="10" fill="#DCE8DE"/>
+
+  <!-- ============ 도로 (실제 선형) ============ -->
+  <g fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 이면도로 -->
+    <path d="M -40,466 L 72,450 L 480,389 L 592,373" stroke-width="15"/>
+    <path d="M 276,274 L 548,219 L 836,166" stroke-width="14"/>
+    <path d="M 1122,177 L 1470,131" stroke-width="14"/>
+    <path d="M 1282,192 L 1310,520" stroke-width="13"/>
+    <path d="M 1228,498 L 1266,790" stroke-width="13"/>
+    <path d="M 246,1000 L 262,1178 L 292,1500" stroke-width="15"/>
+    <path d="M -40,1452 L 412,1362 L 725,1273 L 938,1222" stroke-width="14"/>
+    <path d="M 820,1552 L 1092,1450 L 1340,1382" stroke-width="14"/>
+    <path d="M 786,860 L 806,1060" stroke-width="12"/>
+    <!-- 언주로150길 · 선릉로145길 -->
+    <path d="M -40,1060 L 344,974 L 616,909 L 895,838 L 1062,800" stroke-width="16"/>
+    <path d="M 340,1245 L 650,1151 L 990,1035 L 1078,1006" stroke-width="16"/>
+    <!-- 도산대로49길-50길 · 53길-54길 -->
+    <path d="M 575,40 L 609,498 L 623,682 L 643,906 L 672,1560" stroke-width="18"/>
+    <path d="M 826,150 L 861,498 L 874,566 L 895,770 L 929,1110 L 949,1500" stroke-width="18"/>
+    <!-- 선릉로 -->
+    <path d="M 1133,60 L 1106,294 L 1072,471 L 1058,702 L 1085,974 L 1133,1246 L 1200,1560" stroke-width="32"/>
+    <!-- 도산대로 (주간선) -->
+    <path d="M -40,800 L 276,729 L 548,675 L 752,607 L 1044,484 L 1500,381" stroke-width="46"/>
+  </g>
+
+  <!-- ============ 도로명 (도로 방향 정렬) ============ -->
+  <g fill="#B3B7C9" font-size="15" text-anchor="middle">
+    <text transform="translate(400,705) rotate(-11)">도산대로</text>
+    <text transform="translate(1080,880) rotate(-84)">선릉로</text>
+    <text transform="translate(597,300) rotate(-86)" font-size="13">도산대로49길</text>
+    <text transform="translate(651,1000) rotate(-87)" font-size="13">도산대로50길</text>
+    <text transform="translate(857,390) rotate(-85)" font-size="13">도산대로53길</text>
+    <text transform="translate(917,950) rotate(-84)" font-size="13">도산대로54길</text>
+    <text transform="translate(480,950) rotate(-13)" font-size="13">언주로150길</text>
+    <text transform="translate(800,1105) rotate(-19)" font-size="13">선릉로145길</text>
+    <text transform="translate(300,421) rotate(-9)" font-size="13">도산대로45길</text>
+    <text transform="translate(263,1150) rotate(-85)" font-size="13">도산대로46길</text>
+    <text transform="translate(300,1389) rotate(-11)" font-size="13">언주로146길</text>
+    <text transform="translate(1000,1490) rotate(-21)" font-size="13">선릉로141길</text>
+  </g>
+
+  <!-- ============ POI ============ -->
+  <g>
+    <circle cx="575" cy="790" r="6.5" fill="#B9BDCB"/>
+    <text x="560" y="796" text-anchor="end" font-size="15" fill="#A6AABE">우리은행 학동지점</text>
+
+    <circle cx="976" cy="746" r="6.5" fill="#B9BDCB"/>
+    <text x="992" y="752" font-size="15" fill="#A6AABE">더채플앳청담</text>
+
+    <circle cx="936" cy="808" r="6.5" fill="#B9BDCB"/>
+    <text x="921" y="814" text-anchor="end" font-size="15" fill="#A6AABE">올림픽콜로세움</text>
+
+    <circle cx="412" cy="872" r="6.5" fill="#B9BDCB"/>
+    <text x="428" y="878" font-size="15" fill="#A6AABE">늘봄공원웨딩홀</text>
+
+    <circle cx="677" cy="967" r="6.5" fill="#B9BDCB"/>
+    <text x="693" y="973" font-size="15" fill="#A6AABE">호수도산</text>
+
+    <circle cx="915" cy="597" r="6.5" fill="#B9BDCB"/>
+    <text x="931" y="603" font-size="15" fill="#A6AABE">삼성스토어 청담</text>
+
+    <circle cx="521" cy="559" r="6.5" fill="#B9BDCB"/>
+    <text x="506" y="565" text-anchor="end" font-size="15" fill="#A6AABE">씨네시티빌딩</text>
+
+    <circle cx="949" cy="121" r="6.5" fill="#B9BDCB"/>
+    <text x="965" y="127" font-size="15" fill="#A6AABE">K현대미술관</text>
+
+    <circle cx="1092" cy="243" r="6.5" fill="#B9BDCB"/>
+    <text x="1076" y="249" text-anchor="end" font-size="15" fill="#A6AABE">일지아트홀</text>
+
+    <circle cx="1031" cy="328" r="6.5" fill="#B9BDCB"/>
+    <text x="1015" y="334" text-anchor="end" font-size="15" fill="#A6AABE">LG전자 플래그십</text>
+
+    <circle cx="820" cy="186" r="6.5" fill="#B9BDCB"/>
+    <text x="836" y="192" font-size="15" fill="#A6AABE">스탠다드브레드 도산</text>
+
+    <circle cx="385" cy="352" r="6.5" fill="#B9BDCB"/>
+    <text x="401" y="358" font-size="15" fill="#A6AABE">스투시 서울</text>
+
+    <circle cx="1128" cy="1178" r="5" fill="#B9BDCB"/>
+    <text x="1141" y="1184" font-size="14" fill="#A6AABE">영동고교앞</text>
+  </g>
+
+  <!-- ============ 학동사거리 (도산대로 × 선릉로) ============ -->
+  <rect x="999" y="464" width="112" height="27" rx="13.5" fill="#FFFFFF" stroke="#D5D8E3" stroke-width="1"/>
+  <text x="1055" y="483" text-anchor="middle" font-size="13.5" font-weight="600" fill="#3D414E">학동사거리</text>
+
+  <!-- ============ 압구정로데오역 (수인분당선 · 선릉로 북측) ============ -->
+  <line x1="1136" y1="52" x2="1110" y2="255" stroke="#F0A800" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="1127" cy="120" r="29" fill="#FFFFFF" stroke="#F0A800" stroke-width="7"/>
+  <text x="1127" y="116" text-anchor="middle" font-size="13.5" font-weight="700" fill="#F0A800">수인</text>
+  <text x="1127" y="133" text-anchor="middle" font-size="13.5" font-weight="700" fill="#F0A800">분당</text>
+  <text x="1172" y="118" font-size="18" font-weight="600" fill="#3D414E">압구정로데오역</text>
+</svg>
