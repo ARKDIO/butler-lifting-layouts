@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Butler Clinic — 성형외과 · 에이지 매니지먼트</title>
-<link rel="stylesheet" href="/assets/css/typo-guard.css?v=2">
+<link rel="stylesheet" href="/assets/css/typo-guard.css?v=3">
 <meta name="description" content="당신의 나이를, 오직 당신만을 위해 설계합니다. 수술과 시술을 한곳에서 밀착 케어하는 프라이빗 에이지 매니지먼트 클리닉.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ffffff'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' fill='%23111827'%3EB%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -147,6 +147,8 @@ a { color: inherit; text-decoration: none; }
 .gnb .gglobe:hover::before,.gnb .gglobe.open::before{content:'';position:absolute;top:0;bottom:-6px;right:0;width:110px;}
 .gnb .gglobe-btn{display:flex;align-items:center;justify-content:center;padding:20px 0;background:none;border:none;outline:none;cursor:pointer;color:#333;}
 .gnb .gglobe-btn:focus,.gnb .gglobe-btn:focus-visible{outline:none;}
+.gnb .glogin-btn{display:flex;align-items:center;justify-content:center;margin-left:17px;padding:20px 0;background:none;border:none;outline:none;cursor:pointer;color:#333;}
+.gnb .glogin-btn:hover{opacity:0.55;}
 .gnb .gglobe .gdp{position:absolute;top:100%;right:0;background:#FBFAF8;border:1px solid #EBEBEB;box-shadow:0 10px 24px rgba(0,0,0,0.07);min-width:92px;padding:6px 0;display:none;z-index:130;}
 .gnb .gglobe:hover .gdp,.gnb .gglobe.open .gdp{display:block;}
 .gnb .gglobe .gdp a{display:block;padding:7px 18px;font-size:12px;letter-spacing:0.06em;color:#555;text-decoration:none;text-align:right;}
@@ -210,6 +212,7 @@ body.gm-open{overflow:hidden;}
     <button class="gglobe-btn" type="button" aria-label="언어 선택"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9s1.3-6.4 3.8-9z"/></svg></button>
     <div class="gdp"><a href="#" class="on">Korea</a><a href="#">English</a><a href="#">China</a><a href="#">Japan</a></div>
   </div>
+    <button class="glogin-btn" type="button" aria-label="로그인"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.9-1"/></svg></button>
   <button class="gmenu-btn" aria-label="메뉴 열기"><i></i><i></i><i></i></button>
 </div>
 <div class="gnb-mobile">
@@ -1822,7 +1825,19 @@ body[data-tx="5"] #block-05 .b05-grid {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: clamp(10px, calc(16 / 1440 * 100vw), 22px);
   height: 100%;
+}
+
+#block-07 .b07-tag {
+  font-family: 'Noto Sans', 'Noto Sans KR', sans-serif;
+  font-size: calc(16 / 1440 * 100vw);
+  font-weight: 200;
+  line-height: 1.4;
+  letter-spacing: calc(1.5 / 1440 * 100vw);
+  color: #fff;
+  margin: -20px 0 0;
+  text-align: center;
 }
 
 #block-07 .b07-logo {
@@ -1842,21 +1857,43 @@ body[data-tx="5"] #block-05 .b05-grid {
   bottom: 0;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   gap: clamp(9.6px, calc(16 / 1440 * 100vw), 24px);
   padding: clamp(14.4px, calc(24 / 1440 * 100vw), 36px) var(--gutter);
   font-family: 'Pretendard', sans-serif; /* 본문급 영문은 한국어 서체와 동일 */
-  font-size: var(--fs-meta);
-  font-weight: 500;
+  font-size: 11px;
+  font-weight: 300;
   letter-spacing: var(--ls-meta);
   color: rgba(255, 255, 255, 0.7);
 }
 
 #block-07 .b07-meta {
   display: flex;
-  flex-wrap: wrap;
-  gap: clamp(9.6px, calc(16 / 1440 * 100vw), 24px) clamp(19.2px, calc(32 / 1440 * 100vw), 48px);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3.5px;
 }
+#block-07 .b07-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+#block-07 .b07-row > *:not(:first-child)::before {
+  content: '|';
+  opacity: 0.2;
+  margin: 0 9px;
+  font-weight: 300;
+}
+#block-07 .b07-links a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+#block-07 .b07-links a:hover { opacity: 0.55; }
 
 @media (max-width: 767px) {
   #block-07 { height: 130vw; }
@@ -1869,7 +1906,9 @@ body[data-tx="5"] #block-05 .b05-grid {
     padding: 16px;
     font-size: 11px;
   }
-  #block-07 .b07-meta { flex-direction: column; gap: 8px; }
+  #block-07 .b07-meta { flex-direction: column; align-items: center; gap: 10px; }
+  #block-07 .b07-row { flex-direction: column; align-items: center; gap: 6px; }
+  #block-07 .b07-row > *::before { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1882,14 +1921,18 @@ body[data-tx="5"] #block-05 .b05-grid {
   <div class="b07-filter" aria-hidden="true"></div>
   <div class="b07-inner">
     <p class="b07-logo">Butler Clinic</p>
+    <p class="b07-tag">Plastic surgery &amp; age management clinic</p>
   </div>
   <div class="b07-info">
     <div class="b07-meta">
-      <span>Address. 서울특별시 강남구 테헤란로 123, 버틀러타워 5F</span>
-      <span>Tel. 02-1234-5678</span>
-      <span>Business No. 123-45-67890</span>
+      <div class="b07-row">
+        <span>버틀러 성형외과의원</span><span>주소 : 서울특별시 강남구 도산대로 326 대동타워 7층</span><span>전화 : 02-547-8777</span><span>대표 : 윤태빈</span><span>사업자번호 : 466-19-02705</span>
+      </div>
+      <div class="b07-row b07-links">
+        <a data-modal="bill" role="button" tabindex="0">비급여 진료비용 안내</a><a data-modal="terms" role="button" tabindex="0">개인정보처리방침 및 이용약관</a><a data-modal="officer" role="button" tabindex="0">개인정보 취급 담당자</a>
+      </div>
     </div>
-    <span>© 2026 Butler Clinic. All rights reserved.</span>
+    <span>© 2026 BUTLER CLINIC. All Rights Reserved</span>
   </div>
 </footer>
 <div class="b07-spacer" id="consult" aria-hidden="true"></div>
@@ -1903,6 +1946,7 @@ body[data-tx="5"] #block-05 .b05-grid {
   var bg = sec.querySelector('.b07-bg');
   var logo = sec.querySelector('.b07-logo');
   var info = sec.querySelector('.b07-info');
+  var tag = sec.querySelector('.b07-tag');
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduced) return;
 
@@ -1914,9 +1958,11 @@ body[data-tx="5"] #block-05 .b05-grid {
     var p = Math.min(1, Math.max(0, (vh - r.top) / r.height));
     bg.style.transform = 'scale(' + (1.06 - 0.06 * p) + ')';
       var cut = Math.max(0, r.top - (vh - sec.offsetHeight)); var R = window.innerWidth <= 768 ? 40 : 80; var rr = (R * Math.min(1, Math.max(0, (p - 0.7) / 0.3))).toFixed(1); sec.style.clipPath = 'inset(' + cut.toFixed(1) + 'px 0 0 0 round ' + rr + 'px ' + rr + 'px 0 0)';
-    if (window.__fmLogo) { window.__fmLogo(p); } else { logo.style.transform = 'translateY(' + (40 * (1 - p)).toFixed(1) + 'px)'; }
-    var ip = Math.min(1, Math.max(0, (p - 0.55) / 0.35));
+    if (window.__fmLogo) { logo.style.transform = ''; window.__fmLogo(p); } else { logo.style.transform = 'translateY(' + (40 * (1 - p)).toFixed(1) + 'px)'; }
+    if (tag) { var lp = Math.min(1, Math.max(0, (p - 0.42) / 0.6)); var lo = Math.min(1, Math.max(0, (p - 0.55) / 0.35)); lo = lo * lo * (3 - 2 * lo); tag.style.transform = 'translateY(' + (110 * (1 - lp)).toFixed(1) + 'px)'; tag.style.opacity = lo.toFixed(3); }
+    var ip = Math.min(1, Math.max(0, (p - 0.6) / 0.35));
     ip = ip * ip * (3 - 2 * ip);
+    info.style.transform = 'translateY(' + (20 * (1 - ip)).toFixed(1) + 'px)';
     info.style.opacity = ip.toFixed(3);
   }
   function onScroll() {
@@ -2125,6 +2171,94 @@ body.tone-d .b03s-text{font-weight:300;}
     });
   };
   window.dispatchEvent(new Event('scroll'));
+})();
+</script>
+
+<!-- ===== 비급여 진료비용 / 정책 레이어팝업 ===== -->
+<style>
+.pbill-overlay{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;visibility:hidden;transition:opacity 0.4s ease,visibility 0.4s ease;}
+.pbill-overlay.open{opacity:1;visibility:visible;}
+.pbill-dim{position:absolute;inset:0;background:rgba(15,20,17,0.55);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);}
+.pbill-panel{position:relative;z-index:1;width:min(880px,100%);max-height:86vh;display:flex;flex-direction:column;background:#fff;border-radius:6px;box-shadow:0 30px 80px rgba(0,0,0,0.3);padding:clamp(28px,4vw,48px);transform:translateY(18px) scale(0.985);opacity:0;transition:transform 0.45s cubic-bezier(0.22,1,0.36,1),opacity 0.45s ease;}
+.pbill-overlay.open .pbill-panel{transform:none;opacity:1;}
+.pbill-close{position:absolute;top:12px;right:14px;width:36px;height:36px;border:none;background:none;font-size:26px;line-height:1;color:#9a9a9a;cursor:pointer;transition:color 0.2s ease;}
+.pbill-close:hover{color:#111;}
+.pbill-title{font-family:'Pretendard',sans-serif;font-size:clamp(17px,2vw,24px);font-weight:600;color:#111;letter-spacing:0.01em;margin:0;}
+.pbill-scroll{overflow:auto;margin-top:20px;}
+.pbill-table{width:100%;border-collapse:collapse;font-family:'Pretendard',sans-serif;font-size:11px;color:#2a2a2a;}
+.pbill-table th{background:#111;color:#fff;font-weight:500;padding:11px 12px;text-align:center;white-space:nowrap;letter-spacing:0.02em;}
+.pbill-table td{border-bottom:1px solid #ededed;padding:11px 12px;text-align:center;vertical-align:middle;}
+.pbill-table td.pb-item{text-align:left;}
+.pbill-table td[rowspan]{background:#fafbfa;font-weight:500;color:#111;white-space:nowrap;}
+.pbill-table td.pb-num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+.pbill-table tbody tr:hover td:not([rowspan]){background:#f5f5f5;}
+.pbill-note{margin-top:16px;font-size:9px;color:#9a9a9a;line-height:1.6;font-family:'Pretendard',sans-serif;}
+.pbill-plain{margin-top:20px;font-size:11px;color:#666;line-height:1.7;font-family:'Pretendard',sans-serif;}
+@media (max-width:767px){
+  .pbill-panel{padding:24px 15px;}
+  .pbill-table{font-size:11px;}
+  .pbill-table th,.pbill-table td{padding:8px 6px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .pbill-overlay,.pbill-panel{transition:opacity 0.2s ease,visibility 0.2s ease;transform:none;}
+}
+</style>
+<div class="pbill-overlay" id="pbill" aria-hidden="true">
+  <div class="pbill-dim" data-pbill-close></div>
+  <div class="pbill-panel" role="dialog" aria-modal="true" aria-label="안내">
+    <button class="pbill-close" data-pbill-close aria-label="닫기">&times;</button>
+    <div class="pbill-content" data-modal-content="bill">
+      <h3 class="pbill-title">비급여 진료비용 안내</h3>
+      <div class="pbill-scroll">
+        <table class="pbill-table">
+          <thead><tr><th>분류</th><th>항목</th><th>단위</th><th>최저금액 (원)</th><th>최고금액 (원)</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="5">수술 및 시술</td><td class="pb-item">눈수술</td><td>1회</td><td class="pb-num">1,000,000</td><td class="pb-num">2,500,000</td></tr>
+            <tr><td class="pb-item">내시경 이마거상</td><td>1회</td><td class="pb-num">2,800,000</td><td class="pb-num">4,000,000</td></tr>
+            <tr><td class="pb-item">안면거상</td><td>1회</td><td class="pb-num">5,000,000</td><td class="pb-num">8,000,000</td></tr>
+            <tr><td class="pb-item">울쎄라 300s</td><td>1회</td><td class="pb-num">650,000</td><td class="pb-num">1,617,000</td></tr>
+            <tr><td class="pb-item">써마지 300s</td><td>1회</td><td class="pb-num">990,000</td><td class="pb-num">1,859,000</td></tr>
+            <tr><td rowspan="6">증명서 발급</td><td class="pb-item">일반 / 영문진단서</td><td>1부</td><td class="pb-num">20,000</td><td class="pb-num">&mdash;</td></tr>
+            <tr><td class="pb-item">소견서</td><td>1부</td><td class="pb-num">10,000</td><td class="pb-num">&mdash;</td></tr>
+            <tr><td class="pb-item">진료 / 통원 / 입퇴원확인서</td><td>1부</td><td class="pb-num">3,000</td><td class="pb-num">&mdash;</td></tr>
+            <tr><td class="pb-item">수술확인서</td><td>1부</td><td class="pb-num">10,000</td><td class="pb-num">&mdash;</td></tr>
+            <tr><td rowspan="2">진료기록사본</td><td class="pb-item">페이지당 (5매까지)</td><td class="pb-num">1,000</td><td class="pb-num">&mdash;</td></tr>
+            <tr><td class="pb-item">6매 이상 (장당)</td><td class="pb-num">100</td><td class="pb-num">&mdash;</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pbill-note">&#8251; 상기 금액은 병원 사정에 따라 변동될 수 있으며, 자세한 사항은 내원 상담 시 안내해 드립니다.</p>
+    </div>
+    <div class="pbill-content" data-modal-content="terms" hidden>
+      <h3 class="pbill-title">개인정보처리방침 및 이용약관</h3>
+      <div class="pbill-scroll"><p class="pbill-plain">내용 준비 중입니다.</p></div>
+    </div>
+    <div class="pbill-content" data-modal-content="officer" hidden>
+      <h3 class="pbill-title">개인정보 취급 담당자</h3>
+      <div class="pbill-scroll"><p class="pbill-plain">내용 준비 중입니다.</p></div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var overlay=document.getElementById('pbill');
+  if(!overlay) return;
+  var contents=overlay.querySelectorAll('[data-modal-content]');
+  function open(which){
+    contents.forEach(function(c){ c.hidden = (c.getAttribute('data-modal-content')!==which); });
+    overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false');
+    document.documentElement.style.overflow='hidden'; document.body.style.overflow='hidden';
+  }
+  function close(){
+    overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true');
+    document.documentElement.style.overflow=''; document.body.style.overflow='';
+  }
+  document.querySelectorAll('[data-modal]').forEach(function(el){
+    el.addEventListener('click', function(e){ e.preventDefault(); open(el.getAttribute('data-modal')); el.blur(); });
+    el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); open(el.getAttribute('data-modal')); } });
+  });
+  overlay.querySelectorAll('[data-pbill-close]').forEach(function(el){ el.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && overlay.classList.contains('open')) close(); });
 })();
 </script>
 </body>
